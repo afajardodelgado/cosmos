@@ -1,0 +1,180 @@
+.become-partner-page {
+  min-height: 100vh;
+  background-color: #060605;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
+.become-partner-hero {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+.become-partner-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 14px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.become-partner-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+}
+
+.title-blue {
+  color: #00bcd4;
+}
+
+.become-partner-subtitle {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.become-partner-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.partner-info-card {
+  background: #0A0A0A;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.partner-info-card h2 {
+  color: #00bcd4;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.partner-info-card h3 {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  margin-top: 35px;
+}
+
+.partner-info-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.partner-info-card li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cccccc;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 20px;
+}
+
+.partner-info-card li:before {
+  content: "✓";
+  color: #00bcd4;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.partner-info-card li:last-child {
+  border-bottom: none;
+}
+
+.contact-info {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+  text-align: center;
+}
+
+.contact-info p {
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.contact-button {
+  display: inline-block;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.3);
+  background: linear-gradient(135deg, #00acc1, #00838f);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .become-partner-page {
+    padding-top: 100px;
+  }
+  
+  .become-partner-title {
+    font-size: 2.5rem;
+  }
+  
+  .become-partner-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .partner-info-card {
+    padding: 30px 25px;
+  }
+  
+  .partner-info-card h2 {
+    font-size: 1.6rem;
+  }
+  
+  .partner-info-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .become-partner-title {
+    font-size: 2rem;
+  }
+  
+  .partner-info-card {
+    padding: 25px 20px;
+  }
+  
+  .contact-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}

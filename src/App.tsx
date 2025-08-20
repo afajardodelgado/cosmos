@@ -3,7 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Partners from './components/Partners';
+import PartnerSelection from './components/PartnerSelection';
+import PartnerLogin from './components/PartnerLogin';
+import BecomePartner from './components/BecomePartner';
 import Homeowners from './components/Homeowners';
+import CustomerSupport from './components/CustomerSupport';
 import './App.css';
 
 function App() {
@@ -21,7 +25,31 @@ function App() {
           <Route path="/partners" element={
             <>
               <Header />
+              <PartnerSelection />
+            </>
+          } />
+          <Route path="/partners/login" element={
+            <>
+              <Header />
+              <PartnerLogin />
+            </>
+          } />
+          <Route path="/partners/existing" element={
+            <>
+              <Header />
               <Partners />
+            </>
+          } />
+          <Route path="/partners/become" element={
+            <>
+              <Header />
+              <BecomePartner />
+            </>
+          } />
+          <Route path="/support" element={
+            <>
+              <Header />
+              <CustomerSupport />
             </>
           } />
         </Routes>
