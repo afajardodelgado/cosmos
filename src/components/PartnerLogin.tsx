@@ -134,7 +134,7 @@ const PartnerLogin: React.FC = () => {
 
           <div className="login-footer">
             <div className="forgot-password">
-              <a href="#" onClick={(e) => e.preventDefault()}>Forgot your password?</a>
+              <button type="button" className="forgot-password-link" onClick={() => {}}>Forgot your password?</button>
             </div>
             
             <div className="demo-section">
