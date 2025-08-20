@@ -1,0 +1,333 @@
+.srec-home-page {
+  min-height: 100vh;
+  background-color: #060605;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
+.srec-header {
+  margin-bottom: 40px;
+  padding: 0 40px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.srec-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+}
+
+.srec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.srec-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.card-header {
+  background: #f8f9fa;
+  margin: 0;
+  padding: 20px 25px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.card-content {
+  padding: 25px;
+  color: #333;
+}
+
+/* Job Forms Styles */
+.job-forms-text {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.view-link {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.view-link:hover {
+  color: #0056b3;
+}
+
+/* Tasks Styles */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.task-name {
+  font-size: 1rem;
+  color: #333;
+}
+
+.view-task-btn {
+  background: #e8f5e8;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  color: #28a745;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-task-btn:hover {
+  background: #d4edda;
+}
+
+/* Notes Styles */
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.notes-label,
+.notes-date-label {
+  font-weight: 600;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.notes-list {
+  margin-bottom: 20px;
+}
+
+.note-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.note-item:last-child {
+  border-bottom: none;
+}
+
+.note-name {
+  font-size: 1rem;
+  color: #333;
+}
+
+.note-date {
+  font-size: 1rem;
+  color: #666;
+}
+
+.create-new-btn {
+  background: #007bff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  transition: all 0.3s ease;
+}
+
+.create-new-btn:hover {
+  background: #0056b3;
+}
+
+.plus-icon {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* SREC Records Styles */
+.record-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f1f3f4;
+  margin-bottom: 20px;
+}
+
+.record-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.record-icon {
+  font-size: 1.2rem;
+}
+
+.record-name {
+  font-size: 1rem;
+  color: #333;
+}
+
+.record-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.download-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #e3f2fd;
+}
+
+.delete-btn:hover {
+  background: #ffebee;
+}
+
+.view-create-btn {
+  background: #007bff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-create-btn:hover {
+  background: #0056b3;
+}
+
+/* Bulk Actions Styles */
+.bulk-actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bulk-action-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.bulk-action-item:last-child {
+  border-bottom: none;
+}
+
+.bulk-action-link {
+  color: #333;
+  text-decoration: underline;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.bulk-action-link:hover {
+  color: #007bff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .srec-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .srec-home-page {
+    padding-top: 100px;
+  }
+  
+  .srec-header,
+  .srec-grid {
+    padding: 0 20px;
+  }
+  
+  .srec-title {
+    font-size: 2rem;
+  }
+  
+  .card-header {
+    padding: 15px 20px;
+    font-size: 1.1rem;
+  }
+  
+  .card-content {
+    padding: 20px;
+  }
+  
+  .notes-header {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .note-item {
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .srec-title {
+    font-size: 1.8rem;
+  }
+  
+  .card-header {
+    padding: 12px 15px;
+    font-size: 1rem;
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  .task-item,
+  .record-item {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .record-actions {
+    align-self: flex-end;
+  }
+}

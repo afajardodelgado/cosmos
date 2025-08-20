@@ -6,6 +6,9 @@ import Partners from './components/Partners';
 import PartnerSelection from './components/PartnerSelection';
 import PartnerLogin from './components/PartnerLogin';
 import BecomePartner from './components/BecomePartner';
+import ESPartnerPortal from './components/ESPartnerPortal';
+import SRECHome from './components/SRECHome';
+import Fulfillment from './components/Fulfillment';
 import Homeowners from './components/Homeowners';
 import CustomerSupport from './components/CustomerSupport';
 import './App.css';
@@ -45,6 +48,21 @@ function App() {
               <Header />
               <BecomePartner />
             </>
+          } />
+          <Route path="/partners/es-portal" element={
+            <>
+              <Header />
+              <ESPartnerPortal />
+            </>
+          } />
+          <Route path="/partners/es-portal/srec" element={
+            <>
+              <Header />
+              <SRECHome />
+            </>
+          } />
+          <Route path="/partners/es-portal/installation" element={
+            <Fulfillment />
           } />
           <Route path="/support" element={
             <>

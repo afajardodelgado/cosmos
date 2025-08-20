@@ -135,7 +135,7 @@ ${formData.attachment ? `Attachment: ${formData.attachment.name}` : 'No attachme
           
           <div className="portal-options">
             <div className="partner-portal-row">
-              <button className="portal-option mini-card">
+              <a href="/partners/es-portal" className="portal-option mini-card">
                 <div className="portal-icon">
                   <img src={esPartnerPortalIcon} alt="ES Partner Portal" className="portal-icon-image" />
                 </div>
@@ -143,7 +143,7 @@ ${formData.attachment ? `Attachment: ${formData.attachment.name}` : 'No attachme
                   <div className="portal-name">ES Partner</div>
                   <div className="portal-subtitle">Portal</div>
                 </div>
-              </button>
+              </a>
               
               <a href="https://partner.enfin.com/pi/s/login/" target="_blank" rel="noopener noreferrer" className="portal-option mini-card">
                 <div className="portal-icon">

@@ -1,0 +1,355 @@
+.fulfillment-page {
+  min-height: 100vh;
+  background-color: #060605;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
+/* Content */
+.fulfillment-content {
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Partner Info Section */
+.partner-info-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.partner-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #333;
+}
+
+.star-icon {
+  font-size: 1.5rem;
+  color: #ffc107;
+}
+
+.partner-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.partner-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+.refresh-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.refresh-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Main Grid */
+.fulfillment-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+/* Stats Column */
+.stats-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.stat-card h3 {
+  margin: 0 0 15px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.3;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Job Approvals */
+.job-approvals {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.job-approvals h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.approval-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.approval-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-number {
+  background: #28a745;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.review-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.review-btn:hover {
+  background: #0056b3;
+}
+
+/* Tasks Column */
+.tasks-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.tasks-section,
+.site-visits-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h3,
+.site-visits-section h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.new-task-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.new-task-btn:hover {
+  background: #0056b3;
+}
+
+/* Task Items */
+.tasks-list,
+.visits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-info {
+  flex: 1;
+}
+
+.task-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.task-assigned {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.task-due {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Visit Items */
+.visit-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.visit-item:last-child {
+  border-bottom: none;
+}
+
+.visit-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #007bff;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
+.visit-name:hover {
+  text-decoration: underline;
+}
+
+.visit-address {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.more-link {
+  text-align: right;
+  color: #007bff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.more-link:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .fulfillment-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .fulfillment-nav {
+    padding: 12px 20px;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .fulfillment-hero {
+    padding: 40px 20px;
+  }
+  
+  .fulfillment-title {
+    font-size: 2.5rem;
+  }
+  
+  .fulfillment-content {
+    padding: 20px;
+  }
+  
+  .stats-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .partner-info-section {
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fulfillment-title {
+    font-size: 2rem;
+  }
+  
+  .stat-card {
+    padding: 20px 15px;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+  }
+  
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
