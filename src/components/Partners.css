@@ -1,0 +1,135 @@
+.partners-page {
+  min-height: 100vh;
+  background-color: #060605;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
+.partners-hero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.partners-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 14px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.partners-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.title-blue {
+  color: #00bcd4;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.partner-card {
+  background: #0A0A0A;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 32px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  display: block;
+  width: 300px;
+  height: 267px;
+  box-sizing: border-box;
+}
+
+.partner-card:hover {
+  transform: translateY(-5px);
+  background: #1A1A1A;
+  border-color: rgba(0, 188, 212, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 188, 212, 0.2);
+}
+
+.card-icon {
+  width: 110px;
+  height: 110px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+  font-size: 40px;
+}
+
+.icon-image {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.card-link {
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .partners-page {
+    padding-top: 100px;
+  }
+  
+  .partners-title {
+    font-size: 2.5rem;
+  }
+  
+  .partners-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 20px;
+  }
+  
+  .partner-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners-title {
+    font-size: 2rem;
+  }
+  
+  .card-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+  }
+}

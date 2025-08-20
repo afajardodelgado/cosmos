@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Hero.css';
 import backgroundImage from '../assets/images/MAIN.png';
 
 const Hero: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="hero" style={{backgroundImage: `url(${backgroundImage})`}}>
       <div className="hero-content">
@@ -11,8 +14,8 @@ const Hero: React.FC = () => {
           for Residential Energy
         </h1>
         <div className="hero-buttons">
-          <button className="hero-button">Homeowners</button>
-          <button className="hero-button">Partners</button>
+          <button className="hero-button" onClick={() => navigate('/homeowners')}>Homeowners</button>
+          <button className="hero-button" onClick={() => navigate('/partners')}>Partners</button>
         </div>
       </div>
     </section>

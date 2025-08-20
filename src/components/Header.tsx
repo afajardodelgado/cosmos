@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 import logoImage from '../assets/logos/Cosmos bu Qcells_White.png';
 
@@ -6,16 +7,18 @@ const Header: React.FC = () => {
   return (
     <header className="site-header">
       <div className="brand">
-        <img 
-          src={logoImage} 
-          alt="Cosmos by Qcells" 
-          className="logo-image"
-        />
+        <Link to="/">
+          <img 
+            src={logoImage} 
+            alt="Cosmos by Qcells" 
+            className="logo-image"
+          />
+        </Link>
       </div>
       
       <nav className="top-links">
-        <a href="/homeowners">Homeowners</a>
-        <a href="/partners">Partners</a>
+        <Link to="/homeowners">Homeowners</Link>
+        <Link to="/partners">Partners</Link>
       </nav>
 
       <div className="actions">
