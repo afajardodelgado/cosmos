@@ -30,7 +30,7 @@ const Partners: React.FC = () => {
           
           <div className="portal-options">
             <div className="partner-portal-row">
-              <a href="#" className="portal-option mini-card">
+              <button className="portal-option mini-card">
                 <div className="portal-icon">
                   <img src={esPartnerPortalIcon} alt="ES Partner Portal" className="portal-icon-image" />
                 </div>
@@ -38,9 +38,9 @@ const Partners: React.FC = () => {
                   <div className="portal-name">ES Partner</div>
                   <div className="portal-subtitle">Portal</div>
                 </div>
-              </a>
+              </button>
               
-              <a href="#" className="portal-option mini-card">
+              <button className="portal-option mini-card">
                 <div className="portal-icon">
                   <img src={enfinPartnerPortalIcon} alt="Enfin Partner Portal" className="portal-icon-image" />
                 </div>
@@ -48,7 +48,7 @@ const Partners: React.FC = () => {
                   <div className="portal-name">Enfin Partner</div>
                   <div className="portal-subtitle">Portal</div>
                 </div>
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@ const Partners: React.FC = () => {
                 </div>
               </a>
               
-              <a href="#" className="hardware-option mini-card">
+              <button className="hardware-option mini-card">
                 <div className="portal-icon">
                   <img src={installingLogoIcon} alt="Installing" className="portal-icon-image" />
                 </div>
@@ -80,7 +80,7 @@ const Partners: React.FC = () => {
                   <div className="portal-name">Installing</div>
                   <div className="portal-subtitle"></div>
                 </div>
-              </a>
+              </button>
             </div>
             
             <div className="hardware-portal-row">
@@ -126,7 +126,7 @@ const Partners: React.FC = () => {
                 </div>
               </a>
               
-              <a href="#" className="es-program-option mini-card">
+              <button className="es-program-option mini-card">
                 <div className="portal-icon">
                   <img src={qcellsProductIcon} alt="Operations" className="portal-icon-image" />
                 </div>
@@ -134,7 +134,7 @@ const Partners: React.FC = () => {
                   <div className="portal-name">Operations</div>
                   <div className="portal-subtitle"></div>
                 </div>
-              </a>
+              </button>
             </div>
           </div>
         </div>

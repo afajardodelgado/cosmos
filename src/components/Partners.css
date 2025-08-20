@@ -202,6 +202,9 @@
   align-items: center;
   gap: 9px;
   transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .mini-card:hover {
