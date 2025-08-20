@@ -70,6 +70,180 @@
   box-shadow: 0 10px 30px rgba(0, 188, 212, 0.2);
 }
 
+/* Partner Portal specific styles */
+.partner-portal-card {
+  position: relative;
+  overflow: visible;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.partner-portal-card .card-title,
+.partner-portal-card .card-link {
+  margin-bottom: 0;
+}
+
+/* Qcells Hardware specific styles */
+.qcells-hardware-card {
+  position: relative;
+  overflow: visible;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.qcells-hardware-card .card-title,
+.qcells-hardware-card .card-link {
+  margin-bottom: 0;
+}
+
+/* ES Program specific styles */
+.es-program-card {
+  position: relative;
+  overflow: visible;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.es-program-card .card-title,
+.es-program-card .card-link {
+  margin-bottom: 0;
+}
+
+.portal-options {
+  position: absolute;
+  bottom: -120px;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+  margin-top: 0;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.partner-portal-card:hover .portal-options {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hardware-options {
+  position: absolute;
+  bottom: -240px;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+  margin-top: 0;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.qcells-hardware-card:hover .hardware-options {
+  opacity: 1;
+  visibility: visible;
+}
+
+.es-program-options {
+  position: absolute;
+  bottom: -120px;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+  margin-top: 0;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.es-program-card:hover .es-program-options {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Parent row holding the two tiny boxes */
+.partner-portal-row,
+.hardware-portal-row,
+.es-program-portal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Each tiny box card */
+.partner-portal-row .mini-card,
+.hardware-portal-row .mini-card,
+.es-program-portal-row .mini-card {
+  width: 100%;
+  height: 120px;
+  padding: 16px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: #0A0A0A;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  transition: all 0.3s ease;
+}
+
+.mini-card:hover {
+  background: #1A1A1A;
+  border-color: rgba(0, 188, 212, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 188, 212, 0.2);
+}
+
+.portal-icon {
+  width: 53px;
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.portal-icon-image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.portal-text {
+  text-align: center;
+  font-size: 13px;
+}
+
+.portal-name {
+  font-weight: 600;
+  color: white;
+  line-height: 1.2;
+}
+
+.portal-subtitle {
+  font-weight: 400;
+  color: #cccccc;
+  line-height: 1.2;
+}
+
 .card-icon {
   width: 110px;
   height: 110px;
