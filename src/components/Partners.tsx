@@ -3,11 +3,9 @@ import './Partners.css';
 import backgroundImage from '../assets/images/BACKGROUND_GROUP.png';
 import partnerPortalIcon from '../assets/icons/partner_portal.png';
 import qcellsProductIcon from '../assets/icons/qcells_hw_products.png';
-import esProgramIcon from '../assets/icons/es_program.png';
 import customerSupportIcon from '../assets/icons/customer_support.png';
 import esPartnerPortalIcon from '../assets/icons/ES-Partner-Portal.png';
 import enfinPartnerPortalIcon from '../assets/icons/Enfin-Partner-Portal.png';
-import trainingLogoIcon from '../assets/icons/TrainingLogo.png';
 import installingLogoIcon from '../assets/icons/Installing-Logo.png';
 
 interface FormData {
@@ -130,7 +128,7 @@ ${formData.attachment ? `Attachment: ${formData.attachment.name}` : 'No attachme
           <div className="card-icon">
             <img src={partnerPortalIcon} alt="Partner Portal" className="icon-image" />
           </div>
-          <h3 className="card-title">Partner Portal</h3>
+          <h3 className="card-title">Partner Portals</h3>
           <div className="card-link">Select Portal</div>
           
           <div className="portal-options">
@@ -167,16 +165,6 @@ ${formData.attachment ? `Attachment: ${formData.attachment.name}` : 'No attachme
           
           <div className="hardware-options">
             <div className="hardware-portal-row">
-              <a href="https://www.qpartnerus.com/qpp/s/login/?ec=302&startURL=%2Fqpp%2Fs%2Fmy-learning" target="_blank" rel="noopener noreferrer" className="hardware-option mini-card">
-                <div className="portal-icon">
-                  <img src={trainingLogoIcon} alt="Training" className="portal-icon-image" />
-                </div>
-                <div className="portal-text">
-                  <div className="portal-name">Training</div>
-                  <div className="portal-subtitle"></div>
-                </div>
-              </a>
-              
               <button className="hardware-option mini-card">
                 <div className="portal-icon">
                   <img src={installingLogoIcon} alt="Installing" className="portal-icon-image" />
@@ -186,9 +174,7 @@ ${formData.attachment ? `Attachment: ${formData.attachment.name}` : 'No attachme
                   <div className="portal-subtitle"></div>
                 </div>
               </button>
-            </div>
-            
-            <div className="hardware-portal-row">
+              
               <a href="https://www.portal-q-cells.us/#/login" target="_blank" rel="noopener noreferrer" className="hardware-option mini-card">
                 <div className="portal-icon">
                   <img src={qcellsProductIcon} alt="Solar Monitoring" className="portal-icon-image" />
@@ -198,38 +184,6 @@ ${formData.attachment ? `Attachment: ${formData.attachment.name}` : 'No attachme
                   <div className="portal-subtitle"></div>
                 </div>
               </a>
-            </div>
-          </div>
-        </div>
-        
-        <div className="partner-card es-program-card">
-          <div className="card-icon">
-            <img src={esProgramIcon} alt="SREC/VPP" className="icon-image" />
-          </div>
-          <h3 className="card-title">SREC/VPP</h3>
-          <div className="card-link">Select Program</div>
-          
-          <div className="es-program-options">
-            <div className="es-program-portal-row">
-              <a href="https://partners.es.qcells.com/" target="_blank" rel="noopener noreferrer" className="es-program-option mini-card">
-                <div className="portal-icon">
-                  <img src={esProgramIcon} alt="Enrollment" className="portal-icon-image" />
-                </div>
-                <div className="portal-text">
-                  <div className="portal-name">Enrollment</div>
-                  <div className="portal-subtitle"></div>
-                </div>
-              </a>
-              
-              <button className="es-program-option mini-card">
-                <div className="portal-icon">
-                  <img src={qcellsProductIcon} alt="Operations" className="portal-icon-image" />
-                </div>
-                <div className="portal-text">
-                  <div className="portal-name">Operations</div>
-                  <div className="portal-subtitle"></div>
-                </div>
-              </button>
             </div>
           </div>
         </div>

@@ -39,11 +39,12 @@
 
 .partners-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 40px;
+  justify-content: center;
 }
 
 .partner-card {
@@ -111,14 +112,14 @@
 
 .portal-options {
   position: absolute;
-  bottom: -120px;
+  top: 100%;
   left: 0;
   right: 0;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
   z-index: 10;
-  margin-top: 0;
+  margin-top: 10px;
   padding-top: 0;
   display: flex;
   flex-direction: column;
@@ -132,14 +133,14 @@
 
 .hardware-options {
   position: absolute;
-  bottom: -240px;
+  top: 100%;
   left: 0;
   right: 0;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
   z-index: 10;
-  margin-top: 0;
+  margin-top: 10px;
   padding-top: 0;
   display: flex;
   flex-direction: column;
@@ -153,14 +154,14 @@
 
 .es-program-options {
   position: absolute;
-  bottom: -120px;
+  top: 100%;
   left: 0;
   right: 0;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
   z-index: 10;
-  margin-top: 0;
+  margin-top: 10px;
   padding-top: 0;
   display: flex;
   flex-direction: column;
