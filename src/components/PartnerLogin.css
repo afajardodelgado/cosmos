@@ -92,6 +92,90 @@
   margin: 0;
 }
 
+/* SSO Section */
+.sso-section {
+  margin-bottom: 25px;
+}
+
+.sso-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #E6E6E6;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 12px;
+}
+
+.sso-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.sso-button:focus {
+  outline: none;
+  border-color: #00bcd4;
+  box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2);
+}
+
+.sso-button:last-child {
+  margin-bottom: 0;
+}
+
+.sso-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.microsoft-icon {
+  color: #E6E6E6;
+}
+
+.okta-icon {
+  color: #E6E6E6;
+}
+
+/* SSO Divider */
+.sso-divider {
+  position: relative;
+  margin: 25px 0;
+  text-align: center;
+}
+
+.sso-divider span {
+  background: #0A0A0A;
+  color: #9AA3A7;
+  padding: 0 15px;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
+.sso-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
 .login-form {
   margin-bottom: 30px;
 }
@@ -102,10 +186,10 @@
 
 .form-group label {
   display: block;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 8px;
-  color: white;
-  font-size: 14px;
+  color: #E6E6E6;
+  font-size: 16px;
 }
 
 .form-group input {
@@ -129,7 +213,7 @@
 }
 
 .form-group input::placeholder {
-  color: #888;
+  color: #9AA3A7;
 }
 
 .form-group input.error {
@@ -289,6 +373,11 @@
   .login-header h2 {
     font-size: 1.6rem;
   }
+  
+  .sso-button {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -302,5 +391,15 @@
   
   .form-group input {
     font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  .sso-button {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .sso-icon {
+    width: 20px;
+    height: 20px;
   }
 }

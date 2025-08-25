@@ -214,8 +214,6 @@ const LeadsManagement: React.FC = () => {
           <thead>
             <tr>
               <th>Name</th>
-              <th>First Name</th>
-              <th>Last Name</th>
               <th>HES ID</th>
               <th>Address</th>
               <th>Email</th>
@@ -230,8 +228,6 @@ const LeadsManagement: React.FC = () => {
                 <td className="name-cell">
                   <span className="full-name">{`${lead.firstName} ${lead.lastName}`}</span>
                 </td>
-                <td>{lead.firstName}</td>
-                <td>{lead.lastName}</td>
                 <td className="hes-id-cell">{lead.hesId}</td>
                 <td className="address-cell">{formatAddress(lead)}</td>
                 <td className="email-cell">

@@ -1,6 +1,6 @@
 /* Business Summary Dashboard Styles */
 .business-summary {
-  padding: 30px;
+  padding: 10px 30px 30px; /* Reduced top padding to avoid double margins */
   min-height: 600px;
 }
 

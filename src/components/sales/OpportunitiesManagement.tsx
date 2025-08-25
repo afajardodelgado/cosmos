@@ -215,8 +215,6 @@ const OpportunitiesManagement: React.FC = () => {
           <thead>
             <tr>
               <th>Name</th>
-              <th>First Name</th>
-              <th>Last Name</th>
               <th>HES ID</th>
               <th>Address</th>
               <th>Email</th>
@@ -231,8 +229,6 @@ const OpportunitiesManagement: React.FC = () => {
                 <td className="name-cell">
                   <span className="full-name">{`${opportunity.firstName} ${opportunity.lastName}`}</span>
                 </td>
-                <td>{opportunity.firstName}</td>
-                <td>{opportunity.lastName}</td>
                 <td className="hes-id-cell">{opportunity.hesId}</td>
                 <td className="address-cell">{formatAddress(opportunity)}</td>
                 <td className="email-cell">

@@ -4,7 +4,7 @@
   flex-direction: column;
   height: 100%;
   min-height: 600px;
-  padding: 30px;
+  padding: 10px 30px 30px; /* Reduced top padding to avoid double margins */
 }
 
 .leads-controls {

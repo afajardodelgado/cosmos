@@ -73,6 +73,10 @@ const PartnerLogin: React.FC = () => {
     navigate('/partners/existing');
   };
 
+  const handleSSOLogin = (provider: string) => {
+    alert(`${provider} SSO coming soon!`);
+  };
+
   return (
     <div className="partner-login-page" style={{backgroundImage: `url(${backgroundImage})`}}>
       <div className="login-hero">
@@ -92,6 +96,44 @@ const PartnerLogin: React.FC = () => {
               <img src={partnerPortalIcon} alt="Partner Login" className="icon-image" />
             </div>
             <h2>Partner Login</h2>
+          </div>
+
+          {/* SSO Buttons Section */}
+          <div className="sso-section">
+            <button 
+              type="button" 
+              className="sso-button microsoft-button"
+              onClick={() => handleSSOLogin('Microsoft')}
+            >
+              <div className="sso-icon microsoft-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <rect width="9" height="9" fill="currentColor"/>
+                  <rect x="11" width="9" height="9" fill="currentColor"/>
+                  <rect y="11" width="9" height="9" fill="currentColor"/>
+                  <rect x="11" y="11" width="9" height="9" fill="currentColor"/>
+                </svg>
+              </div>
+              Sign in with Microsoft
+            </button>
+            
+            <button 
+              type="button" 
+              className="sso-button okta-button"
+              onClick={() => handleSSOLogin('Okta')}
+            >
+              <div className="sso-icon okta-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <circle cx="10" cy="10" r="10" fill="currentColor"/>
+                  <circle cx="10" cy="10" r="6" fill="#0A0A0A"/>
+                </svg>
+              </div>
+              Sign in with Okta
+            </button>
+          </div>
+
+          {/* Divider */}
+          <div className="sso-divider">
+            <span>or</span>
           </div>
 
           <form onSubmit={handleSubmit} className="login-form">

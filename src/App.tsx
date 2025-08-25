@@ -66,7 +66,10 @@ function App() {
             </>
           } />
           <Route path="/partners/es-portal/installation" element={
-            <Fulfillment />
+            <>
+              <Header />
+              <Fulfillment />
+            </>
           } />
           
           {/* Sales Management Routes */}
