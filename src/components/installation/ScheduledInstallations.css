@@ -1,0 +1,619 @@
+/* Scheduled Installations Styles */
+.scheduled-installations {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 30px;
+  padding: 30px;
+  min-height: 600px;
+  overflow-y: auto;
+}
+
+.schedule-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.schedule-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #4caf50;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.schedule-btn {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.schedule-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+}
+
+.visits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.visit-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(76, 175, 80, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.visit-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: #4caf50;
+}
+
+.visit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.visit-date-time {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.visit-date {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.visit-time {
+  font-size: 0.85rem;
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.visit-type-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.visit-survey { background: #e3f2fd; color: #1976d2; }
+.visit-installation { background: #e8f5e8; color: #388e3c; }
+.visit-inspection { background: #f3e5f5; color: #7b1fa2; }
+.visit-service { background: #fff3e0; color: #f57c00; }
+.visit-walkthrough { background: #e0f2f1; color: #00695c; }
+.visit-default { background: #f5f5f5; color: #666; }
+
+.visit-project {
+  margin-bottom: 12px;
+}
+
+.project-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 4px 0;
+}
+
+.customer-name {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.visit-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.location-icon {
+  font-size: 0.8rem;
+}
+
+.address {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.visit-crew {
+  margin-bottom: 12px;
+}
+
+.crew-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.crew-members {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.crew-member {
+  font-weight: 500;
+}
+
+.visit-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.duration {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.status-badge {
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-scheduled { background: #e3f2fd; color: #1976d2; }
+.status-progress { background: #e8f5e8; color: #388e3c; }
+.status-completed { background: #e0f2f1; color: #00695c; }
+.status-cancelled { background: #ffebee; color: #d32f2f; }
+.status-rescheduled { background: #fff3e0; color: #f57c00; }
+.status-default { background: #f5f5f5; color: #666; }
+
+.visit-notes {
+  font-size: 0.85rem;
+  color: #666;
+  background: rgba(76, 175, 80, 0.05);
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border-left: 3px solid #4caf50;
+}
+
+.visit-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.view-btn { background: #e3f2fd; color: #1976d2; }
+.edit-btn { background: #fff3e0; color: #f57c00; }
+.reschedule-btn { background: #f3e5f5; color: #7b1fa2; }
+.assign-btn { background: #e8f5e8; color: #388e3c; }
+.details-btn { background: #e0f2f1; color: #00695c; }
+
+.action-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.pipeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pipeline-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(76, 175, 80, 0.02);
+  border: 1px solid rgba(76, 175, 80, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.pipeline-item:hover {
+  background: rgba(76, 175, 80, 0.05);
+  transform: translateX(5px);
+}
+
+.pipeline-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.date-badge {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  color: white;
+  border-radius: 8px;
+  padding: 8px;
+  text-align: center;
+  min-width: 50px;
+}
+
+.date-day {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.date-month {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.days-until {
+  font-size: 0.75rem;
+  color: #4caf50;
+  font-weight: 500;
+  text-align: center;
+}
+
+.pipeline-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pipeline-project {
+  flex: 1;
+}
+
+.project-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 4px 0;
+}
+
+.project-customer {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 4px 0;
+}
+
+.project-location {
+  font-size: 0.85rem;
+  color: #999;
+  margin: 0;
+}
+
+.pipeline-crew {
+  text-align: right;
+}
+
+.crew-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.crew-names {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.crew-name {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.no-crew {
+  font-size: 0.85rem;
+  color: #999;
+  font-style: italic;
+}
+
+.pipeline-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.no-visits,
+.no-pipeline {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-size: 1rem;
+}
+
+.schedule-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.calendar-widget,
+.crew-availability,
+.quick-stats {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.widget-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 15px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #4caf50;
+}
+
+.calendar-placeholder {
+  text-align: center;
+  padding: 30px 15px;
+  color: #666;
+  background: rgba(76, 175, 80, 0.05);
+  border-radius: 8px;
+  border: 2px dashed rgba(76, 175, 80, 0.2);
+}
+
+.availability-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.availability-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgba(76, 175, 80, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(76, 175, 80, 0.1);
+}
+
+.crew-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.crew-status.available .status-dot {
+  background: #4caf50;
+}
+
+.crew-status.busy .status-dot {
+  background: #ff9800;
+}
+
+.crew-name {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.availability-text {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 15px;
+  background: rgba(76, 175, 80, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(76, 175, 80, 0.1);
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4caf50;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Loading and Error States */
+.scheduled-loading,
+.scheduled-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #666;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4caf50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.scheduled-error {
+  color: #ff4444;
+}
+
+.retry-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .scheduled-installations {
+    grid-template-columns: 1fr 250px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .scheduled-installations {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  
+  .schedule-sidebar {
+    max-height: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .visits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .scheduled-installations {
+    padding: 15px;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  
+  .visits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .schedule-sidebar {
+    grid-template-columns: 1fr;
+  }
+  
+  .pipeline-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  
+  .pipeline-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  .pipeline-crew {
+    text-align: left;
+  }
+  
+  .crew-info {
+    align-items: flex-start;
+  }
+  
+  .crew-names {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .scheduled-installations {
+    padding: 10px;
+  }
+  
+  .schedule-section {
+    padding: 15px;
+  }
+  
+  .visit-card {
+    padding: 15px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

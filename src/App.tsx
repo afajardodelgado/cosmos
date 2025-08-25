@@ -15,6 +15,11 @@ import SalesLayout from './components/sales/SalesLayout';
 import BusinessSummary from './components/sales/BusinessSummary';
 import LeadsManagement from './components/sales/LeadsManagement';
 import OpportunitiesManagement from './components/sales/OpportunitiesManagement';
+import InstallationLayout from './components/installation/InstallationLayout';
+import InstallationSummary from './components/installation/InstallationSummary';
+import ActiveProjects from './components/installation/ActiveProjects';
+import ScheduledInstallations from './components/installation/ScheduledInstallations';
+import CompletedProjects from './components/installation/CompletedProjects';
 import './App.css';
 
 function App() {
@@ -65,7 +70,53 @@ function App() {
               <SRECHome />
             </>
           } />
+          {/* Installation Management Routes */}
           <Route path="/partners/es-portal/installation" element={
+            <>
+              <Header />
+              <InstallationLayout>
+                <InstallationSummary />
+              </InstallationLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/installation/active" element={
+            <>
+              <Header />
+              <InstallationLayout>
+                <ActiveProjects />
+              </InstallationLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/installation/scheduled" element={
+            <>
+              <Header />
+              <InstallationLayout>
+                <ScheduledInstallations />
+              </InstallationLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/installation/completed" element={
+            <>
+              <Header />
+              <InstallationLayout>
+                <CompletedProjects />
+              </InstallationLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/installation/crew" element={
+            <>
+              <Header />
+              <InstallationLayout>
+                <div style={{ padding: '50px', textAlign: 'center', color: '#666' }}>
+                  <h2>Crew Management</h2>
+                  <p>Crew management functionality coming soon...</p>
+                </div>
+              </InstallationLayout>
+            </>
+          } />
+          
+          {/* Legacy Installation Route for backward compatibility */}
+          <Route path="/partners/es-portal/fulfillment" element={
             <>
               <Header />
               <Fulfillment />
