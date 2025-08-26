@@ -19,14 +19,17 @@ const ESPartnerPortal: React.FC = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('quick-access');
+  const [activeTab, setActiveTab] = useState('modules');
 
   useEffect(() => {
     initializePortalData();
     // Check URL hash for active tab
     const hash = window.location.hash.replace('#', '');
-    if (hash === 'quick-access' || hash === 'modules') {
+    if (hash === 'global-dashboard' || hash === 'modules') {
       setActiveTab(hash);
+    } else {
+      // Default to modules tab
+      setActiveTab('modules');
     }
   }, []);
 
@@ -158,126 +161,8 @@ const ESPartnerPortal: React.FC = () => {
       {/* Sticky Search and Navigation */}
       <div className="portal-nav-sticky">
         <div className="portal-nav-content">
-          <div className="search-notification-wrapper">
-            <div className="unified-search">
-              <div className="search-input-wrapper">
-                <input
-                  type="text"
-                  placeholder="Search across all modules..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  onFocus={() => setShowSearch(true)}
-                  onBlur={(e) => {
-                    // Only close if not clicking on dropdown
-                    if (!e.relatedTarget || !e.relatedTarget.closest('.search-dropdown')) {
-                      setTimeout(() => setShowSearch(false), 150);
-                    }
-                  }}
-                  className="unified-search-input"
-                />
-                <span className="search-icon">⌕</span>
-              </div>
-              
-              {showSearch && (searchResults.length > 0 || searchQuery.trim()) && (
-                <div className="search-dropdown">
-                  {searchResults.length > 0 ? (
-                    <>
-                      <div className="search-header">Results for "{searchQuery}"</div>
-                      {searchResults.map((result) => (
-                        <div 
-                          key={result.id} 
-                          className="search-result-item"
-                          onClick={() => handleSearchSelect(result)}
-                        >
-                          <div className="result-main">
-                            <div className="result-title">{result.title}</div>
-                            <div className="result-subtitle">{result.subtitle}</div>
-                          </div>
-                          <div className="result-meta">
-                            <span className={`result-module ${result.moduleType}`}>
-                              {result.moduleType}
-                            </span>
-                            <span className="result-time">{result.lastUpdated}</span>
-                          </div>
-                        </div>
-                      ))}
-                    </>
-                  ) : searchQuery.trim() && (
-                    <div className="no-results">No results found for "{searchQuery}"</div>
-                  )}
-                </div>
-              )}
-            </div>
-            
-            <div className="notification-center">
-              <button 
-                className="notification-btn"
-                onClick={() => setShowNotifications(!showNotifications)}
-                aria-label="View notifications"
-              >
-                <span className="bell-icon">🔔</span>
-                {notifications.length > 0 && (
-                  <span className="notification-badge" aria-label={`${notifications.length} unread notifications`}>
-                    {notifications.length}
-                  </span>
-                )}
-              </button>
-              
-              {showNotifications && (
-                <div className="notifications-dropdown">
-                  <div className="notifications-header">
-                    <h3>Notifications</h3>
-                    {notifications.length > 0 && (
-                      <button 
-                        className="mark-all-read"
-                        onClick={() => unifiedPortalService.markAllNotificationsAsRead()}
-                      >
-                        Mark All Read
-                      </button>
-                    )}
-                  </div>
-                  
-                  <div className="notifications-list">
-                    {notifications.length > 0 ? (
-                      notifications.map((notification) => (
-                        <div 
-                          key={notification.id}
-                          className={`notification-item ${getPriorityClass(notification.priority)}`}
-                          onClick={() => handleNotificationClick(notification)}
-                        >
-                          <div className="notification-content">
-                            <div className="notification-title">{notification.title}</div>
-                            <div className="notification-message">{notification.message}</div>
-                            <div className="notification-time">{formatTimeAgo(notification.timestamp)}</div>
-                          </div>
-                          <div className="notification-actions">
-                            <span className={`module-badge ${notification.moduleType}`}>
-                              {notification.moduleType}
-                            </span>
-                          </div>
-                        </div>
-                      ))
-                    ) : (
-                      <div className="no-notifications">All caught up! No new notifications.</div>
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
           
           <div className="portal-tabs" role="tablist">
-            <button
-              role="tab"
-              aria-selected={activeTab === 'quick-access'}
-              aria-controls="quick-access-panel"
-              tabIndex={activeTab === 'quick-access' ? 0 : -1}
-              className={`portal-tab ${activeTab === 'quick-access' ? 'active' : ''}`}
-              onClick={() => handleTabChange('quick-access')}
-              onKeyDown={(e) => handleKeyDown(e, 'quick-access')}
-            >
-              Quick Access
-            </button>
             <button
               role="tab"
               aria-selected={activeTab === 'modules'}
@@ -289,88 +174,22 @@ const ESPartnerPortal: React.FC = () => {
             >
               Modules
             </button>
+            <button
+              role="tab"
+              aria-selected={activeTab === 'global-dashboard'}
+              aria-controls="global-dashboard-panel"
+              tabIndex={activeTab === 'global-dashboard' ? 0 : -1}
+              className={`portal-tab ${activeTab === 'global-dashboard' ? 'active' : ''}`}
+              onClick={() => handleTabChange('global-dashboard')}
+              onKeyDown={(e) => handleKeyDown(e, 'global-dashboard')}
+            >
+              Global Dashboard
+            </button>
           </div>
         </div>
       </div>
       {/* Tab Content */}
       <div className="portal-content">
-        {/* Quick Access Tab */}
-        <div 
-          id="quick-access-panel"
-          role="tabpanel"
-          aria-labelledby="quick-access-tab"
-          className={`tab-panel ${activeTab === 'quick-access' ? 'active' : ''}`}
-        >
-          {/* Quick Access Widgets */}
-          <div className="quick-access-section">
-            <h2 className="section-title">Quick Access</h2>
-            <div className="widgets-grid">
-              {loading ? (
-                <div className="widgets-loading">Loading dashboard...</div>
-              ) : (
-                widgets.map((widget) => (
-                  <div key={widget.id} className={`widget-card ${widget.type}`}>
-                    <div className="widget-header">
-                      <h3 className="widget-title">{widget.title}</h3>
-                      <span className={`module-indicator ${widget.moduleType}`}>
-                        {widget.moduleType === 'combined' ? 'All' : widget.moduleType}
-                      </span>
-                    </div>
-                    
-                    <div className="widget-value">
-                      <span className="main-value">{widget.value}</span>
-                      {widget.trend && (
-                        <div className={`trend ${widget.trend.direction}`}>
-                          <span className="trend-icon">{getTrendIcon(widget.trend.direction)}</span>
-                          <span className="trend-text">
-                            {widget.trend.value}% {widget.trend.label}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                    
-                    {widget.actionUrl && (
-                      <Link to={widget.actionUrl} className="widget-action">
-                        {widget.actionLabel} →
-                      </Link>
-                    )}
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-          
-          {/* Recent Activity Feed */}
-          <div className="activity-section">
-            <div className="activity-header">
-              <h2 className="section-title">Recent Activity</h2>
-              <Link to="/partners/es-portal/activity" className="view-all-link">View All Activity</Link>
-            </div>
-            
-            <div className="activity-feed">
-              {activities.map((activity) => (
-                <div key={activity.id} className="activity-item">
-                  <div className="activity-icon">
-                    <span className={`activity-type ${activity.type}`}></span>
-                  </div>
-                  
-                  <div className="activity-content">
-                    <div className="activity-title">{activity.title}</div>
-                    <div className="activity-description">{activity.description}</div>
-                    <div className="activity-meta">
-                      <span className="activity-user">{activity.userName}</span>
-                      <span className="activity-time">{formatTimeAgo(activity.timestamp)}</span>
-                      <span className={`activity-module ${activity.moduleType}`}>
-                        {activity.moduleType}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        
         {/* Modules Tab */}
         <div 
           id="modules-panel"
@@ -444,6 +263,83 @@ const ESPartnerPortal: React.FC = () => {
               </p>
               <div className="card-link">Get Support →</div>
             </Link>
+          </div>
+        </div>
+        
+        {/* Global Dashboard Tab */}
+        <div 
+          id="global-dashboard-panel"
+          role="tabpanel"
+          aria-labelledby="global-dashboard-tab"
+          className={`tab-panel ${activeTab === 'global-dashboard' ? 'active' : ''}`}
+        >
+          {/* Quick Access Widgets */}
+          <div className="quick-access-section">
+            <h2 className="section-title">Global Dashboard</h2>
+            <div className="widgets-grid">
+              {loading ? (
+                <div className="widgets-loading">Loading dashboard...</div>
+              ) : (
+                widgets.map((widget) => (
+                  <div key={widget.id} className={`widget-card ${widget.type}`}>
+                    <div className="widget-header">
+                      <h3 className="widget-title">{widget.title}</h3>
+                      <span className={`module-indicator ${widget.moduleType}`}>
+                        {widget.moduleType === 'combined' ? 'All' : widget.moduleType}
+                      </span>
+                    </div>
+                    
+                    <div className="widget-value">
+                      <span className="main-value">{widget.value}</span>
+                      {widget.trend && (
+                        <div className={`trend ${widget.trend.direction}`}>
+                          <span className="trend-icon">{getTrendIcon(widget.trend.direction)}</span>
+                          <span className="trend-text">
+                            {widget.trend.value}% {widget.trend.label}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {widget.actionUrl && (
+                      <Link to={widget.actionUrl} className="widget-action">
+                        {widget.actionLabel} →
+                      </Link>
+                    )}
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+          
+          {/* Recent Activity Feed */}
+          <div className="activity-section">
+            <div className="activity-header">
+              <h2 className="section-title">Recent Activity</h2>
+              <Link to="/partners/es-portal/activity" className="view-all-link">View All Activity</Link>
+            </div>
+            
+            <div className="activity-feed">
+              {activities.map((activity) => (
+                <div key={activity.id} className="activity-item">
+                  <div className="activity-icon">
+                    <span className={`activity-type ${activity.type}`}></span>
+                  </div>
+                  
+                  <div className="activity-content">
+                    <div className="activity-title">{activity.title}</div>
+                    <div className="activity-description">{activity.description}</div>
+                    <div className="activity-meta">
+                      <span className="activity-user">{activity.userName}</span>
+                      <span className="activity-time">{formatTimeAgo(activity.timestamp)}</span>
+                      <span className={`activity-module ${activity.moduleType}`}>
+                        {activity.moduleType}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

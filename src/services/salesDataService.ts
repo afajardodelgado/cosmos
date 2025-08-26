@@ -21,16 +21,77 @@ class SalesDataService {
   }
 
   private generateMockData(): SalesRecord[] {
-    const firstNames = [
+    // 30% White American names
+    const whiteFirstNames = [
       'John', 'Jane', 'Michael', 'Sarah', 'David', 'Emily', 'Chris', 'Jessica', 'Daniel', 'Ashley',
       'Matthew', 'Amanda', 'Joshua', 'Melissa', 'Andrew', 'Michelle', 'James', 'Kimberly', 'Justin', 'Amy',
-      'Robert', 'Angela', 'Ryan', 'Helen', 'Brian', 'Deborah', 'Kevin', 'Rachel', 'Thomas', 'Carolyn'
+      'Robert', 'Angela', 'Ryan', 'Helen', 'Brian', 'Deborah', 'Kevin', 'Rachel', 'Thomas', 'Carolyn',
+      'William', 'Lisa', 'Richard', 'Nancy', 'Charles', 'Karen', 'Joseph', 'Betty', 'Mark', 'Dorothy'
     ];
 
-    const lastNames = [
-      'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez',
-      'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson', 'Thomas', 'Taylor', 'Moore', 'Jackson', 'Martin',
-      'Lee', 'Perez', 'Thompson', 'White', 'Harris', 'Sanchez', 'Clark', 'Ramirez', 'Lewis', 'Robinson'
+    const whiteLastNames = [
+      'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Miller', 'Davis', 'Wilson', 'Anderson', 'Thomas',
+      'Taylor', 'Moore', 'Jackson', 'Martin', 'Lee', 'Thompson', 'White', 'Harris', 'Clark', 'Lewis',
+      'Robinson', 'Walker', 'Hall', 'Allen', 'Young', 'King', 'Wright', 'Scott', 'Torres', 'Nguyen',
+      'Hill', 'Adams', 'Baker', 'Green', 'Nelson', 'Carter', 'Mitchell', 'Perez', 'Roberts', 'Turner'
+    ];
+
+    // 30% Hispanic names
+    const hispanicFirstNames = [
+      'Jose', 'Maria', 'Juan', 'Ana', 'Luis', 'Rosa', 'Carlos', 'Isabel', 'Miguel', 'Carmen',
+      'Antonio', 'Elena', 'Francisco', 'Lucia', 'Manuel', 'Sofia', 'Roberto', 'Gabriela', 'Diego', 'Valentina',
+      'Fernando', 'Adriana', 'Ricardo', 'Alejandra', 'Eduardo', 'Natalia', 'Alejandro', 'Mariana', 'Rafael', 'Andrea',
+      'Sergio', 'Patricia', 'Pablo', 'Monica', 'Andres', 'Claudia', 'Javier', 'Veronica', 'Oscar', 'Silvia'
+    ];
+
+    const hispanicLastNames = [
+      'Garcia', 'Rodriguez', 'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Sanchez', 'Ramirez', 'Cruz', 'Flores',
+      'Gomez', 'Morales', 'Rivera', 'Ramos', 'Jimenez', 'Alvarez', 'Ruiz', 'Castillo', 'Ortega', 'Mendoza',
+      'Vargas', 'Romero', 'Herrera', 'Medina', 'Aguilar', 'Guerrero', 'Vega', 'Munoz', 'Delgado', 'Castro',
+      'Espinoza', 'Gutierrez', 'Reyes', 'Chavez', 'Paredes', 'Moreno', 'Contreras', 'Valdez', 'Salazar', 'Campos'
+    ];
+
+    // 30% European names
+    const europeanFirstNames = [
+      'Alessandro', 'Francesca', 'Giovanni', 'Giulia', 'Marco', 'Elena', 'Pietro', 'Sofia', 'Luca', 'Chiara',
+      'Klaus', 'Ingrid', 'Hans', 'Greta', 'Franz', 'Liesl', 'Stefan', 'Anna', 'Wolfgang', 'Petra',
+      'Jean-Pierre', 'Brigitte', 'Philippe', 'Sylvie', 'Antoine', 'Marie-Claire', 'Pascal', 'Isabelle', 'Olivier', 'Céline',
+      'Henrik', 'Astrid', 'Lars', 'Ingeborg', 'Erik', 'Maja', 'Nils', 'Sigrid', 'Magnus', 'Solveig'
+    ];
+
+    const europeanLastNames = [
+      'Rossi', 'Ferrari', 'Bianchi', 'Romano', 'Gallo', 'Conti', 'Bruno', 'Villa', 'Greco', 'Fontana',
+      'Mueller', 'Schmidt', 'Schneider', 'Fischer', 'Weber', 'Meyer', 'Wagner', 'Becker', 'Schulz', 'Hoffmann',
+      'Dubois', 'Martin', 'Bernard', 'Durand', 'Moreau', 'Leroy', 'Simon', 'Laurent', 'Lefebvre', 'Michel',
+      'Andersen', 'Nielsen', 'Hansen', 'Pedersen', 'Larsen', 'Christensen', 'Rasmussen', 'Jorgensen', 'Madsen', 'Kristensen'
+    ];
+
+    // 10% Indian names
+    const indianFirstNames = [
+      'Arjun', 'Priya', 'Rahul', 'Kavya', 'Vikram', 'Anita', 'Suresh', 'Deepika', 'Amit', 'Pooja',
+      'Ravi', 'Meera', 'Kiran', 'Sita', 'Arun', 'Lakshmi', 'Raj', 'Nisha', 'Mohan', 'Sunita',
+      'Dev', 'Shreya', 'Nitin', 'Rekha', 'Sanjay', 'Usha', 'Vinod', 'Geeta', 'Ashok', 'Radha'
+    ];
+
+    const indianLastNames = [
+      'Sharma', 'Patel', 'Singh', 'Kumar', 'Gupta', 'Agarwal', 'Jain', 'Bansal', 'Sinha', 'Yadav',
+      'Verma', 'Mishra', 'Pandey', 'Saxena', 'Arora', 'Kapoor', 'Malhotra', 'Chopra', 'Shah', 'Mehta',
+      'Reddy', 'Rao', 'Krishna', 'Prasad', 'Nair', 'Menon', 'Iyer', 'Subramanian', 'Raman', 'Krishnan'
+    ];
+
+    // Combine all names with proper distribution
+    const allFirstNames = [
+      ...whiteFirstNames,           // 30%
+      ...hispanicFirstNames,        // 30%
+      ...europeanFirstNames,        // 30%
+      ...indianFirstNames          // 10%
+    ];
+
+    const allLastNames = [
+      ...whiteLastNames,           // 30%
+      ...hispanicLastNames,        // 30%
+      ...europeanLastNames,        // 30%
+      ...indianLastNames          // 10%
     ];
 
     const cities: Record<string, { city: string; zip: string }[]> = {
@@ -69,26 +130,62 @@ class SalesDataService {
         { city: 'Corpus Christi', zip: '78401' },
         { city: 'Plano', zip: '75023' },
         { city: 'Lubbock', zip: '79401' }
+      ],
+      AZ: [
+        { city: 'Phoenix', zip: '85001' },
+        { city: 'Tucson', zip: '85701' },
+        { city: 'Mesa', zip: '85201' },
+        { city: 'Chandler', zip: '85224' },
+        { city: 'Scottsdale', zip: '85250' },
+        { city: 'Glendale', zip: '85301' },
+        { city: 'Tempe', zip: '85281' },
+        { city: 'Peoria', zip: '85345' },
+        { city: 'Surprise', zip: '85374' },
+        { city: 'Yuma', zip: '85364' },
+        { city: 'Avondale', zip: '85323' },
+        { city: 'Goodyear', zip: '85338' },
+        { city: 'Flagstaff', zip: '86001' },
+        { city: 'Casa Grande', zip: '85122' },
+        { city: 'Lake Havasu City', zip: '86403' }
+      ],
+      NV: [
+        { city: 'Las Vegas', zip: '89101' },
+        { city: 'Henderson', zip: '89002' },
+        { city: 'Reno', zip: '89501' },
+        { city: 'North Las Vegas', zip: '89030' },
+        { city: 'Sparks', zip: '89431' },
+        { city: 'Carson City', zip: '89701' },
+        { city: 'Fernley', zip: '89408' },
+        { city: 'Elko', zip: '89801' },
+        { city: 'Mesquite', zip: '89027' },
+        { city: 'Boulder City', zip: '89005' },
+        { city: 'Fallon', zip: '89406' },
+        { city: 'Winnemucca', zip: '89445' },
+        { city: 'West Wendover', zip: '89883' },
+        { city: 'Ely', zip: '89301' },
+        { city: 'Yerington', zip: '89447' }
       ]
     };
 
     const utilityCompanies: Record<string, string[]> = {
       CA: ['Pacific Gas & Electric Co', 'Southern California Edison', 'San Diego Gas & Electric'],
       FL: ['Florida Power & Light', 'Duke Energy Florida', 'Tampa Electric Company'],
-      TX: ['Oncor Electric Delivery', 'CenterPoint Energy', 'AEP Texas']
+      TX: ['Oncor Electric Delivery', 'CenterPoint Energy', 'AEP Texas'],
+      AZ: ['Arizona Public Service', 'Tucson Electric Power', 'Salt River Project', 'UniSource Energy Services'],
+      NV: ['NV Energy', 'Valley Electric Association', 'Sierra Pacific Power', 'Mt. Wheeler Power']
     };
 
     const stages: LeadStage[] = ['New Lead', 'Qualified', 'Converted to Opportunity', 'Contract Sent', 'Closed Won'];
     const stageDistribution = [0.6, 0.15, 0.15, 0.05, 0.05];
 
     const records: SalesRecord[] = [];
-    const states = ['CA', 'FL', 'TX'] as const;
+    const states = ['CA', 'FL', 'TX', 'AZ', 'NV'] as const;
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 200; i++) {
       const state = states[Math.floor(Math.random() * states.length)];
       const cityData = cities[state][Math.floor(Math.random() * cities[state].length)];
-      const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
-      const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+      const firstName = allFirstNames[Math.floor(Math.random() * allFirstNames.length)];
+      const lastName = allLastNames[Math.floor(Math.random() * allLastNames.length)];
       
       // Determine stage based on distribution
       let stage: LeadStage = 'New Lead';
@@ -125,7 +222,7 @@ class SalesDataService {
         monthlyElectricBill: Math.floor(Math.random() * 300) + 100,
         kwhRate: Math.round((Math.random() * 0.2 + 0.1) * 100) / 100,
         leadType: ['Residential', 'Commercial', 'Industrial'][Math.floor(Math.random() * 3)],
-        referredBy: Math.random() > 0.7 ? `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastNames[Math.floor(Math.random() * lastNames.length)]}` : '',
+        referredBy: Math.random() > 0.7 ? `${allFirstNames[Math.floor(Math.random() * allFirstNames.length)]} ${allLastNames[Math.floor(Math.random() * allLastNames.length)]}` : '',
         communicationPreference: ['Email', 'Phone', 'Text'][Math.floor(Math.random() * 3)],
         gcid: `GC${Math.floor(Math.random() * 10000).toString().padStart(4, '0')}`,
         utilityCompany: utilityCompanies[state][Math.floor(Math.random() * utilityCompanies[state].length)],

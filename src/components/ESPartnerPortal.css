@@ -202,9 +202,7 @@
 
 /* Sticky Navigation */
 .portal-nav-sticky {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: relative;
   background: transparent;
   backdrop-filter: none;
   border-bottom: none;
@@ -257,8 +255,7 @@
 }
 
 .portal-tab:focus {
-  outline: 2px solid #4caf50;
-  outline-offset: 2px;
+  outline: none;
 }
 
 /* Tab Panels */
@@ -609,7 +606,7 @@
 .section-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: white;
+  color: white !important;
   margin-bottom: 20px;
   text-align: left;
 }

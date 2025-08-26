@@ -7,7 +7,11 @@ import PartnerSelection from './components/PartnerSelection';
 import PartnerLogin from './components/PartnerLogin';
 import BecomePartner from './components/BecomePartner';
 import ESPartnerPortal from './components/ESPartnerPortal';
-import SRECHome from './components/SRECHome';
+import SRECLayout from './components/srec/SRECLayout';
+import SRECDashboard from './components/srec/SRECDashboard';
+import SRECRecords from './components/srec/SRECRecords';
+import SRECInvoicing from './components/srec/SRECInvoicing';
+import SRECTasks from './components/srec/SRECTasks';
 import Fulfillment from './components/Fulfillment';
 import Homeowners from './components/Homeowners';
 import CustomerSupport from './components/CustomerSupport';
@@ -64,10 +68,37 @@ function App() {
               <ESPartnerPortal />
             </>
           } />
+          {/* SREC Management Routes */}
           <Route path="/partners/es-portal/srec" element={
             <>
               <Header />
-              <SRECHome />
+              <SRECLayout>
+                <SRECDashboard />
+              </SRECLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/srec/records" element={
+            <>
+              <Header />
+              <SRECLayout>
+                <SRECRecords />
+              </SRECLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/srec/invoicing" element={
+            <>
+              <Header />
+              <SRECLayout>
+                <SRECInvoicing />
+              </SRECLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/srec/tasks" element={
+            <>
+              <Header />
+              <SRECLayout>
+                <SRECTasks />
+              </SRECLayout>
             </>
           } />
           {/* Installation Management Routes */}

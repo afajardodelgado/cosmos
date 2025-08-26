@@ -17,9 +17,7 @@
 }
 
 .brand a:focus {
-  outline: 2px solid #00bcd4;
-  outline-offset: 4px;
-  border-radius: 8px;
+  outline: none;
 }
 
 .top-links {
