@@ -1,34 +1,15 @@
-/* Installation Layout Styles */
+/* Installation Layout Styles - Following SREC Layout Pattern */
+
 .installation-layout {
   min-height: 100vh;
-  background-color: #f8f9fa;
-  background-size: cover;
+  background-color: #060605;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding-top: 80px; /* Account for fixed header */
-  scroll-padding-top: 80px; /* Ensure smooth scroll behavior */
-}
-
-.installation-header {
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.8), rgba(139, 195, 74, 0.6));
-  backdrop-filter: blur(10px);
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.installation-header-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-.installation-program-title {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #333;
-  margin: 0;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  color: white;
+  padding-top: 120px;
+  padding-bottom: 60px;
 }
 
 .installation-content {
@@ -37,202 +18,253 @@
   padding: 0 40px;
 }
 
+/* Greeting Section */
 .installation-greeting-section {
-  padding: 20px 0 20px; /* Reduced top padding to avoid double margins */
+  margin-bottom: 40px;
+  text-align: left;
 }
 
 .installation-greeting {
   display: flex;
   align-items: center;
-  gap: 15px;
-  background: rgba(255, 255, 255, 0.9);
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 20px 25px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  max-width: 600px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 25px 30px;
 }
 
-.greeting-icon {
-  width: 40px;
-  height: 40px;
+.greeting-icon-installation {
+  width: 60px;
+  height: 60px;
   background: linear-gradient(135deg, #4caf50, #66bb6a);
-  border-radius: 8px;
-  position: relative;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
 }
 
-.greeting-icon::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  background: white;
-  border-radius: 50%;
+.greeting-icon-installation::before {
+  content: "🔧";
+  color: white;
 }
 
 .greeting-content {
   flex: 1;
 }
 
-.greeting-title {
-  font-size: 1.3rem;
+.greeting-title,
+.installation-greeting h2,
+.greeting-content h2 {
+  font-size: 1.8rem;
   font-weight: 700;
-  color: #333;
-  margin: 0 0 5px 0;
+  margin: 0 0 8px 0;
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .greeting-date {
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 1rem;
+  color: white !important;
   margin: 0;
   font-weight: 400;
+  opacity: 0.9;
 }
 
+/* Navigation Tabs */
 .installation-navigation {
-  margin-bottom: 0;
-  border-bottom: none;
+  margin-bottom: 40px;
 }
 
 .installation-nav-tabs {
   display: flex;
-  gap: 0;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
-  border-radius: 12px 12px 0 0;
-  padding: 5px 5px 0 5px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-bottom: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 8px;
+  gap: 4px;
+  overflow-x: auto;
 }
 
 .installation-nav-tab {
-  background: none;
+  background: transparent;
   border: none;
-  padding: 15px 25px;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 12px 20px;
+  border-radius: 8px;
   font-size: 0.95rem;
-  font-weight: 500;
-  color: #666;
+  font-weight: 600;
   cursor: pointer;
-  border-radius: 8px 8px 0 0;
   transition: all 0.3s ease;
-  position: relative;
   white-space: nowrap;
   font-family: inherit;
+  min-width: fit-content;
 }
 
 .installation-nav-tab:hover {
-  color: #4caf50;
-  background: rgba(76, 175, 80, 0.05);
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .installation-nav-tab.active {
-  color: #4caf50;
-  background: rgba(76, 175, 80, 0.1);
-  font-weight: 600;
-}
-
-.installation-nav-tab.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
   background: linear-gradient(135deg, #4caf50, #66bb6a);
-  border-radius: 3px 3px 0 0;
+  color: white;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
 }
 
+.installation-nav-tab:focus {
+  outline: none;
+}
+
+/* Main Content Area */
 .installation-main-content {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(10px);
-  border-radius: 0 0 12px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px;
   min-height: 600px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-top: none;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
   .installation-content {
-    padding: 0 20px;
-  }
-  
-  .installation-header-content {
-    padding: 0 20px;
+    padding: 0 30px;
   }
   
   .installation-nav-tabs {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .installation-nav-tabs::-webkit-scrollbar {
+    display: none;
   }
   
   .installation-nav-tab {
-    flex-shrink: 0;
-    padding: 12px 20px;
     font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+  
+  .installation-main-content {
+    padding: 25px;
   }
 }
 
 @media (max-width: 768px) {
-  .installation-program-title {
-    font-size: 1.5rem;
+  .installation-layout {
+    padding-top: 100px;
+  }
+  
+  .installation-content {
+    padding: 0 20px;
   }
   
   .installation-greeting {
-    padding: 15px 20px;
     flex-direction: column;
     text-align: center;
-    gap: 10px;
+    padding: 20px;
+  }
+  
+  .greeting-icon-installation {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
   }
   
   .greeting-title {
-    font-size: 1.2rem;
-  }
-  
-  .greeting-date {
-    font-size: 0.85rem;
+    font-size: 1.5rem;
   }
   
   .installation-nav-tabs {
-    padding: 3px;
+    padding: 6px;
+    gap: 2px;
   }
   
   .installation-nav-tab {
-    padding: 10px 15px;
     font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+  
+  .installation-main-content {
+    padding: 20px;
+    min-height: 500px;
   }
 }
 
 @media (max-width: 480px) {
-  .installation-content {
-    padding: 0 15px;
-  }
-  
-  .installation-header-content {
-    padding: 0 15px;
-  }
-  
-  .installation-program-title {
-    font-size: 1.3rem;
-  }
-  
-  .greeting-icon {
-    width: 35px;
-    height: 35px;
-    font-size: 20px;
+  .installation-greeting {
+    padding: 15px;
   }
   
   .greeting-title {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+  }
+  
+  .greeting-date {
+    font-size: 0.9rem;
   }
   
   .installation-nav-tab {
-    padding: 8px 12px;
     font-size: 0.8rem;
+    padding: 6px 10px;
   }
+  
+  .installation-main-content {
+    padding: 15px;
+  }
+}
+
+/* Loading and Error States */
+.installation-loading,
+.installation-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #cccccc;
+  text-align: center;
+}
+
+.installation-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #4caf50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.installation-error {
+  color: #ff5722;
+}
+
+.retry-button {
+  margin-top: 15px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
 }

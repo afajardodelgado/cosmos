@@ -61,7 +61,7 @@ const InstallationLayout: React.FC<InstallationLayoutProps> = ({ children }) => 
       <div className="installation-content">
         <div className="installation-greeting-section">
           <div className="installation-greeting">
-            <div className="greeting-icon"></div>
+            <div className="greeting-icon-installation"></div>
             <div className="greeting-content">
               <h2 className="greeting-title">Installation Management Portal</h2>
               <p className="greeting-date">{greeting}</p>

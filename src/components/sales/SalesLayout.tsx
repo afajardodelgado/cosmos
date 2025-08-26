@@ -59,7 +59,7 @@ const SalesLayout: React.FC<SalesLayoutProps> = ({ children }) => {
       <div className="sales-content">
         <div className="sales-greeting-section">
           <div className="sales-greeting">
-            <div className="greeting-icon"></div>
+            <div className="greeting-icon-sales"></div>
             <div className="greeting-content">
               <h2 className="greeting-title">Greetings RE+ Demo User!</h2>
               <p className="greeting-date">{greeting}</p>

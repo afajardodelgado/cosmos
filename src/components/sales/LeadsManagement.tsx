@@ -269,6 +269,7 @@ const LeadsManagement: React.FC = () => {
           </tbody>
         </table>
 
+        
         {leads.length === 0 && (
           <div className="no-leads">
             <p>No leads found. {searchTerm ? 'Try adjusting your search.' : 'Create your first lead!'}</p>
