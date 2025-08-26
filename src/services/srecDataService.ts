@@ -10,9 +10,6 @@ import {
   InvoiceSearchFilters,
   TaskSearchFilters,
   PaginationInfo,
-  NewSRECData,
-  NewInvoiceData,
-  NewTaskData,
   SRECStatus,
   InvoiceStatus,
   TaskStatus,
@@ -281,7 +278,6 @@ class SRECDataService {
     const tasks: SRECTask[] = [];
     const statuses: TaskStatus[] = ['Open', 'In Progress', 'Completed', 'Cancelled', 'On Hold'];
     const priorities: TaskPriority[] = ['Low', 'Medium', 'High', 'Critical'];
-    const categories = ['Verification', 'Registration', 'Trading', 'Compliance', 'Reporting', 'Customer Service'];
     
     const taskTemplates = [
       { title: 'Verify SREC Generation Data', description: 'Review and verify monthly generation data for SREC certification', category: 'Verification', estimatedHours: 2 },

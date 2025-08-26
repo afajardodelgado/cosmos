@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './ESPartnerPortal.css';
 import backgroundImage from '../assets/images/BACKGROUND_GROUP.png';
 import customerSupportIcon from '../assets/icons/customer_support.png';
@@ -7,17 +7,11 @@ import qcellsProductIcon from '../assets/icons/qcells_hw_products.png';
 import esProgramIcon from '../assets/icons/es_program.png';
 import partnerPortalIcon from '../assets/icons/partner_portal.png';
 import { unifiedPortalService } from '../services/unifiedPortalService';
-import { QuickAccessWidget, UnifiedNotification, ActivityItem, UnifiedSearchResult } from '../types/installationTypes';
+import { QuickAccessWidget, ActivityItem } from '../types/installationTypes';
 
 const ESPartnerPortal: React.FC = () => {
-  const navigate = useNavigate();
   const [widgets, setWidgets] = useState<QuickAccessWidget[]>([]);
-  const [notifications, setNotifications] = useState<UnifiedNotification[]>([]);
   const [activities, setActivities] = useState<ActivityItem[]>([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState<UnifiedSearchResult[]>([]);
-  const [showNotifications, setShowNotifications] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('modules');
 
@@ -38,43 +32,19 @@ const ESPartnerPortal: React.FC = () => {
     window.location.hash = activeTab;
   }, [activeTab]);
 
-  useEffect(() => {
-    if (searchQuery.trim()) {
-      performSearch();
-    } else {
-      setSearchResults([]);
-    }
-  }, [searchQuery]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Close dropdowns when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (!target.closest('.unified-search') && !target.closest('.notification-center')) {
-        setShowSearch(false);
-        setShowNotifications(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
 
   const initializePortalData = async () => {
     try {
       setLoading(true);
       await unifiedPortalService.initialize();
       
-      const [widgetData, notificationData, activityData] = await Promise.all([
+      const [widgetData, activityData] = await Promise.all([
         unifiedPortalService.getQuickAccessWidgets(6),
-        unifiedPortalService.getUnreadNotifications(),
         unifiedPortalService.getActivities(5)
       ]);
       
       setWidgets(widgetData);
-      setNotifications(notificationData);
       setActivities(activityData);
     } catch (error) {
       console.error('Failed to load portal data:', error);
@@ -83,28 +53,8 @@ const ESPartnerPortal: React.FC = () => {
     }
   };
 
-  const performSearch = async () => {
-    try {
-      const results = await unifiedPortalService.search(searchQuery);
-      setSearchResults(results);
-    } catch (error) {
-      console.error('Search failed:', error);
-    }
-  };
 
-  const handleSearchSelect = (result: UnifiedSearchResult) => {
-    navigate(result.url);
-    setSearchQuery('');
-    setShowSearch(false);
-  };
 
-  const handleNotificationClick = async (notification: UnifiedNotification) => {
-    await unifiedPortalService.markNotificationAsRead(notification.id);
-    if (notification.actionUrl) {
-      navigate(notification.actionUrl);
-    }
-    setShowNotifications(false);
-  };
 
   const formatTimeAgo = (timestamp: string): string => {
     const now = new Date();
@@ -116,14 +66,6 @@ const ESPartnerPortal: React.FC = () => {
     return `${Math.floor(diffInMinutes / 1440)}d ago`;
   };
 
-  const getPriorityClass = (priority: string): string => {
-    switch (priority) {
-      case 'urgent': return 'priority-urgent';
-      case 'high': return 'priority-high';
-      case 'medium': return 'priority-medium';
-      default: return 'priority-low';
-    }
-  };
 
   const getTrendIcon = (direction: 'up' | 'down' | 'stable'): string => {
     switch (direction) {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import './SRECInvoicing.css';
 import { srecDataService } from '../../services/srecDataService';
 import { 
@@ -23,11 +23,7 @@ const SRECInvoicing: React.FC = () => {
   const [selectedInvoices, setSelectedInvoices] = useState<string[]>([]);
   const [showCreateModal, setShowCreateModal] = useState(false);
 
-  useEffect(() => {
-    loadInvoices();
-  }, [searchTerm, statusFilter, pagination.currentPage]);
-
-  const loadInvoices = async () => {
+  const loadInvoicesCallback = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -50,7 +46,12 @@ const SRECInvoicing: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [searchTerm, statusFilter, pagination.currentPage, pagination.pageSize]);
+
+  useEffect(() => {
+    loadInvoicesCallback();
+  }, [loadInvoicesCallback]);
+
 
   const handlePageChange = (newPage: number) => {
     setPagination(prev => ({ ...prev, currentPage: newPage }));
@@ -184,7 +185,7 @@ const SRECInvoicing: React.FC = () => {
     return (
       <div className="srec-error">
         <p>{error}</p>
-        <button onClick={loadInvoices} className="retry-button">
+        <button onClick={loadInvoicesCallback} className="retry-button">
           Try Again
         </button>
       </div>

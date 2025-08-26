@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import './SRECTasks.css';
 import { srecDataService } from '../../services/srecDataService';
 import { 
@@ -25,11 +25,7 @@ const SRECTasks: React.FC = () => {
   const [selectedTasks, setSelectedTasks] = useState<string[]>([]);
   const [showCreateModal, setShowCreateModal] = useState(false);
 
-  useEffect(() => {
-    loadTasks();
-  }, [searchTerm, statusFilter, priorityFilter, pagination.currentPage]);
-
-  const loadTasks = async () => {
+  const loadTasks = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -53,7 +49,11 @@ const SRECTasks: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [searchTerm, statusFilter, priorityFilter, pagination.currentPage, pagination.pageSize]);
+
+  useEffect(() => {
+    loadTasks();
+  }, [loadTasks]);
 
   const handlePageChange = (newPage: number) => {
     setPagination(prev => ({ ...prev, currentPage: newPage }));

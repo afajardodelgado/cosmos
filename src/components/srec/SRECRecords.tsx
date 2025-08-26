@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import './SRECRecords.css';
 import { srecDataService } from '../../services/srecDataService';
 import { 
@@ -24,11 +24,7 @@ const SRECRecords: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedRecords, setSelectedRecords] = useState<string[]>([]);
 
-  useEffect(() => {
-    loadRecords();
-  }, [searchTerm, statusFilter, stateFilter, vintageFilter, pagination.currentPage]);
-
-  const loadRecords = async () => {
+  const loadRecords = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -53,7 +49,11 @@ const SRECRecords: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [searchTerm, statusFilter, stateFilter, vintageFilter, pagination.currentPage, pagination.pageSize]);
+
+  useEffect(() => {
+    loadRecords();
+  }, [loadRecords]);
 
   const handlePageChange = (newPage: number) => {
     setPagination(prev => ({ ...prev, currentPage: newPage }));
