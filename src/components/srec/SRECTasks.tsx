@@ -220,35 +220,35 @@ const SRECTasks: React.FC = () => {
       {/* Summary Stats */}
       <div className="task-stats-grid">
         <div className="stat-card primary">
-          <div className="stat-icon">📋</div>
+          <div className="stat-icon"></div>
           <div className="stat-content">
             <div className="stat-value">{stats.totalTasks}</div>
             <div className="stat-label">Total Tasks</div>
           </div>
         </div>
         <div className="stat-card info">
-          <div className="stat-icon">📖</div>
+          <div className="stat-icon"></div>
           <div className="stat-content">
             <div className="stat-value">{stats.openTasks}</div>
             <div className="stat-label">Open Tasks</div>
           </div>
         </div>
         <div className="stat-card warning">
-          <div className="stat-icon">⚡</div>
+          <div className="stat-icon"></div>
           <div className="stat-content">
             <div className="stat-value">{stats.inProgressTasks}</div>
             <div className="stat-label">In Progress</div>
           </div>
         </div>
         <div className="stat-card success">
-          <div className="stat-icon">✅</div>
+          <div className="stat-icon"></div>
           <div className="stat-content">
             <div className="stat-value">{stats.completedTasks}</div>
             <div className="stat-label">Completed</div>
           </div>
         </div>
         <div className="stat-card danger">
-          <div className="stat-icon">⏰</div>
+          <div className="stat-icon"></div>
           <div className="stat-content">
             <div className="stat-value">{stats.overdueTasks}</div>
             <div className="stat-label">Overdue</div>
@@ -378,13 +378,13 @@ const SRECTasks: React.FC = () => {
                 <td className="actions-column">
                   <div className="action-buttons">
                     <button className="action-btn view-btn" title="View Task">
-                      👁
+                      
                     </button>
                     <button className="action-btn edit-btn" title="Edit Task">
                       ✏️
                     </button>
                     <button className="action-btn comment-btn" title="Add Comment">
-                      💬
+                      
                     </button>
                   </div>
                 </td>
@@ -396,7 +396,7 @@ const SRECTasks: React.FC = () => {
 
       {tasks.length === 0 && (
         <div className="empty-state">
-          <div className="empty-icon">📋</div>
+          <div className="empty-icon"></div>
           <p>No tasks found matching your criteria.</p>
           <button 
             className="create-task-btn"

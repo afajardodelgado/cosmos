@@ -108,7 +108,7 @@ const SRECDashboard: React.FC = () => {
         <div className="metric-card primary">
           <div className="metric-header">
             <h3 className="metric-title">Total SRECs</h3>
-            <span className="metric-icon">📊</span>
+            <span className="metric-icon"></span>
           </div>
           <div className="metric-value">{formatNumber(metrics?.totalSRECs || 0)}</div>
           <div className="metric-footer">
@@ -122,7 +122,7 @@ const SRECDashboard: React.FC = () => {
         <div className="metric-card success">
           <div className="metric-header">
             <h3 className="metric-title">Total Revenue</h3>
-            <span className="metric-icon">💰</span>
+            <span className="metric-icon"></span>
           </div>
           <div className="metric-value">{formatCurrency(metrics?.totalRevenue || 0)}</div>
           <div className="metric-footer">
@@ -136,7 +136,7 @@ const SRECDashboard: React.FC = () => {
         <div className="metric-card info">
           <div className="metric-header">
             <h3 className="metric-title">Average Price</h3>
-            <span className="metric-icon">📈</span>
+            <span className="metric-icon"></span>
           </div>
           <div className="metric-value">{formatCurrency(metrics?.averagePrice || 0)}</div>
           <div className="metric-footer">
@@ -150,7 +150,7 @@ const SRECDashboard: React.FC = () => {
         <div className="metric-card warning">
           <div className="metric-header">
             <h3 className="metric-title">Active SRECs</h3>
-            <span className="metric-icon">⚡</span>
+            <span className="metric-icon"></span>
           </div>
           <div className="metric-value">{formatNumber(metrics?.activeSRECs || 0)}</div>
           <div className="metric-footer">
@@ -162,7 +162,7 @@ const SRECDashboard: React.FC = () => {
         <div className="metric-card secondary">
           <div className="metric-header">
             <h3 className="metric-title">Monthly Revenue</h3>
-            <span className="metric-icon">📅</span>
+            <span className="metric-icon"></span>
           </div>
           <div className="metric-value">{formatCurrency(metrics?.monthlyRevenue || 0)}</div>
           <div className="metric-footer">
@@ -173,7 +173,7 @@ const SRECDashboard: React.FC = () => {
         <div className="metric-card accent">
           <div className="metric-header">
             <h3 className="metric-title">Market Value</h3>
-            <span className="metric-icon">💎</span>
+            <span className="metric-icon"></span>
           </div>
           <div className="metric-value">{formatCurrency(metrics?.marketValue || 0)}</div>
           <div className="metric-footer">
@@ -306,19 +306,19 @@ const SRECDashboard: React.FC = () => {
           <div className="card-content">
             <div className="quick-actions-grid">
               <Link to="/partners/es-portal/srec/records" className="quick-action-btn primary">
-                <span className="action-icon">📊</span>
+                <span className="action-icon"></span>
                 <span className="action-label">Manage SRECs</span>
               </Link>
               <Link to="/partners/es-portal/srec/invoicing" className="quick-action-btn success">
-                <span className="action-icon">💰</span>
+                <span className="action-icon"></span>
                 <span className="action-label">Create Invoice</span>
               </Link>
               <Link to="/partners/es-portal/srec/trading" className="quick-action-btn info">
-                <span className="action-icon">📈</span>
+                <span className="action-icon"></span>
                 <span className="action-label">View Market</span>
               </Link>
               <Link to="/partners/es-portal/srec/reports" className="quick-action-btn warning">
-                <span className="action-icon">📋</span>
+                <span className="action-icon"></span>
                 <span className="action-label">Generate Report</span>
               </Link>
             </div>

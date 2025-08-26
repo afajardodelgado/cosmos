@@ -19,6 +19,7 @@ import SalesLayout from './components/sales/SalesLayout';
 import BusinessSummary from './components/sales/BusinessSummary';
 import LeadsManagement from './components/sales/LeadsManagement';
 import OpportunitiesManagement from './components/sales/OpportunitiesManagement';
+import SitesManagement from './components/sales/SitesManagement';
 import InstallationLayout from './components/installation/InstallationLayout';
 import InstallationSummary from './components/installation/InstallationSummary';
 import ActiveProjects from './components/installation/ActiveProjects';
@@ -183,10 +184,7 @@ function App() {
             <>
               <Header />
               <SalesLayout>
-                <div style={{ padding: '50px', textAlign: 'center', color: '#666' }}>
-                  <h2>Sites Management</h2>
-                  <p>Sites management functionality coming soon...</p>
-                </div>
+                <SitesManagement />
               </SalesLayout>
             </>
           } />

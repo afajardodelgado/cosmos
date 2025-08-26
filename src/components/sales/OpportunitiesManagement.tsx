@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './OpportunitiesManagement.css';
 import { salesDataService } from '../../services/salesDataService';
+import { sitesDataService } from '../../services/sitesDataService';
 import { SalesRecord, SearchFilters, PaginationInfo, LeadStage } from '../../types/salesTypes';
 
 const OpportunitiesManagement: React.FC = () => {
@@ -70,6 +71,17 @@ const OpportunitiesManagement: React.FC = () => {
     } catch (err) {
       console.error('Failed to update opportunity stage:', err);
       alert('Failed to update opportunity stage. Please try again.');
+    }
+  };
+
+  const handleCreateSite = async (opportunityId: string) => {
+    try {
+      await sitesDataService.initialize();
+      const site = await sitesDataService.createSiteFromOpportunity(opportunityId);
+      alert(`Site ${site.siteId} created successfully! The project is now in ${site.stage} stage.`);
+    } catch (err) {
+      console.error('Failed to create site:', err);
+      alert('Failed to create site. Please try again.');
     }
   };
 
@@ -266,6 +278,19 @@ const OpportunitiesManagement: React.FC = () => {
                         title={`Advance to ${getNextStage(opportunity.stage) || 'Next Stage'}`}
                       >
                         {opportunity.stage === 'Converted to Opportunity' ? 'Send Contract' : 'Close Won'}
+                      </button>
+                    )}
+                    {opportunity.stage === 'Closed Won' && (
+                      <button 
+                        className="action-btn create-site-btn"
+                        onClick={() => handleCreateSite(opportunity.id)}
+                        title="Create Installation Site"
+                        style={{
+                          background: 'linear-gradient(135deg, #4caf50, #66bb6a)',
+                          marginLeft: '5px'
+                        }}
+                      >
+                        Create Site
                       </button>
                     )}
                   </div>

@@ -48,7 +48,7 @@
 }
 
 .greeting-icon-srec::before {
-  content: "⚡";
+  content: "";
   color: white;
 }
 

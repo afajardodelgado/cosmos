@@ -70,12 +70,12 @@ const SRECHome: React.FC = () => {
             {srecRecords.map((record) => (
               <div key={record.id} className="record-item">
                 <div className="record-info">
-                  <span className="record-icon">📄</span>
+                  <span className="record-icon"></span>
                   <span className="record-name">{record.name}</span>
                 </div>
                 <div className="record-actions">
                   <button className="download-btn" title="Download">↓</button>
-                  <button className="delete-btn" title="Delete">🗑</button>
+                  <button className="delete-btn" title="Delete"></button>
                 </div>
               </div>
             ))}

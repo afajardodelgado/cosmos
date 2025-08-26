@@ -33,7 +33,7 @@ const Fulfillment: React.FC = () => {
               <div className="partner-subtitle">Any other info you want</div>
             </div>
           </div>
-          <button className="refresh-btn">🔄</button>
+          <button className="refresh-btn"></button>
         </div>
 
         <div className="fulfillment-grid">

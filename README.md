@@ -225,10 +225,10 @@ Our design system is built around **accessibility**, **consistency**, and **mode
 - **SREC Portal**: Green theme (`#4caf50` → `#66bb6a`)
 
 #### Icon System (Consistent Across Portals)
-- **Sales**: `📊` - Analytics/Performance
-- **Installation**: `🔧` - Tools/Construction
-- **SREC**: `⚡` - Energy/Power
-- **General Actions**: `💰` Financial, `📈` Markets, `📅` Calendar
+- **Sales**: Analytics/Performance themed elements
+- **Installation**: Tools/Construction themed elements
+- **SREC**: Energy/Power themed elements
+- **General Actions**: Financial, Markets, Calendar themed elements
 
 #### Interactive States (Unified)
 ```css
@@ -523,7 +523,7 @@ src/
 
 ---
 
-## 🔧 Development Standards
+## Development Standards
 
 ### CSS Architecture
 - **Component-scoped CSS**: Each component has its own CSS file
@@ -688,7 +688,7 @@ When contributing new features or modifications:
 
 **⚠️ CRITICAL**: All portal interfaces (Sales, Installation, SREC) must follow these unified patterns:
 
-### **✅ Layout Consistency Checklist**
+### **Layout Consistency Checklist**
 - [ ] **Dark glassmorphism theme** with `#060605` background
 - [ ] **Greeting section** with branded icon and glassmorphism card
 - [ ] **Navigation tabs** with unified styling and active states
@@ -703,7 +703,7 @@ When contributing new features or modifications:
 - **Pattern Change**: All data displays now use SREC-style card lists instead of traditional tables
 - **Color System**: Portal-specific brand colors (Cyan/Green) applied consistently
 
-### **📋 Design Review Process**
+### **Design Review Process**
 1. **Verify glassmorphism consistency** across all three portals
 2. **Test responsive behavior** at all breakpoints (1024px, 768px, 480px)
 3. **Validate accessibility** with screen readers and keyboard navigation

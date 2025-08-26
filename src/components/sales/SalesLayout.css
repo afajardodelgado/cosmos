@@ -48,7 +48,7 @@
 }
 
 .greeting-icon-sales::before {
-  content: "📊";
+  content: "";
   color: white;
 }
 

@@ -148,7 +148,7 @@ const ScheduledInstallations: React.FC = () => {
                 </div>
                 
                 <div className="visit-location">
-                  <span className="location-icon">📍</span>
+                  <span className="location-icon"></span>
                   <span className="address">{visit.siteAddress}</span>
                 </div>
                 

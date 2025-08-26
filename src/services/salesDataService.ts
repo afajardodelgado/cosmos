@@ -181,7 +181,7 @@ class SalesDataService {
     const records: SalesRecord[] = [];
     const states = ['CA', 'FL', 'TX', 'AZ', 'NV'] as const;
 
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 300; i++) {
       const state = states[Math.floor(Math.random() * states.length)];
       const cityData = cities[state][Math.floor(Math.random() * cities[state].length)];
       const firstName = allFirstNames[Math.floor(Math.random() * allFirstNames.length)];
@@ -211,7 +211,7 @@ class SalesDataService {
         lastName,
         email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${Math.random() > 0.5 ? 'gmail.com' : 'yahoo.com'}`,
         phone: `(${Math.floor(Math.random() * 900) + 100}) ${Math.floor(Math.random() * 900) + 100}-${Math.floor(Math.random() * 9000) + 1000}`,
-        hesId: `HES-10713${(i).toString().padStart(2, '0')}`,
+        hesId: `HES-10713${(i).toString().padStart(3, '0')}`,
         address: `${Math.floor(Math.random() * 9999) + 1} ${['Minada Avenue', 'Oak Street', 'Main Street', 'First Avenue', 'Second Street'][Math.floor(Math.random() * 5)]}`,
         street: '',
         city: cityData.city,
@@ -457,6 +457,13 @@ class SalesDataService {
       email: lead.email,
       stage: lead.stage
     }));
+  }
+
+  // Force regenerate data (useful for testing and fixing data issues)
+  async regenerateData(): Promise<void> {
+    localStorage.removeItem(this.storageKey);
+    this.initialized = false;
+    await this.initialize();
   }
 }
 

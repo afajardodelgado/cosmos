@@ -373,13 +373,13 @@ const SRECRecords: React.FC = () => {
                 <td className="actions-column">
                   <div className="action-buttons">
                     <button className="action-btn view-btn" title="View Details">
-                      👁
+                      
                     </button>
                     <button className="action-btn edit-btn" title="Edit Record">
-                      ✏️
+                      
                     </button>
                     <button className="action-btn download-btn" title="Download Certificate">
-                      📄
+                      
                     </button>
                   </div>
                 </td>
@@ -391,7 +391,7 @@ const SRECRecords: React.FC = () => {
 
       {records.length === 0 && (
         <div className="empty-state">
-          <div className="empty-icon">📊</div>
+          <div className="empty-icon"></div>
           <p>No SREC records found matching your filters.</p>
           <button className="create-record-btn">Create Your First SREC</button>
         </div>

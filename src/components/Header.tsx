@@ -23,8 +23,8 @@ const Header: React.FC = () => {
 
       <div className="actions">
         <div className="icon-circle">?</div>
-        <a href="https://us.qcells.com/" target="_blank" rel="noopener noreferrer" className="icon-circle">🌐</a>
-        <div className="icon-circle">⚙️</div>
+        <a href="https://us.qcells.com/" target="_blank" rel="noopener noreferrer" className="icon-circle"></a>
+        <div className="icon-circle"></div>
       </div>
     </header>
   );

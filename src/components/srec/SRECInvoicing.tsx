@@ -216,28 +216,28 @@ const SRECInvoicing: React.FC = () => {
       {/* Summary Stats */}
       <div className="invoice-stats-grid">
         <div className="stat-card primary">
-          <div className="stat-icon">📊</div>
+          <div className="stat-icon"></div>
           <div className="stat-content">
             <div className="stat-value">{stats.totalInvoices}</div>
             <div className="stat-label">Total Invoices</div>
           </div>
         </div>
         <div className="stat-card success">
-          <div className="stat-icon">💰</div>
+          <div className="stat-icon"></div>
           <div className="stat-content">
             <div className="stat-value">{formatCurrency(stats.totalAmount)}</div>
             <div className="stat-label">Total Billed</div>
           </div>
         </div>
         <div className="stat-card info">
-          <div className="stat-icon">✅</div>
+          <div className="stat-icon"></div>
           <div className="stat-content">
             <div className="stat-value">{formatCurrency(stats.paidAmount)}</div>
             <div className="stat-label">Paid Amount</div>
           </div>
         </div>
         <div className="stat-card warning">
-          <div className="stat-icon">⏰</div>
+          <div className="stat-icon"></div>
           <div className="stat-content">
             <div className="stat-value">{formatCurrency(stats.overdueAmount)}</div>
             <div className="stat-label">Overdue Amount</div>
@@ -354,16 +354,16 @@ const SRECInvoicing: React.FC = () => {
                 <td className="actions-column">
                   <div className="action-buttons">
                     <button className="action-btn view-btn" title="View Invoice">
-                      👁
+                      
                     </button>
                     <button className="action-btn edit-btn" title="Edit Invoice">
-                      ✏️
+                      
                     </button>
                     <button className="action-btn send-btn" title="Send Invoice">
-                      📧
+                      
                     </button>
                     <button className="action-btn download-btn" title="Download PDF">
-                      📄
+                      
                     </button>
                   </div>
                 </td>
@@ -375,7 +375,7 @@ const SRECInvoicing: React.FC = () => {
 
       {invoices.length === 0 && (
         <div className="empty-state">
-          <div className="empty-icon">💰</div>
+          <div className="empty-icon"></div>
           <p>No invoices found matching your criteria.</p>
           <button 
             className="create-invoice-btn"
