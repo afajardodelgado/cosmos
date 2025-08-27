@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
 import logoImage from '../assets/logos/Cosmos bu Qcells_White.png';
 
@@ -17,8 +17,8 @@ const Header: React.FC = () => {
       </div>
       
       <nav className="top-links">
-        <Link to="/homeowners">Homeowners</Link>
-        <Link to="/partners">Partners</Link>
+        <NavLink to="/homeowners">Homeowners</NavLink>
+        <NavLink to="/partners">Partners</NavLink>
       </nav>
 
       <div className="actions">

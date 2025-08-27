@@ -41,9 +41,26 @@
 }
 
 .top-links a:focus {
-  outline: 2px solid #00bcd4;
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: var(--border-width-2) solid var(--color-border-focus);
+  outline-offset: var(--border-width-2);
+  border-radius: var(--border-radius-base);
+}
+
+.top-links a.active {
+  color: var(--color-primary-400);
+  font-weight: var(--font-weight-semibold);
+  position: relative;
+}
+
+.top-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: var(--border-width-2);
+  background: var(--color-primary-400);
+  border-radius: var(--border-radius-sm);
 }
 
 .actions {

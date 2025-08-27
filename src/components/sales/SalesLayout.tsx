@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import './SalesLayout.css';
 import backgroundImage from '../../assets/images/BACKGROUND_GROUP.png';
+import { BackLink } from '../common/BackLink';
+import { Tabs } from '../common/Tabs';
+import { Breadcrumbs } from '../common/Breadcrumbs';
 
 interface SalesLayoutProps {
   children?: React.ReactNode;
@@ -9,7 +12,6 @@ interface SalesLayoutProps {
 
 const SalesLayout: React.FC<SalesLayoutProps> = ({ children }) => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [greeting, setGreeting] = useState('');
 
   useEffect(() => {
@@ -33,12 +35,12 @@ const SalesLayout: React.FC<SalesLayoutProps> = ({ children }) => {
     setGreeting(`Today is ${dayOfWeek}, ${month} ${day}${getOrdinalSuffix(day)}, ${year}`);
   }, []);
 
-  const tabs = [
-    { id: 'home', label: 'Business Summary', path: '/partners/es-portal/sales' },
-    { id: 'leads', label: 'My Leads', path: '/partners/es-portal/sales/leads' },
-    { id: 'opportunities', label: 'My Opportunities', path: '/partners/es-portal/sales/opportunities' },
-    { id: 'sites', label: 'My Sites', path: '/partners/es-portal/sales/sites' },
-    { id: 'contacts', label: 'My Contacts', path: '/partners/es-portal/sales/contacts' }
+  const tabItems = [
+    { id: 'home', label: 'Business Summary', to: '/partners/es-portal/sales' },
+    { id: 'leads', label: 'My Leads', to: '/partners/es-portal/sales/leads' },
+    { id: 'opportunities', label: 'My Opportunities', to: '/partners/es-portal/sales/opportunities' },
+    { id: 'sites', label: 'My Sites', to: '/partners/es-portal/sales/sites' },
+    { id: 'contacts', label: 'My Contacts', to: '/partners/es-portal/sales/contacts' }
   ];
 
   const getActiveTab = (): string => {
@@ -50,13 +52,13 @@ const SalesLayout: React.FC<SalesLayoutProps> = ({ children }) => {
     return 'home';
   };
 
-  const handleTabClick = (path: string): void => {
-    navigate(path);
-  };
 
   return (
     <div className="sales-layout" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="sales-content">
+        <BackLink fallbackTo="/partners/es-portal" />
+        <Breadcrumbs />
+        
         <div className="sales-greeting-section">
           <div className="sales-greeting">
             <div className="greeting-icon-sales"></div>
@@ -68,22 +70,17 @@ const SalesLayout: React.FC<SalesLayoutProps> = ({ children }) => {
         </div>
 
         <div className="sales-navigation">
-          <div className="sales-nav-tabs">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                className={`sales-nav-tab ${getActiveTab() === tab.id ? 'active' : ''}`}
-                onClick={() => handleTabClick(tab.path)}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+          <Tabs
+            items={tabItems}
+            activeId={getActiveTab()}
+            ariaLabel="Sales sections"
+            className="sales-tabs"
+          />
         </div>
 
-        <div className="sales-main-content">
+        <main id="main-content" className="sales-main-content" tabIndex={-1}>
           {children || <Outlet />}
-        </div>
+        </main>
       </div>
     </div>
   );

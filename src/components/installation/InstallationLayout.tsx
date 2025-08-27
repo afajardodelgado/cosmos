@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import './InstallationLayout.css';
 import backgroundImage from '../../assets/images/BACKGROUND_GROUP.png';
+import { BackLink } from '../common/BackLink';
+import { Tabs } from '../common/Tabs';
+import { Breadcrumbs } from '../common/Breadcrumbs';
 
 interface InstallationLayoutProps {
   children?: React.ReactNode;
@@ -9,7 +12,6 @@ interface InstallationLayoutProps {
 
 const InstallationLayout: React.FC<InstallationLayoutProps> = ({ children }) => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [greeting, setGreeting] = useState('');
 
   useEffect(() => {
@@ -33,13 +35,13 @@ const InstallationLayout: React.FC<InstallationLayoutProps> = ({ children }) => 
     setGreeting(`Today is ${dayOfWeek}, ${month} ${day}${getOrdinalSuffix(day)}, ${year}`);
   }, []);
 
-  const tabs = [
-    { id: 'home', label: 'Installation Dashboard', path: '/partners/es-portal/installation' },
-    { id: 'active', label: 'Active Projects', path: '/partners/es-portal/installation/active' },
-    { id: 'scheduled', label: 'Scheduled Installations', path: '/partners/es-portal/installation/scheduled' },
-    { id: 'completed', label: 'Completed Projects', path: '/partners/es-portal/installation/completed' },
-    { id: 'tasks', label: 'Tasks & Actions', path: '/partners/es-portal/installation/tasks' },
-    { id: 'crew', label: 'Crew Management', path: '/partners/es-portal/installation/crew' }
+  const tabItems = [
+    { id: 'home', label: 'Installation Dashboard', to: '/partners/es-portal/installation' },
+    { id: 'active', label: 'Active Projects', to: '/partners/es-portal/installation/active' },
+    { id: 'scheduled', label: 'Scheduled Installations', to: '/partners/es-portal/installation/scheduled' },
+    { id: 'completed', label: 'Completed Projects', to: '/partners/es-portal/installation/completed' },
+    { id: 'tasks', label: 'Tasks & Actions', to: '/partners/es-portal/installation/tasks' },
+    { id: 'crew', label: 'Crew Management', to: '/partners/es-portal/installation/crew' }
   ];
 
   const getActiveTab = (): string => {
@@ -52,13 +54,13 @@ const InstallationLayout: React.FC<InstallationLayoutProps> = ({ children }) => 
     return 'home';
   };
 
-  const handleTabClick = (path: string): void => {
-    navigate(path);
-  };
 
   return (
     <div className="installation-layout" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="installation-content">
+        <BackLink fallbackTo="/partners/es-portal" />
+        <Breadcrumbs />
+        
         <div className="installation-greeting-section">
           <div className="installation-greeting">
             <div className="greeting-icon-installation"></div>
@@ -70,22 +72,17 @@ const InstallationLayout: React.FC<InstallationLayoutProps> = ({ children }) => 
         </div>
 
         <div className="installation-navigation">
-          <div className="installation-nav-tabs">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                className={`installation-nav-tab ${getActiveTab() === tab.id ? 'active' : ''}`}
-                onClick={() => handleTabClick(tab.path)}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+          <Tabs
+            items={tabItems}
+            activeId={getActiveTab()}
+            ariaLabel="Installation sections"
+            className="installation-tabs"
+          />
         </div>
 
-        <div className="installation-main-content">
+        <main id="main-content" className="installation-main-content" tabIndex={-1}>
           {children || <Outlet />}
-        </div>
+        </main>
       </div>
     </div>
   );

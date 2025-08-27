@@ -15,6 +15,8 @@ import SRECTasks from './components/srec/SRECTasks';
 import Fulfillment from './components/Fulfillment';
 import Homeowners from './components/Homeowners';
 import CustomerSupport from './components/CustomerSupport';
+import NotFound from './components/NotFound';
+import { SkipLink } from './components/common/SkipLink';
 import SalesLayout from './components/sales/SalesLayout';
 import BusinessSummary from './components/sales/BusinessSummary';
 import LeadsManagement from './components/sales/LeadsManagement';
@@ -31,6 +33,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <SkipLink />
         <Routes>
           <Route path="/" element={
             <>
@@ -204,6 +207,14 @@ function App() {
             <>
               <Header />
               <CustomerSupport />
+            </>
+          } />
+          
+          {/* Catch-all route for 404 pages */}
+          <Route path="*" element={
+            <>
+              <Header />
+              <NotFound />
             </>
           } />
         </Routes>

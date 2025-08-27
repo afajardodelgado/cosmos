@@ -1,0 +1,126 @@
+.not-found-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.not-found-content {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.not-found-hero {
+  margin-bottom: 2.5rem;
+}
+
+.not-found-code {
+  font-size: 6rem;
+  font-weight: 700;
+  color: #dc2626;
+  margin: 0 0 1rem 0;
+  line-height: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.not-found-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 1rem 0;
+}
+
+.not-found-description {
+  font-size: 1.125rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.not-found-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.not-found-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  min-width: 150px;
+  border: 2px solid transparent;
+}
+
+.not-found-btn.primary {
+  background: #2563eb;
+  color: white;
+}
+
+.not-found-btn.primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.not-found-btn.secondary {
+  background: transparent;
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+.not-found-btn.secondary:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+  transform: translateY(-1px);
+}
+
+.not-found-btn:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.not-found-btn:active {
+  transform: translateY(0);
+}
+
+@media (min-width: 640px) {
+  .not-found-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .not-found-code {
+    font-size: 4rem;
+  }
+  
+  .not-found-title {
+    font-size: 1.5rem;
+  }
+  
+  .not-found-description {
+    font-size: 1rem;
+  }
+  
+  .not-found-content {
+    padding: 2rem 1.5rem;
+  }
+}

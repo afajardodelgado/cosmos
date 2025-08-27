@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './PartnerLogin.css';
 import backgroundImage from '../assets/images/BACKGROUND_GROUP.png';
 import partnerPortalIcon from '../assets/icons/partner_portal.png';
+import { BackLink } from './common/BackLink';
 
 interface LoginFormData {
   email: string;
@@ -79,6 +80,8 @@ const PartnerLogin: React.FC = () => {
 
   return (
     <div className="partner-login-page" style={{backgroundImage: `url(${backgroundImage})`}}>
+      <BackLink fallbackTo="/partners" />
+      
       <div className="login-hero">
         <div className="login-badge">Partner Access</div>
         <h1 className="login-title">

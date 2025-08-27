@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import './SRECLayout.css';
 import backgroundImage from '../../assets/images/BACKGROUND_GROUP.png';
+import { BackLink } from '../common/BackLink';
+import { Tabs } from '../common/Tabs';
+import { Breadcrumbs } from '../common/Breadcrumbs';
 
 interface SRECLayoutProps {
   children?: React.ReactNode;
@@ -9,7 +12,6 @@ interface SRECLayoutProps {
 
 const SRECLayout: React.FC<SRECLayoutProps> = ({ children }) => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [greeting, setGreeting] = useState('');
 
   useEffect(() => {
@@ -33,11 +35,11 @@ const SRECLayout: React.FC<SRECLayoutProps> = ({ children }) => {
     setGreeting(`Today is ${dayOfWeek}, ${month} ${day}${getOrdinalSuffix(day)}, ${year}`);
   }, []);
 
-  const tabs = [
-    { id: 'home', label: 'SREC Dashboard', path: '/partners/es-portal/srec' },
-    { id: 'records', label: 'SREC Records', path: '/partners/es-portal/srec/records' },
-    { id: 'invoicing', label: 'Invoicing & Payments', path: '/partners/es-portal/srec/invoicing' },
-    { id: 'tasks', label: 'Tasks & Workflow', path: '/partners/es-portal/srec/tasks' }
+  const tabItems = [
+    { id: 'home', label: 'SREC Dashboard', to: '/partners/es-portal/srec' },
+    { id: 'records', label: 'SREC Records', to: '/partners/es-portal/srec/records' },
+    { id: 'invoicing', label: 'Invoicing & Payments', to: '/partners/es-portal/srec/invoicing' },
+    { id: 'tasks', label: 'Tasks & Workflow', to: '/partners/es-portal/srec/tasks' }
   ];
 
   const getActiveTab = (): string => {
@@ -48,13 +50,13 @@ const SRECLayout: React.FC<SRECLayoutProps> = ({ children }) => {
     return 'home';
   };
 
-  const handleTabClick = (path: string): void => {
-    navigate(path);
-  };
 
   return (
     <div className="srec-layout" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="srec-content">
+        <BackLink fallbackTo="/partners/es-portal" />
+        <Breadcrumbs />
+        
         <div className="srec-greeting-section">
           <div className="srec-greeting">
             <div className="greeting-icon-srec"></div>
@@ -66,22 +68,17 @@ const SRECLayout: React.FC<SRECLayoutProps> = ({ children }) => {
         </div>
 
         <div className="srec-navigation">
-          <div className="srec-nav-tabs">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                className={`srec-nav-tab ${getActiveTab() === tab.id ? 'active' : ''}`}
-                onClick={() => handleTabClick(tab.path)}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+          <Tabs
+            items={tabItems}
+            activeId={getActiveTab()}
+            ariaLabel="SREC sections"
+            className="srec-tabs"
+          />
         </div>
 
-        <div className="srec-main-content">
+        <main id="main-content" className="srec-main-content" tabIndex={-1}>
           {children || <Outlet />}
-        </div>
+        </main>
       </div>
     </div>
   );

@@ -1,0 +1,33 @@
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #1f2937;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.skip-link:hover {
+  background: #374151;
+}
+
+.skip-link:active {
+  background: #111827;
+}
