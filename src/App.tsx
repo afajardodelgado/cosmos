@@ -12,6 +12,11 @@ import SRECDashboard from './components/srec/SRECDashboard';
 import SRECRecords from './components/srec/SRECRecords';
 import SRECInvoicing from './components/srec/SRECInvoicing';
 import SRECTasks from './components/srec/SRECTasks';
+import EnergyServicesDashboard from './components/energy-services/EnergyServicesDashboard';
+import VPPLayout from './components/vpp/VPPLayout';
+import VPPDashboard from './components/vpp/VPPDashboard';
+import VPPDevices from './components/vpp/VPPDevices';
+import VPPMonitoring from './components/vpp/VPPMonitoring';
 import Fulfillment from './components/Fulfillment';
 import Homeowners from './components/Homeowners';
 import CustomerSupport from './components/CustomerSupport';
@@ -72,7 +77,97 @@ function App() {
               <ESPartnerPortal />
             </>
           } />
-          {/* SREC Management Routes */}
+          {/* Energy Services Routes */}
+          <Route path="/partners/es-portal/energy-services" element={
+            <>
+              <Header />
+              <EnergyServicesDashboard />
+            </>
+          } />
+          
+          {/* SREC Management Routes - Updated paths */}
+          <Route path="/partners/es-portal/energy-services/srec" element={
+            <>
+              <Header />
+              <SRECLayout>
+                <SRECDashboard />
+              </SRECLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/energy-services/srec/records" element={
+            <>
+              <Header />
+              <SRECLayout>
+                <SRECRecords />
+              </SRECLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/energy-services/srec/invoicing" element={
+            <>
+              <Header />
+              <SRECLayout>
+                <SRECInvoicing />
+              </SRECLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/energy-services/srec/tasks" element={
+            <>
+              <Header />
+              <SRECLayout>
+                <SRECTasks />
+              </SRECLayout>
+            </>
+          } />
+          
+          {/* VPP Management Routes */}
+          <Route path="/partners/es-portal/energy-services/vpp" element={
+            <>
+              <Header />
+              <VPPLayout>
+                <VPPDashboard />
+              </VPPLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/energy-services/vpp/devices" element={
+            <>
+              <Header />
+              <VPPLayout>
+                <VPPDevices />
+              </VPPLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/energy-services/vpp/monitoring" element={
+            <>
+              <Header />
+              <VPPLayout>
+                <VPPMonitoring />
+              </VPPLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/energy-services/vpp/events" element={
+            <>
+              <Header />
+              <VPPLayout>
+                <div style={{ padding: '50px', textAlign: 'center', color: 'rgba(255,255,255,0.8)' }}>
+                  <h2>Grid Events</h2>
+                  <p>Grid events functionality coming soon...</p>
+                </div>
+              </VPPLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/energy-services/vpp/earnings" element={
+            <>
+              <Header />
+              <VPPLayout>
+                <div style={{ padding: '50px', textAlign: 'center', color: 'rgba(255,255,255,0.8)' }}>
+                  <h2>Earnings & Payments</h2>
+                  <p>Earnings tracking functionality coming soon...</p>
+                </div>
+              </VPPLayout>
+            </>
+          } />
+          
+          {/* Legacy SREC Routes (for backward compatibility) */}
           <Route path="/partners/es-portal/srec" element={
             <>
               <Header />

@@ -173,26 +173,15 @@ const ESPartnerPortal: React.FC = () => {
               <div className="card-link">Access Monitoring →</div>
             </Link>
 
-            <Link to="/partners/es-portal/srec" className="es-portal-card">
+            <Link to="/partners/es-portal/energy-services" className="es-portal-card">
               <div className="card-icon">
-                <img src={esProgramIcon} alt="SREC" className="icon-image" />
+                <img src={esProgramIcon} alt="Energy Services" className="icon-image" />
               </div>
-              <h3 className="card-title">SREC</h3>
+              <h3 className="card-title">Energy Services</h3>
               <p className="card-description">
-                Manage Solar Renewable Energy Certificates and trading
+                Manage renewable energy programs including SREC trading and Virtual Power Plant participation
               </p>
-              <div className="card-link">Access SREC →</div>
-            </Link>
-
-            <Link to="/partners/es-portal/vpp" className="es-portal-card">
-              <div className="card-icon">
-                <img src={esProgramIcon} alt="VPP" className="icon-image" />
-              </div>
-              <h3 className="card-title">VPP</h3>
-              <p className="card-description">
-                Virtual Power Plant management and grid services
-              </p>
-              <div className="card-link">Access VPP →</div>
+              <div className="card-link">Access Energy Services →</div>
             </Link>
 
             <Link to="/partners/es-portal/support" className="es-portal-card">

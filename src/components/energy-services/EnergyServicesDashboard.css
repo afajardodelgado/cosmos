@@ -1,0 +1,169 @@
+/* Energy Services Dashboard Styles - Matching Modules Page */
+.energy-services-page {
+  min-height: 100vh;
+  background-color: #060605;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
+.portal-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.es-portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.es-portal-card {
+  background: #0A0A0A;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  display: block;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.es-portal-card:hover {
+  transform: translateY(-5px);
+  background: #1A1A1A;
+  border-color: rgba(0, 188, 212, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 188, 212, 0.2);
+}
+
+.es-portal-card .card-icon {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  font-size: 40px;
+}
+
+.icon-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.srec-icon {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+}
+
+.vpp-icon {
+  background: linear-gradient(135deg, #4caf50, #388e3c);
+}
+
+.es-portal-card .card-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: #cccccc;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.es-portal-card .card-link {
+  color: #00bcd4;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+  margin-top: auto;
+}
+
+.es-portal-card:hover .card-link {
+  opacity: 0.8;
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .energy-services-page {
+    padding-top: 100px;
+  }
+  
+  .portal-content {
+    padding: 40px 20px;
+  }
+  
+  .es-portal-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: 25px;
+  }
+  
+  .es-portal-card {
+    padding: 30px 20px;
+    min-height: 260px;
+  }
+  
+  .es-portal-card .card-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .icon-circle {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .es-portal-card .card-title {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .es-portal-card {
+    padding: 25px 15px;
+    min-height: 240px;
+  }
+  
+  .es-portal-card .card-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .icon-circle {
+    width: 70px;
+    height: 70px;
+  }
+}

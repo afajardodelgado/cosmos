@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import './SRECLayout.css';
+import './EnergyServicesLayout.css';
 import backgroundImage from '../../assets/images/BACKGROUND_GROUP.png';
 import { BackLink } from '../common/BackLink';
 import { Tabs } from '../common/Tabs';
 import { Breadcrumbs } from '../common/Breadcrumbs';
 
-interface SRECLayoutProps {
+interface EnergyServicesLayoutProps {
   children?: React.ReactNode;
 }
 
-const SRECLayout: React.FC<SRECLayoutProps> = ({ children }) => {
+const EnergyServicesLayout: React.FC<EnergyServicesLayoutProps> = ({ children }) => {
   const location = useLocation();
   const [greeting, setGreeting] = useState('');
 
@@ -21,7 +21,6 @@ const SRECLayout: React.FC<SRECLayoutProps> = ({ children }) => {
     const day = now.getDate();
     const year = now.getFullYear();
     
-    // Add ordinal suffix to day
     const getOrdinalSuffix = (day: number): string => {
       if (day > 3 && day < 21) return 'th';
       switch (day % 10) {
@@ -36,47 +35,44 @@ const SRECLayout: React.FC<SRECLayoutProps> = ({ children }) => {
   }, []);
 
   const tabItems = [
-    { id: 'home', label: 'SREC Dashboard', to: '/partners/es-portal/energy-services/srec' },
-    { id: 'records', label: 'SREC Records', to: '/partners/es-portal/energy-services/srec/records' },
-    { id: 'invoicing', label: 'Invoicing & Payments', to: '/partners/es-portal/energy-services/srec/invoicing' },
-    { id: 'tasks', label: 'Tasks & Workflow', to: '/partners/es-portal/energy-services/srec/tasks' }
+    { id: 'home', label: 'Energy Overview', to: '/partners/es-portal/energy-services' },
+    { id: 'srec', label: 'SREC Management', to: '/partners/es-portal/energy-services/srec' },
+    { id: 'vpp', label: 'Virtual Power Plant', to: '/partners/es-portal/energy-services/vpp' }
   ];
 
   const getActiveTab = (): string => {
     const path = location.pathname;
-    if (path.endsWith('/records')) return 'records';
-    if (path.endsWith('/invoicing')) return 'invoicing';
-    if (path.endsWith('/tasks')) return 'tasks';
+    if (path.includes('/srec')) return 'srec';
+    if (path.includes('/vpp')) return 'vpp';
     return 'home';
   };
 
-
   return (
-    <div className="srec-layout" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <div className="srec-content">
-        <BackLink fallbackTo="/partners/es-portal/energy-services" />
+    <div className="energy-services-layout" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className="energy-services-content">
+        <BackLink fallbackTo="/partners/es-portal" />
         <Breadcrumbs />
         
-        <div className="srec-greeting-section">
-          <div className="srec-greeting">
-            <div className="greeting-icon-srec"></div>
+        <div className="energy-services-greeting-section">
+          <div className="energy-services-greeting">
+            <div className="greeting-icon-energy-services"></div>
             <div className="greeting-content">
-              <h2 className="greeting-title">SREC Management Portal</h2>
+              <h2 className="greeting-title">Energy Services Management Portal</h2>
               <p className="greeting-date">{greeting}</p>
             </div>
           </div>
         </div>
 
-        <div className="srec-navigation">
+        <div className="energy-services-navigation">
           <Tabs
             items={tabItems}
             activeId={getActiveTab()}
-            ariaLabel="SREC sections"
-            className="srec-tabs"
+            ariaLabel="Energy Services sections"
+            className="energy-services-tabs"
           />
         </div>
 
-        <main id="main-content" className="srec-main-content" tabIndex={-1}>
+        <main id="main-content" className="energy-services-main-content" tabIndex={-1}>
           {children || <Outlet />}
         </main>
       </div>
@@ -84,4 +80,4 @@ const SRECLayout: React.FC<SRECLayoutProps> = ({ children }) => {
   );
 };
 
-export default SRECLayout;
+export default EnergyServicesLayout;

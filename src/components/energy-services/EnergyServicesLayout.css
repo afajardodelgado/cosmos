@@ -1,0 +1,164 @@
+/* Energy Services Layout Styles - Consistent with SREC Layout */
+.energy-services-layout {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+.energy-services-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.energy-services-greeting-section {
+  margin: 20px 0;
+}
+
+.energy-services-greeting {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.greeting-icon-energy-services {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.greeting-icon-energy-services::before {
+  content: 'ES';
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  z-index: 1;
+  position: relative;
+}
+
+.greeting-icon-energy-services::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.greeting-content {
+  flex: 1;
+}
+
+.greeting-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.greeting-date {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-weight: 500;
+}
+
+.energy-services-navigation {
+  margin: 10px 0 20px 0;
+}
+
+.energy-services-tabs {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.energy-services-main-content {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 600px;
+  overflow: auto;
+}
+
+.energy-services-main-content:focus {
+  outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .energy-services-content {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .energy-services-content {
+    padding: 10px;
+  }
+  
+  .energy-services-greeting {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .energy-services-main-content {
+    padding: 20px;
+  }
+  
+  .greeting-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .energy-services-main-content {
+    padding: 15px;
+  }
+  
+  .greeting-title {
+    font-size: 1.2rem;
+  }
+  
+  .greeting-date {
+    font-size: 0.9rem;
+  }
+}

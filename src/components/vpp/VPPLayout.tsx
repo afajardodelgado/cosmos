@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import './SRECLayout.css';
+import './VPPLayout.css';
 import backgroundImage from '../../assets/images/BACKGROUND_GROUP.png';
 import { BackLink } from '../common/BackLink';
 import { Tabs } from '../common/Tabs';
 import { Breadcrumbs } from '../common/Breadcrumbs';
 
-interface SRECLayoutProps {
+interface VPPLayoutProps {
   children?: React.ReactNode;
 }
 
-const SRECLayout: React.FC<SRECLayoutProps> = ({ children }) => {
+const VPPLayout: React.FC<VPPLayoutProps> = ({ children }) => {
   const location = useLocation();
   const [greeting, setGreeting] = useState('');
 
@@ -21,7 +21,6 @@ const SRECLayout: React.FC<SRECLayoutProps> = ({ children }) => {
     const day = now.getDate();
     const year = now.getFullYear();
     
-    // Add ordinal suffix to day
     const getOrdinalSuffix = (day: number): string => {
       if (day > 3 && day < 21) return 'th';
       switch (day % 10) {
@@ -36,47 +35,48 @@ const SRECLayout: React.FC<SRECLayoutProps> = ({ children }) => {
   }, []);
 
   const tabItems = [
-    { id: 'home', label: 'SREC Dashboard', to: '/partners/es-portal/energy-services/srec' },
-    { id: 'records', label: 'SREC Records', to: '/partners/es-portal/energy-services/srec/records' },
-    { id: 'invoicing', label: 'Invoicing & Payments', to: '/partners/es-portal/energy-services/srec/invoicing' },
-    { id: 'tasks', label: 'Tasks & Workflow', to: '/partners/es-portal/energy-services/srec/tasks' }
+    { id: 'home', label: 'VPP Dashboard', to: '/partners/es-portal/energy-services/vpp' },
+    { id: 'devices', label: 'My Devices', to: '/partners/es-portal/energy-services/vpp/devices' },
+    { id: 'monitoring', label: 'Energy Monitoring', to: '/partners/es-portal/energy-services/vpp/monitoring' },
+    { id: 'events', label: 'Grid Events', to: '/partners/es-portal/energy-services/vpp/events' },
+    { id: 'earnings', label: 'Earnings', to: '/partners/es-portal/energy-services/vpp/earnings' }
   ];
 
   const getActiveTab = (): string => {
     const path = location.pathname;
-    if (path.endsWith('/records')) return 'records';
-    if (path.endsWith('/invoicing')) return 'invoicing';
-    if (path.endsWith('/tasks')) return 'tasks';
+    if (path.endsWith('/devices')) return 'devices';
+    if (path.endsWith('/monitoring')) return 'monitoring';
+    if (path.endsWith('/events')) return 'events';
+    if (path.endsWith('/earnings')) return 'earnings';
     return 'home';
   };
 
-
   return (
-    <div className="srec-layout" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <div className="srec-content">
+    <div className="vpp-layout" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className="vpp-content">
         <BackLink fallbackTo="/partners/es-portal/energy-services" />
         <Breadcrumbs />
         
-        <div className="srec-greeting-section">
-          <div className="srec-greeting">
-            <div className="greeting-icon-srec"></div>
+        <div className="vpp-greeting-section">
+          <div className="vpp-greeting">
+            <div className="greeting-icon-vpp"></div>
             <div className="greeting-content">
-              <h2 className="greeting-title">SREC Management Portal</h2>
+              <h2 className="greeting-title">Virtual Power Plant Portal</h2>
               <p className="greeting-date">{greeting}</p>
             </div>
           </div>
         </div>
 
-        <div className="srec-navigation">
+        <div className="vpp-navigation">
           <Tabs
             items={tabItems}
             activeId={getActiveTab()}
-            ariaLabel="SREC sections"
-            className="srec-tabs"
+            ariaLabel="VPP sections"
+            className="vpp-tabs"
           />
         </div>
 
-        <main id="main-content" className="srec-main-content" tabIndex={-1}>
+        <main id="main-content" className="vpp-main-content" tabIndex={-1}>
           {children || <Outlet />}
         </main>
       </div>
@@ -84,4 +84,4 @@ const SRECLayout: React.FC<SRECLayoutProps> = ({ children }) => {
   );
 };
 
-export default SRECLayout;
+export default VPPLayout;
