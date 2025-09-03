@@ -1,0 +1,122 @@
+/* Qcells Grid System */
+
+/* Base Layout Container */
+.qcells-layout {
+  min-width: var(--grid-min-width);
+  max-width: var(--grid-min-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-content-margin);
+}
+
+/* Grid Container */
+.qcells-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--grid-gutter);
+  width: 100%;
+}
+
+/* Column Spans */
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* Navigation Layouts */
+.layout-with-full-sidebar {
+  display: grid;
+  grid-template-columns: var(--nav-sidebar-full) 1fr;
+  min-height: 100vh;
+}
+
+.layout-with-collapsed-sidebar {
+  display: grid;
+  grid-template-columns: var(--nav-sidebar-collapsed) 1fr;
+  min-height: 100vh;
+}
+
+.layout-basic {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  padding-top: var(--nav-global-height);
+}
+
+/* Content Area with Sidebar */
+.content-with-sidebar {
+  padding: var(--grid-content-margin);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--grid-gutter);
+}
+
+/* Module Height Classes */
+.module-2-rows { min-height: var(--module-height-2); }
+.module-3-rows { min-height: var(--module-height-3); }
+.module-4-rows { min-height: var(--module-height-4); }
+.module-5-rows { min-height: var(--module-height-5); }
+.module-6-rows { min-height: var(--module-height-6); }
+
+/* Spacing Utilities */
+.space-1 { margin: var(--space-1); }
+.space-2 { margin: var(--space-2); }
+.space-3 { margin: var(--space-3); }
+.space-4 { margin: var(--space-4); }
+.space-5 { margin: var(--space-5); }
+.space-6 { margin: var(--space-6); }
+.space-12 { margin: var(--space-12); }
+.space-18 { margin: var(--space-18); }
+
+.p-1 { padding: var(--space-1); }
+.p-2 { padding: var(--space-2); }
+.p-3 { padding: var(--space-3); }
+.p-4 { padding: var(--space-4); }
+.p-5 { padding: var(--space-5); }
+.p-6 { padding: var(--space-6); }
+.p-12 { padding: var(--space-12); }
+.p-18 { padding: var(--space-18); }
+
+.px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+.py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
+.pt-6 { padding-top: var(--space-6); }
+.pb-6 { padding-bottom: var(--space-6); }
+.pl-6 { padding-left: var(--space-6); }
+.pr-6 { padding-right: var(--space-6); }
+
+.mx-6 { margin-left: var(--space-6); margin-right: var(--space-6); }
+.my-6 { margin-top: var(--space-6); margin-bottom: var(--space-6); }
+.mt-6 { margin-top: var(--space-6); }
+.mb-6 { margin-bottom: var(--space-6); }
+.ml-6 { margin-left: var(--space-6); }
+.mr-6 { margin-right: var(--space-6); }
+
+/* Global Navigation Bar */
+.global-nav {
+  height: var(--nav-global-height);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .qcells-layout {
+    min-width: auto;
+    max-width: 100%;
+    padding: 0 var(--space-5);
+  }
+  
+  .layout-with-full-sidebar,
+  .layout-with-collapsed-sidebar {
+    grid-template-columns: 1fr;
+  }
+}

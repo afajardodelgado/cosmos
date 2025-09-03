@@ -12,7 +12,7 @@
 
 .srec-header {
   margin-bottom: 40px;
-  padding: 0 40px;
+  padding: 0 var(--grid-content-margin);
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -31,11 +31,13 @@
   gap: 30px;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--grid-content-margin);
 }
 
 .srec-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -44,18 +46,18 @@
 }
 
 .card-header {
-  background: #f8f9fa;
+  background: rgba(255, 255, 255, 0.05);
   margin: 0;
   padding: 20px 25px;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #333;
-  border-bottom: 1px solid #e9ecef;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .card-content {
   padding: 25px;
-  color: #333;
+  color: white;
 }
 
 /* Job Forms Styles */
@@ -85,7 +87,7 @@
 
 .task-name {
   font-size: 1rem;
-  color: #333;
+  color: white;
 }
 
 .view-task-btn {
@@ -116,7 +118,7 @@
 .notes-label,
 .notes-date-label {
   font-weight: 600;
-  color: #666;
+  color: #cccccc;
   font-size: 0.9rem;
 }
 
@@ -137,12 +139,12 @@
 
 .note-name {
   font-size: 1rem;
-  color: #333;
+  color: white;
 }
 
 .note-date {
   font-size: 1rem;
-  color: #666;
+  color: #cccccc;
 }
 
 .create-new-btn {
@@ -192,7 +194,7 @@
 
 .record-name {
   font-size: 1rem;
-  color: #333;
+  color: white;
 }
 
 .record-actions {
@@ -252,7 +254,7 @@
 }
 
 .bulk-action-link {
-  color: #333;
+  color: white;
   text-decoration: underline;
   font-size: 1rem;
   cursor: pointer;

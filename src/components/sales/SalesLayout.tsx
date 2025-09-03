@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import './SalesLayout.css';
-import backgroundImage from '../../assets/images/BACKGROUND_GROUP.png';
+import backgroundImage from '../../assets/images/Background-1Component4.png';
 import { BackLink } from '../common/BackLink';
 import { Tabs } from '../common/Tabs';
 import { Breadcrumbs } from '../common/Breadcrumbs';

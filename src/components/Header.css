@@ -108,7 +108,7 @@
 }
 
 .icon-circle:focus {
-  outline: 2px solid #00bcd4;
+  outline: 2px solid var(--color-brand-cyan);
   outline-offset: 2px;
 }
 

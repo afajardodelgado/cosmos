@@ -1,6 +1,6 @@
 /* Project Milestone Timeline Styles */
 .project-milestone-timeline {
-  background: white;
+  background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 25px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
@@ -13,13 +13,13 @@
   align-items: center;
   margin-bottom: 30px;
   padding-bottom: 15px;
-  border-bottom: 2px solid #4caf50;
+  border-bottom: 2px solid var(--color-brand-green);
 }
 
 .timeline-title {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #333;
+  color: white;
   margin: 0;
 }
 
@@ -27,7 +27,7 @@
   display: flex;
   gap: 20px;
   font-size: 0.9rem;
-  color: #666;
+  color: #999;
 }
 
 .milestone-count,
@@ -79,7 +79,7 @@
 }
 
 .milestone-completed {
-  background: linear-gradient(135deg, #4caf50, #45a049);
+  background: linear-gradient(135deg, var(--color-brand-green), #45a049);
   font-size: 1.2rem;
 }
 
@@ -106,7 +106,7 @@
 .timeline-connector {
   width: 3px;
   height: 60px;
-  background: linear-gradient(180deg, #4caf50, #81c784);
+  background: linear-gradient(180deg, var(--color-brand-green), #81c784);
   margin-top: 8px;
 }
 
@@ -134,13 +134,13 @@
 .milestone-name {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #333;
+  color: white;
   margin: 0 0 5px 0;
 }
 
 .milestone-description {
   font-size: 0.9rem;
-  color: #666;
+  color: #999;
   margin: 0;
   line-height: 1.4;
 }
@@ -161,12 +161,12 @@
 }
 
 .date-label {
-  color: #666;
+  color: #999;
   font-weight: 500;
 }
 
 .date-value {
-  color: #333;
+  color: white;
   font-weight: 600;
 }
 
@@ -182,18 +182,18 @@
 .status-selector {
   width: 100%;
   padding: 8px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   font-size: 0.85rem;
   font-weight: 500;
-  background: white;
+  background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
   cursor: pointer;
   font-family: inherit;
 }
 
 .status-selector:focus {
   outline: none;
-  border-color: #4caf50;
+  border-color: var(--color-brand-green);
   box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
 
@@ -206,7 +206,7 @@
 .tasks-title {
   font-size: 1rem;
   font-weight: 600;
-  color: #333;
+  color: white;
   margin: 0 0 15px 0;
 }
 
@@ -217,7 +217,7 @@
 }
 
 .task-item {
-  background: white;
+  background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 15px;
@@ -225,7 +225,7 @@
 }
 
 .task-item:hover {
-  border-color: #4caf50;
+  border-color: var(--color-brand-green);
   box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1);
 }
 
@@ -256,7 +256,7 @@
 .task-title {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #333;
+  color: white;
 }
 
 .task-priority {
@@ -289,12 +289,12 @@
 
 .priority-default {
   background: #f5f5f5;
-  color: #666;
+  color: #999;
 }
 
 .task-description {
   font-size: 0.85rem;
-  color: #666;
+  color: #999;
   margin: 0;
   line-height: 1.4;
 }
@@ -304,7 +304,7 @@
   flex-direction: column;
   gap: 3px;
   font-size: 0.8rem;
-  color: #666;
+  color: #999;
   min-width: 160px;
 }
 
@@ -325,25 +325,25 @@
 .task-status-selector {
   width: 100%;
   padding: 6px 10px;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 5px;
   font-size: 0.8rem;
   font-weight: 500;
-  background: white;
+  background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
   cursor: pointer;
   font-family: inherit;
 }
 
 .task-status-selector:focus {
   outline: none;
-  border-color: #4caf50;
+  border-color: var(--color-brand-green);
   box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
 
 .task-completed {
   background: #e8f5e8;
   color: #2e7d32;
-  border-color: #4caf50;
+  border-color: var(--color-brand-green);
 }
 
 .task-in-progress {
@@ -371,8 +371,8 @@
 }
 
 .task-default {
-  background: white;
-  color: #666;
+  background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+  color: #999;
   border-color: #ddd;
 }
 
@@ -385,7 +385,7 @@
 .unassigned-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #333;
+  color: white;
   margin: 0 0 20px 0;
 }
 
@@ -397,7 +397,7 @@
   align-items: center;
   justify-content: center;
   min-height: 300px;
-  color: #666;
+  color: #999;
   text-align: center;
 }
 
@@ -405,7 +405,7 @@
   width: 40px;
   height: 40px;
   border: 4px solid #f3f3f3;
-  border-top: 4px solid #4caf50;
+  border-top: 4px solid var(--color-brand-green);
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 20px;
@@ -423,7 +423,7 @@
 .retry-button {
   margin-top: 15px;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   color: white;
   border: none;
   border-radius: 8px;

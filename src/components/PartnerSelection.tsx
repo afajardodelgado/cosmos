@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './PartnerSelection.css';
-import backgroundImage from '../assets/images/BACKGROUND_GROUP.png';
+import backgroundImage from '../assets/images/Background-1Component4.png';
 import partnerPortalIcon from '../assets/icons/partner_portal.png';
 import customerSupportIcon from '../assets/icons/customer_support.png';
 import { BackLink } from './common/BackLink';

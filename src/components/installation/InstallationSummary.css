@@ -28,9 +28,9 @@
 
 .date-range-btn {
   padding: 10px 20px;
-  border: 2px solid #4caf50;
+  border: 2px solid var(--color-brand-green);
   background: transparent;
-  color: #4caf50;
+  color: var(--color-brand-green);
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
@@ -43,7 +43,7 @@
 }
 
 .date-range-btn.active {
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   color: white;
 }
 
@@ -54,18 +54,20 @@
 }
 
 .kpi-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 25px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .kpi-card:hover {
   transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .kpi-header {
@@ -75,7 +77,7 @@
 .kpi-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #333;
+  color: #cccccc;
   margin: 0;
   text-align: center;
 }
@@ -104,7 +106,7 @@
   transform: translate(-50%, -50%);
   font-size: 1.2rem;
   font-weight: 700;
-  color: #333;
+  color: white;
   text-align: center;
 }
 
@@ -120,7 +122,7 @@
 .kpi-number {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #4caf50;
+  color: var(--color-brand-green);
   text-align: center;
 }
 
@@ -148,13 +150,13 @@
 .breakdown-value {
   font-size: 0.9rem;
   font-weight: 700;
-  color: #333;
+  color: white;
 }
 
 .breakdown-label {
   font-size: 0.7rem;
   font-weight: 500;
-  color: #666;
+  color: #999;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -168,21 +170,21 @@
 }
 
 .sidebar-section {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sidebar-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #333;
+  color: white;
   margin: 0 0 20px 0;
   padding-bottom: 10px;
-  border-bottom: 2px solid #4caf50;
+  border-bottom: 2px solid var(--color-brand-green);
 }
 
 .quick-actions {
@@ -211,7 +213,7 @@
 .action-icon {
   width: 35px;
   height: 35px;
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   border-radius: 8px;
   flex-shrink: 0;
 }
@@ -222,14 +224,14 @@
 
 .action-title {
   font-weight: 600;
-  color: #333;
+  color: white;
   font-size: 0.95rem;
   margin-bottom: 2px;
 }
 
 .action-description {
   font-size: 0.85rem;
-  color: #666;
+  color: #999;
 }
 
 .recent-projects {
@@ -268,7 +270,7 @@
 
 .project-name {
   font-weight: 600;
-  color: #333;
+  color: white;
   font-size: 0.95rem;
   margin-bottom: 2px;
   overflow: hidden;
@@ -278,7 +280,7 @@
 
 .project-customer {
   font-size: 0.85rem;
-  color: #666;
+  color: #999;
   margin-bottom: 5px;
 }
 
@@ -328,17 +330,17 @@
 
 .stage-default {
   background: #f5f5f5;
-  color: #666;
+  color: #333;
 }
 
 .progress-text {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #4caf50;
+  color: var(--color-brand-green);
 }
 
 .view-btn {
-  background: #4caf50;
+  background: var(--color-brand-green);
   color: white;
   border: none;
   padding: 6px 12px;
@@ -375,7 +377,7 @@
 .installation-date {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #4caf50;
+  color: var(--color-brand-green);
   background: rgba(76, 175, 80, 0.1);
   padding: 6px 10px;
   border-radius: 8px;
@@ -390,14 +392,14 @@
 
 .installation-project {
   font-weight: 600;
-  color: #333;
+  color: white;
   font-size: 0.95rem;
   margin-bottom: 2px;
 }
 
 .installation-customer {
   font-size: 0.85rem;
-  color: #666;
+  color: #cccccc;
   margin-bottom: 4px;
 }
 
@@ -423,14 +425,14 @@
 .logo-placeholder {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   border-radius: 12px;
 }
 
 .company-title {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #333;
+  color: white;
   margin: 0 0 15px 0;
 }
 
@@ -443,7 +445,7 @@
 .contact-phone,
 .contact-email {
   font-size: 0.9rem;
-  color: #666;
+  color: #cccccc;
   font-weight: 500;
 }
 
@@ -455,7 +457,7 @@
   align-items: center;
   justify-content: center;
   min-height: 400px;
-  color: #666;
+  color: #cccccc;
   text-align: center;
 }
 
@@ -463,7 +465,7 @@
   width: 40px;
   height: 40px;
   border: 4px solid #f3f3f3;
-  border-top: 4px solid #4caf50;
+  border-top: 4px solid var(--color-brand-green);
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 20px;
@@ -481,7 +483,7 @@
 .retry-button {
   margin-top: 15px;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   color: white;
   border: none;
   border-radius: 8px;

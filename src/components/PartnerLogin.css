@@ -38,7 +38,7 @@
 }
 
 .title-blue {
-  color: #00bcd4;
+  color: var(--color-brand-cyan);
 }
 
 .login-subtitle {
@@ -124,7 +124,7 @@
 
 .sso-button:focus {
   outline: none;
-  border-color: #00bcd4;
+  border-color: var(--color-brand-cyan);
   box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2);
 }
 
@@ -207,7 +207,7 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #00bcd4;
+  border-color: var(--color-brand-cyan);
   box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2);
   background: rgba(255, 255, 255, 0.08);
 }
@@ -231,7 +231,7 @@
 .login-button {
   width: 100%;
   padding: 16px 24px;
-  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  background: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-cyan-dark));
   border: none;
   border-radius: 12px;
   color: white;
@@ -263,7 +263,7 @@
 }
 
 .forgot-password a {
-  color: #00bcd4;
+  color: var(--color-brand-cyan);
   text-decoration: none;
   font-size: 14px;
   transition: opacity 0.3s ease;
@@ -276,7 +276,7 @@
 .forgot-password-link {
   background: none;
   border: none;
-  color: #00bcd4;
+  color: var(--color-brand-cyan);
   font-size: 14px;
   cursor: pointer;
   transition: opacity 0.3s ease;

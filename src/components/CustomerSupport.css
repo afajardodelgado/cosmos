@@ -38,7 +38,7 @@
 }
 
 .title-blue {
-  color: #00bcd4;
+  color: var(--color-brand-cyan);
 }
 
 .support-subtitle {
@@ -100,7 +100,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #00bcd4;
+  border-color: var(--color-brand-cyan);
   box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.2);
   background: rgba(255, 255, 255, 0.08);
 }
@@ -145,14 +145,14 @@
 }
 
 .form-group input[type="file"]:hover {
-  border-color: #00bcd4;
+  border-color: var(--color-brand-cyan);
   background: rgba(0, 188, 212, 0.05);
 }
 
 .submit-button {
   width: 100%;
   padding: 16px 24px;
-  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  background: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-cyan-dark));
   border: none;
   border-radius: 12px;
   color: white;

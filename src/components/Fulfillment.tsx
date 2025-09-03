@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Fulfillment.css';
-import backgroundImage from '../assets/images/BACKGROUND_GROUP.png';
+import backgroundImage from '../assets/images/Background-1Component4.png';
 
 const Fulfillment: React.FC = () => {
   const [tasks] = useState([

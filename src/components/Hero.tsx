@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Hero.css';
-import backgroundImage from '../assets/images/MAIN.png';
+import backgroundImage from '../assets/images/Background-1Component4.png';
 
 const Hero: React.FC = () => {
   const navigate = useNavigate();

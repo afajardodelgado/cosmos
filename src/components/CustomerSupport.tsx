@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './CustomerSupport.css';
-import backgroundImage from '../assets/images/BACKGROUND_GROUP.png';
+import backgroundImage from '../assets/images/Background-1Component4.png';
 
 interface FormData {
   userType: string;

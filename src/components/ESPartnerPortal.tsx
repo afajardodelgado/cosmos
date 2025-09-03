@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ESPartnerPortal.css';
-import backgroundImage from '../assets/images/BACKGROUND_GROUP.png';
+import backgroundImage from '../assets/images/Background-1Component4.png';
 import customerSupportIcon from '../assets/icons/customer_support.png';
 import qcellsProductIcon from '../assets/icons/qcells_hw_products.png';
 import esProgramIcon from '../assets/icons/es_program.png';

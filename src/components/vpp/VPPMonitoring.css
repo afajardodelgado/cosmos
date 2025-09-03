@@ -51,7 +51,7 @@
 
 .site-select:focus {
   outline: none;
-  border-color: #4caf50;
+  border-color: var(--color-brand-green);
   box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
 
@@ -151,7 +151,7 @@
 .node-value {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #4caf50;
+  color: var(--color-brand-green);
 }
 
 .battery-level {
@@ -177,7 +177,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, #4caf50, #66bb6a);
+  background: linear-gradient(to top, var(--color-brand-green), var(--color-brand-green-light));
   border-radius: 2px;
   transition: height 0.3s ease;
 }
@@ -275,7 +275,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
 }
@@ -284,7 +284,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   cursor: pointer;
   border: none;
   box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
@@ -293,7 +293,7 @@
 .slider-value {
   font-size: 1rem;
   font-weight: 600;
-  color: #4caf50;
+  color: var(--color-brand-green);
   text-align: center;
   background: rgba(76, 175, 80, 0.1);
   padding: 8px 12px;
@@ -303,7 +303,7 @@
 
 .discharge-button {
   padding: 12px 24px;
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   color: white;
   border: none;
   border-radius: 12px;

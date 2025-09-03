@@ -51,7 +51,7 @@
 
 .site-select:focus {
   outline: none;
-  border-color: #4caf50;
+  border-color: var(--color-brand-green);
   box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
 
@@ -106,7 +106,7 @@
 }
 
 .device-card.battery {
-  border-left: 4px solid #4caf50;
+  border-left: 4px solid var(--color-brand-green);
 }
 
 .device-card.solar {
@@ -192,7 +192,7 @@
 .metric-value {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #4caf50;
+  color: var(--color-brand-green);
 }
 
 .charge-bar {
@@ -206,7 +206,7 @@
 
 .charge-fill {
   height: 100%;
-  background: linear-gradient(90deg, #4caf50, #66bb6a);
+  background: linear-gradient(90deg, var(--color-brand-green), var(--color-brand-green-light));
   border-radius: 3px;
   transition: width 0.3s ease;
 }
@@ -250,7 +250,7 @@
 }
 
 .setting-value.enabled {
-  color: #4caf50;
+  color: var(--color-brand-green);
 }
 
 .setting-value.disabled {
@@ -301,7 +301,7 @@
 }
 
 .action-button.primary {
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   color: white;
 }
 
@@ -356,7 +356,7 @@
 
 .add-device-button {
   padding: 12px 24px;
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   color: white;
   border: none;
   border-radius: 10px;
@@ -386,7 +386,7 @@
   width: 40px;
   height: 40px;
   border: 4px solid rgba(255, 255, 255, 0.1);
-  border-top: 4px solid #4caf50;
+  border-top: 4px solid var(--color-brand-green);
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 20px;
@@ -400,7 +400,7 @@
 .retry-button {
   margin-top: 15px;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   color: white;
   border: none;
   border-radius: 8px;

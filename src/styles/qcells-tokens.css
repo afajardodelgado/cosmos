@@ -1,0 +1,108 @@
+/* Qcells Design System Tokens */
+
+/* Import Pretendard Font Family */
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Typography - Font Family */
+  --font-family-primary: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  
+  /* Font Weights */
+  --font-weight-thin: 100;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Colors - Qcells Palette */
+  --color-primary: #00C6C1;
+  --color-text-light: #FAFAFA;
+  --color-text-dark: #0A0A0A;
+  --color-disabled: #8B8B8B;
+  
+  /* Maintain existing theme colors for compatibility */
+  --color-brand-cyan: #00bcd4;
+  --color-brand-cyan-dark: #0097a7;
+  --color-brand-green: #4caf50;
+  --color-brand-green-light: #66bb6a;
+
+  /* Typography - Font Sizes */
+  /* Caption */
+  --font-size-caption-01: 10px;
+  --line-height-caption-01: 14px;
+  --letter-spacing-caption-01: 0.2px;
+  
+  --font-size-caption-02: 12px;
+  --line-height-caption-02: 16px;
+  --letter-spacing-caption-02: 0.2px;
+
+  /* Body */
+  --font-size-body-01: 14px;
+  --line-height-body-01: 20px;
+  
+  --font-size-body-02: 16px;
+  --line-height-body-02: 22px;
+  
+  --font-size-body-03: 20px;
+  --line-height-body-03: 28px;
+
+  /* Subtitle */
+  --font-size-subtitle-01: 14px;
+  --line-height-subtitle-01: 20px;
+  
+  --font-size-subtitle-02: 16px;
+  --line-height-subtitle-02: 22px;
+  
+  --font-size-subtitle-03: 20px;
+  --line-height-subtitle-03: 28px;
+
+  /* Title */
+  --font-size-title-01: 14px;
+  --line-height-title-01: 20px;
+  
+  --font-size-title-02: 16px;
+  --line-height-title-02: 22px;
+  
+  --font-size-title-03: 20px;
+  --line-height-title-03: 28px;
+
+  /* Headline */
+  --font-size-headline-01: 16px;
+  --line-height-headline-01: 22px;
+  
+  --font-size-headline-02: 20px;
+  --line-height-headline-02: 28px;
+
+  /* Display */
+  --font-size-display-01: 32px;
+  --line-height-display-01: 36px;
+
+  /* Grid and Layout */
+  --grid-min-width: 1384px;
+  --grid-columns: 12;
+  --grid-content-margin: 24px;
+  --grid-gutter: 24px;
+  
+  /* Navigation */
+  --nav-global-height: 60px;
+  --nav-sidebar-full: 256px;
+  --nav-sidebar-collapsed: 64px;
+
+  /* Module Heights */
+  --module-height-2: 90px;   /* 2 rows */
+  --module-height-3: 147px;  /* 3 rows */
+  --module-height-4: 204px;  /* 4 rows */
+  --module-height-5: 261px;  /* 5 rows */
+  --module-height-6: 318px;  /* 6 rows */
+
+  /* Spacing Scale (based on 24px grid) */
+  --space-1: 4px;    /* 1/6 of grid */
+  --space-2: 8px;    /* 1/3 of grid */
+  --space-3: 12px;   /* 1/2 of grid */
+  --space-4: 16px;   /* 2/3 of grid */
+  --space-5: 20px;   /* 5/6 of grid */
+  --space-6: 24px;   /* 1 grid unit */
+  --space-12: 48px;  /* 2 grid units */
+  --space-18: 72px;  /* 3 grid units */
+}

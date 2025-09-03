@@ -13,9 +13,9 @@
 }
 
 .support-content {
-  max-width: 1400px;
+  max-width: var(--grid-min-width);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--grid-content-margin);
 }
 
 /* Greeting Section */
@@ -38,7 +38,7 @@
 .greeting-icon-support {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  background: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-cyan-dark));
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -111,7 +111,7 @@
 }
 
 .support-nav-tab.active {
-  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  background: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-cyan-dark));
   color: white;
   box-shadow: 0 4px 15px rgba(0, 188, 212, 0.2);
 }

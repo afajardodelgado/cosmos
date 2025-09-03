@@ -38,7 +38,7 @@
 }
 
 .title-blue {
-  color: #00bcd4;
+  color: var(--color-brand-cyan);
 }
 
 .become-partner-subtitle {
@@ -64,7 +64,7 @@
 }
 
 .partner-info-card h2 {
-  color: #00bcd4;
+  color: var(--color-brand-cyan);
   font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 25px;
@@ -95,7 +95,7 @@
 
 .partner-info-card li:before {
   content: "✓";
-  color: #00bcd4;
+  color: var(--color-brand-cyan);
   font-weight: bold;
   position: absolute;
   left: 0;
@@ -120,7 +120,7 @@
 .contact-button {
   display: inline-block;
   padding: 14px 28px;
-  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  background: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-cyan-dark));
   border: none;
   border-radius: 12px;
   color: white;

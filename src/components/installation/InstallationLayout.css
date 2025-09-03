@@ -13,9 +13,9 @@
 }
 
 .installation-content {
-  max-width: 1400px;
+  max-width: var(--grid-min-width);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--grid-content-margin);
 }
 
 /* Greeting Section */
@@ -38,7 +38,7 @@
 .greeting-icon-installation {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -111,7 +111,7 @@
 }
 
 .installation-nav-tab.active {
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   color: white;
   box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
 }
@@ -236,7 +236,7 @@
   width: 40px;
   height: 40px;
   border: 4px solid rgba(255, 255, 255, 0.1);
-  border-top: 4px solid #4caf50;
+  border-top: 4px solid var(--color-brand-green);
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 20px;
@@ -254,7 +254,7 @@
 .retry-button {
   margin-top: 15px;
   padding: 12px 24px;
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light));
   color: white;
   border: none;
   border-radius: 8px;

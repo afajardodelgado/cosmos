@@ -36,8 +36,8 @@
 }
 
 .metric-card.primary::before { background: linear-gradient(135deg, #2196f3, #64b5f6); }
-.metric-card.success::before { background: linear-gradient(135deg, #4caf50, #66bb6a); }
-.metric-card.info::before { background: linear-gradient(135deg, #00bcd4, #4dd0e1); }
+.metric-card.success::before { background: linear-gradient(135deg, var(--color-brand-green), var(--color-brand-green-light)); }
+.metric-card.info::before { background: linear-gradient(135deg, var(--color-brand-cyan), #4dd0e1); }
 .metric-card.warning::before { background: linear-gradient(135deg, #ff9800, #ffb74d); }
 .metric-card.secondary::before { background: linear-gradient(135deg, #9c27b0, #ba68c8); }
 .metric-card.accent::before { background: linear-gradient(135deg, #e91e63, #f06292); }
@@ -91,7 +91,7 @@
   font-weight: 600;
 }
 
-.metric-trend.trend-up { color: #4caf50; }
+.metric-trend.trend-up { color: var(--color-brand-green); }
 .metric-trend.trend-down { color: #f44336; }
 .metric-trend.trend-neutral { color: #999; }
 
@@ -101,7 +101,7 @@
 }
 
 .metric-percentage {
-  color: #4caf50;
+  color: var(--color-brand-green);
   font-weight: 600;
   font-size: 0.8rem;
 }
@@ -143,7 +143,7 @@
 }
 
 .card-action {
-  color: #4caf50;
+  color: var(--color-brand-green);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 600;
@@ -151,7 +151,7 @@
 }
 
 .card-action:hover {
-  color: #66bb6a;
+  color: var(--color-brand-green-light);
 }
 
 .card-content {
@@ -210,7 +210,7 @@
 
 .srec-generation {
   font-size: 0.75rem;
-  color: #4caf50;
+  color: var(--color-brand-green);
   font-weight: 500;
 }
 

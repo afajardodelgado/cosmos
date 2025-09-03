@@ -36,13 +36,13 @@
 }
 
 .breadcrumbs__link:focus {
-  outline: 2px solid #00bcd4;
+  outline: 2px solid var(--color-brand-cyan);
   outline-offset: 2px;
   color: white !important;
 }
 
 .breadcrumbs__current {
-  color: #00bcd4 !important;
+  color: var(--color-brand-cyan) !important;
   font-weight: 700;
   padding: 0.125rem 0.25rem;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);

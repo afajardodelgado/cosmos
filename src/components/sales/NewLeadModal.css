@@ -16,7 +16,9 @@
 }
 
 .new-lead-modal {
-  background: white;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
   width: 100%;
@@ -42,15 +44,15 @@
   justify-content: space-between;
   align-items: center;
   padding: 25px 30px;
-  border-bottom: 1px solid #e9ecef;
-  background: #f8f9fa;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 12px 12px 0 0;
 }
 
 .modal-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #333;
+  color: white;
   margin: 0;
 }
 
@@ -71,8 +73,8 @@
 }
 
 .modal-close-btn:hover {
-  background: rgba(0, 0, 0, 0.1);
-  color: #333;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .lead-form {
@@ -86,12 +88,12 @@
 .section-title {
   font-size: 1rem;
   font-weight: 700;
-  color: #666;
+  color: #cccccc;
   margin: 0 0 20px 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   padding-bottom: 8px;
-  border-bottom: 2px solid #e9ecef;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .form-row {
@@ -113,7 +115,7 @@
 
 .form-group label {
   font-weight: 600;
-  color: #333;
+  color: white;
   margin-bottom: 6px;
   font-size: 0.9rem;
 }
@@ -122,19 +124,20 @@
 .form-group select,
 .form-group textarea {
   padding: 12px 14px;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px;
   font-size: 0.95rem;
   font-family: inherit;
   transition: all 0.3s ease;
-  background: white;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #00bcd4;
+  border-color: var(--color-brand-cyan);
   box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
 }
 
@@ -176,7 +179,7 @@
   justify-content: flex-end;
   gap: 15px;
   padding-top: 20px;
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 30px;
 }
 
@@ -194,18 +197,18 @@
 }
 
 .cancel-btn {
-  background: #f8f9fa;
-  color: #666;
-  border: 1px solid #ddd;
+  background: rgba(255, 255, 255, 0.05);
+  color: #cccccc;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .cancel-btn:hover:not(:disabled) {
-  background: #e9ecef;
-  border-color: #bbb;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .save-btn {
-  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  background: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-cyan-dark));
   color: white;
 }
 

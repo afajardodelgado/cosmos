@@ -14,7 +14,7 @@
 .portal-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 40px;
+  padding: var(--space-18) 40px;
 }
 
 .es-portal-grid {
@@ -23,7 +23,7 @@
   gap: 40px;
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--grid-content-margin);
 }
 
 .es-portal-card {
@@ -80,7 +80,7 @@
 }
 
 .vpp-icon {
-  background: linear-gradient(135deg, #4caf50, #388e3c);
+  background: linear-gradient(135deg, var(--color-brand-green), #388e3c);
 }
 
 .es-portal-card .card-title {
@@ -102,7 +102,7 @@
 }
 
 .es-portal-card .card-link {
-  color: #00bcd4;
+  color: var(--color-brand-cyan);
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;

@@ -26,9 +26,10 @@
 
 .date-range-btn {
   padding: 8px 20px;
-  border: 1px solid #ddd;
-  background: white;
-  color: #666;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: #cccccc;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
@@ -37,14 +38,15 @@
 }
 
 .date-range-btn:hover {
-  border-color: #00bcd4;
-  color: #00bcd4;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(0, 188, 212, 0.5);
+  color: var(--color-brand-cyan);
 }
 
 .date-range-btn.active {
-  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  background: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-cyan-dark));
   color: white;
-  border-color: #00bcd4;
+  border-color: var(--color-brand-cyan);
 }
 
 .kpi-grid {
@@ -54,11 +56,12 @@
 }
 
 .kpi-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 25px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   min-height: 200px;
   display: flex;
@@ -67,7 +70,9 @@
 
 .kpi-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .kpi-header {
@@ -77,7 +82,7 @@
 .kpi-title {
   font-size: 1rem;
   font-weight: 600;
-  color: #333;
+  color: #cccccc;
   margin: 0;
   text-align: center;
 }
@@ -107,7 +112,7 @@
   transform: translate(-50%, -50%);
   font-size: 1.5rem;
   font-weight: 700;
-  color: #333;
+  color: white;
   text-align: center;
 }
 
@@ -121,7 +126,7 @@
 .kpi-number {
   font-size: 3rem;
   font-weight: 700;
-  color: #00bcd4;
+  color: var(--color-brand-cyan);
   text-align: center;
   line-height: 1;
 }
@@ -134,11 +139,12 @@
 }
 
 .sidebar-section {
-  background: white;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .quick-create-section {
@@ -148,7 +154,7 @@
 .quick-create-btn {
   width: 100%;
   padding: 15px 20px;
-  background: linear-gradient(135deg, #4caf50, #45a049);
+  background: linear-gradient(135deg, var(--color-brand-green), #45a049);
   color: white;
   border: none;
   border-radius: 12px;
@@ -167,10 +173,10 @@
 .sidebar-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #333;
+  color: white;
   margin: 0 0 15px 0;
   padding-bottom: 10px;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .recent-leads {
@@ -184,20 +190,22 @@
   align-items: center;
   gap: 12px;
   padding: 12px;
-  background: #f8f9fa;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 10px;
   transition: all 0.3s ease;
 }
 
 .recent-lead-item:hover {
-  background: #e9ecef;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
   transform: translateX(3px);
 }
 
 .lead-icon {
   width: 30px;
   height: 30px;
-  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  background: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-cyan-dark));
   border-radius: 6px;
   flex-shrink: 0;
   position: relative;
@@ -222,27 +230,27 @@
 
 .lead-name {
   font-weight: 600;
-  color: #333;
+  color: white;
   font-size: 0.9rem;
   margin-bottom: 2px;
 }
 
 .lead-contact {
   font-size: 0.8rem;
-  color: #00bcd4;
+  color: var(--color-brand-cyan);
   margin-bottom: 1px;
 }
 
 .lead-email {
   font-size: 0.75rem;
-  color: #666;
+  color: #999;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .view-btn {
-  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  background: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-cyan-dark));
   color: white;
   border: none;
   padding: 6px 12px;
@@ -266,7 +274,7 @@
 }
 
 .appointment-empty {
-  color: #00bcd4;
+  color: var(--color-brand-cyan);
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -283,7 +291,7 @@
 .logo-placeholder {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  background: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-cyan-dark));
   border-radius: 8px;
   margin: 0 auto 10px;
   position: relative;
@@ -304,7 +312,7 @@
 .energysaver-title {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #333;
+  color: white;
   margin: 0 0 15px 0;
 }
 
@@ -315,13 +323,13 @@
 }
 
 .contact-phone {
-  color: #00bcd4;
+  color: var(--color-brand-cyan);
   font-weight: 600;
   font-size: 0.9rem;
 }
 
 .contact-email {
-  color: #666;
+  color: #999;
   font-size: 0.85rem;
 }
 
@@ -332,14 +340,14 @@
   align-items: center;
   justify-content: center;
   min-height: 400px;
-  color: #666;
+  color: #cccccc;
 }
 
 .loading-spinner {
   width: 40px;
   height: 40px;
   border: 4px solid #f3f3f3;
-  border-top: 4px solid #00bcd4;
+  border-top: 4px solid var(--color-brand-cyan);
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 20px;
@@ -363,7 +371,7 @@
 .retry-button {
   margin-top: 15px;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  background: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-cyan-dark));
   color: white;
   border: none;
   border-radius: 8px;
