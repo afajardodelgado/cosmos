@@ -10,7 +10,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 0.875rem;
+  font-size: 1rem;
   gap: 0.5rem;
 }
 
@@ -21,35 +21,39 @@
 }
 
 .breadcrumbs__link {
-  color: #6b7280;
+  color: white !important;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
   padding: 0.125rem 0.25rem;
   border-radius: 0.25rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .breadcrumbs__link:hover {
-  color: #374151;
+  color: rgba(255, 255, 255, 0.8) !important;
   text-decoration: underline;
 }
 
 .breadcrumbs__link:focus {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #00bcd4;
   outline-offset: 2px;
-  color: #1f2937;
+  color: white !important;
 }
 
 .breadcrumbs__current {
-  color: #1f2937;
-  font-weight: 500;
+  color: #00bcd4 !important;
+  font-weight: 700;
   padding: 0.125rem 0.25rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .breadcrumbs__separator {
-  color: #9ca3af;
+  color: rgba(255, 255, 255, 0.6);
   font-weight: normal;
   user-select: none;
-  font-size: 0.875rem;
+  font-size: 1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive design */
@@ -59,7 +63,7 @@
   }
   
   .breadcrumbs__list {
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     gap: 0.375rem;
   }
   
@@ -82,7 +86,7 @@
 
 @media (max-width: 480px) {
   .breadcrumbs__list {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     gap: 0.25rem;
   }
   
@@ -91,7 +95,7 @@
   }
   
   .breadcrumbs__separator {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 }
 

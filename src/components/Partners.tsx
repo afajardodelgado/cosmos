@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Partners.css';
 import backgroundImage from '../assets/images/BACKGROUND_GROUP.png';
 import partnerPortalIcon from '../assets/icons/partner_portal.png';
@@ -7,6 +8,7 @@ import customerSupportIcon from '../assets/icons/customer_support.png';
 import esPartnerPortalIcon from '../assets/icons/ES-Partner-Portal.png';
 import enfinPartnerPortalIcon from '../assets/icons/Enfin-Partner-Portal.png';
 import installingLogoIcon from '../assets/icons/Installing-Logo.png';
+import esProgramIcon from '../assets/icons/es_program.png';
 
 interface FormData {
   userType: string;
@@ -188,13 +190,21 @@ ${formData.attachment ? `Attachment: ${formData.attachment.name}` : 'No attachme
           </div>
         </div>
         
-        <div className="partner-card" onClick={() => setShowSupportForm(true)}>
+        <Link to="/partners/es-portal/energy-services" className="partner-card">
+          <div className="card-icon">
+            <img src={esProgramIcon} alt="Energy Services" className="icon-image" />
+          </div>
+          <h3 className="card-title">Energy Services</h3>
+          <div className="card-link">Access Energy Services →</div>
+        </Link>
+        
+        <Link to="/partners/es-portal/support" className="partner-card">
           <div className="card-icon">
             <img src={customerSupportIcon} alt="Customer Support" className="icon-image" />
           </div>
           <h3 className="card-title">Customer Support</h3>
           <div className="card-link">Get Started →</div>
-        </div>
+        </Link>
       </div>
 
       {/* Support Form Modal */}

@@ -20,6 +20,10 @@ import VPPMonitoring from './components/vpp/VPPMonitoring';
 import Fulfillment from './components/Fulfillment';
 import Homeowners from './components/Homeowners';
 import CustomerSupport from './components/CustomerSupport';
+import CustomerSupportLayout from './components/support/CustomerSupportLayout';
+import SupportDashboard from './components/support/SupportDashboard';
+import MyTickets from './components/support/MyTickets';
+import SubmitTicket from './components/support/SubmitTicket';
 import NotFound from './components/NotFound';
 import { SkipLink } from './components/common/SkipLink';
 import SalesLayout from './components/sales/SalesLayout';
@@ -302,6 +306,32 @@ function App() {
             <>
               <Header />
               <CustomerSupport />
+            </>
+          } />
+          
+          {/* Customer Support Module Routes */}
+          <Route path="/partners/es-portal/support" element={
+            <>
+              <Header />
+              <CustomerSupportLayout>
+                <SupportDashboard />
+              </CustomerSupportLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/support/submit" element={
+            <>
+              <Header />
+              <CustomerSupportLayout>
+                <SubmitTicket />
+              </CustomerSupportLayout>
+            </>
+          } />
+          <Route path="/partners/es-portal/support/tickets" element={
+            <>
+              <Header />
+              <CustomerSupportLayout>
+                <MyTickets />
+              </CustomerSupportLayout>
             </>
           } />
           
