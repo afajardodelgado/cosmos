@@ -167,7 +167,7 @@ ${formData.attachment ? `Attachment: ${formData.attachment.name}` : 'No attachme
           
           <div className="hardware-options">
             <div className="hardware-portal-row">
-              <button className="hardware-option mini-card">
+              <a href="https://us.qommand.qcells.com/" target="_blank" rel="noopener noreferrer" className="hardware-option mini-card">
                 <div className="portal-icon">
                   <img src={installingLogoIcon} alt="Installing" className="portal-icon-image" />
                 </div>
@@ -175,7 +175,7 @@ ${formData.attachment ? `Attachment: ${formData.attachment.name}` : 'No attachme
                   <div className="portal-name">Installing</div>
                   <div className="portal-subtitle"></div>
                 </div>
-              </button>
+              </a>
               
               <a href="https://www.portal-q-cells.us/#/login" target="_blank" rel="noopener noreferrer" className="hardware-option mini-card">
                 <div className="portal-icon">

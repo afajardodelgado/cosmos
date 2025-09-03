@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './EnergyServicesDashboard.css';
 import backgroundImage from '../../assets/images/Background-1Component4.png';
+import srecLogo from '../../assets/icons/srec-logo.jpeg';
+import vppLogo from '../../assets/icons/vpp-logo.jpeg';
 
 const EnergyServicesDashboard: React.FC = () => {
   return (
@@ -10,8 +12,7 @@ const EnergyServicesDashboard: React.FC = () => {
         <div className="es-portal-grid">
           <Link to="/partners/es-portal/energy-services/srec" className="es-portal-card">
             <div className="card-icon">
-              <div className="icon-circle srec-icon">
-              </div>
+              <img src={srecLogo} alt="SREC Logo" className="service-logo" />
             </div>
             <h3 className="card-title">SREC</h3>
             <p className="card-description">
@@ -22,8 +23,7 @@ const EnergyServicesDashboard: React.FC = () => {
 
           <Link to="/partners/es-portal/energy-services/vpp" className="es-portal-card">
             <div className="card-icon">
-              <div className="icon-circle vpp-icon">
-              </div>
+              <img src={vppLogo} alt="VPP Logo" className="service-logo" />
             </div>
             <h3 className="card-title">VPP</h3>
             <p className="card-description">

@@ -36,16 +36,16 @@ const CustomerSupportLayout: React.FC<CustomerSupportLayoutProps> = ({ children 
   }, []);
 
   const tabItems = [
-    { id: 'dashboard', label: 'Dashboard', to: '/partners/es-portal/support' },
     { id: 'submit', label: 'Submit Ticket', to: '/partners/es-portal/support/submit' },
-    { id: 'tickets', label: 'My Tickets', to: '/partners/es-portal/support/tickets' }
+    { id: 'dashboard', label: 'Customer Support Dashboard', to: '/partners/es-portal/support' },
+    { id: 'tickets', label: 'All Tickets', to: '/partners/es-portal/support/tickets' }
   ];
 
   const getActiveTab = (): string => {
     const path = location.pathname;
-    if (path.endsWith('/submit')) return 'submit';
     if (path.endsWith('/tickets')) return 'tickets';
-    return 'dashboard';
+    if (path === '/partners/es-portal/support') return 'dashboard';
+    return 'submit'; // Default to submit ticket tab
   };
 
   return (

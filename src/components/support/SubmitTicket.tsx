@@ -3,6 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import './SubmitTicket.css';
 import { supportTicketService } from '../../services/supportTicketService';
 import { CreateTicketData, TicketCategory, TicketPriority } from '../../types/supportTypes';
+import axiaIcon from '../../assets/icons/axia-icon.jpeg';
+import qcellsLogo from '../../assets/icons/qcells-logo.png';
+import enfinLogo from '../../assets/icons/enfin-logo.png';
+import cosmosIcon from '../../assets/icons/Cosmos bu Qcells_Navy 1_icon.png';
+import supportIcon from '../../assets/icons/support.jpeg';
+
+interface Platform {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+}
 
 interface FormData {
   userType: string;
@@ -19,6 +31,42 @@ interface FormData {
 
 const SubmitTicket: React.FC = () => {
   const navigate = useNavigate();
+  const [step, setStep] = useState<'platform' | 'form'>('platform');
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
+  
+  const platforms: Platform[] = [
+    {
+      id: 'axia',
+      title: 'Axia By Qcells',
+      description: 'Find tailored support for your Axia By Qcells products and services.',
+      icon: axiaIcon
+    },
+    {
+      id: 'qpartner',
+      title: 'Q.Partner',
+      description: 'Assistance for our Q.Partner network and collaboration tools.',
+      icon: qcellsLogo
+    },
+    {
+      id: 'enfin',
+      title: 'EnFin',
+      description: 'Get help with EnFin financial solutions and energy financing.',
+      icon: enfinLogo
+    },
+    {
+      id: 'cosmos',
+      title: 'Cosmos By Qcells',
+      description: 'Cosmos Platform support',
+      icon: cosmosIcon
+    },
+    {
+      id: 'other',
+      title: 'Other Inquiries',
+      description: 'For any other questions not covered by the categories above.',
+      icon: supportIcon
+    }
+  ];
+
   const [formData, setFormData] = useState<FormData>({
     userType: '',
     name: '',
@@ -36,6 +84,16 @@ const SubmitTicket: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [createdTicket, setCreatedTicket] = useState<string | null>(null);
+
+  const handlePlatformSelect = (platform: Platform) => {
+    setSelectedPlatform(platform);
+    setStep('form');
+  };
+
+  const handleBackToPlatforms = () => {
+    setStep('platform');
+    setSelectedPlatform(null);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -155,12 +213,56 @@ const SubmitTicket: React.FC = () => {
     );
   }
 
+  // Platform Selection Step
+  if (step === 'platform') {
+    return (
+      <div className="submit-ticket">
+        <div className="submit-header">
+          <h2 className="submit-title">Submit Support Ticket</h2>
+          <p className="submit-subtitle">
+            Select the platform or service you need help with:
+          </p>
+        </div>
+
+        <div className="platform-selection">
+          {platforms.map((platform) => (
+            <div
+              key={platform.id}
+              className="platform-card"
+              onClick={() => handlePlatformSelect(platform)}
+            >
+              <div className="platform-icon">
+                <img 
+                  src={platform.icon} 
+                  alt={`${platform.title} Logo`} 
+                  className={`platform-logo ${platform.id === 'axia' ? 'axia-logo' : platform.id === 'qpartner' ? 'qpartner-logo' : platform.id === 'other' ? 'other-logo' : ''}`}
+                />
+              </div>
+              <div className="platform-content">
+                <h3 className="platform-title">{platform.title}</h3>
+                <p className="platform-description">{platform.description}</p>
+                <div className="platform-arrow">Access Portal →</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="submit-ticket">
       <div className="submit-header">
+        <button 
+          className="back-to-platforms-btn" 
+          onClick={handleBackToPlatforms}
+          type="button"
+        >
+          ← Back to Platform Selection
+        </button>
         <h2 className="submit-title">Submit Support Ticket</h2>
         <p className="submit-subtitle">
-          Fill out the form below to create a new support ticket. Our team will respond as soon as possible.
+          Creating ticket for: <strong>{selectedPlatform?.title}</strong>
         </p>
       </div>
 
