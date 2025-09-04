@@ -1,0 +1,412 @@
+.energy-optimization {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.optimization-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  min-height: 600px;
+}
+
+/* Left Side - House Visualization */
+.house-visualization {
+  position: relative;
+}
+
+.house-container {
+  position: relative;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  min-height: 500px;
+}
+
+.house-info {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.info-tooltip {
+  background: rgba(0, 123, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 12px 16px;
+  max-width: 250px;
+  color: white;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  position: relative;
+}
+
+.info-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(0, 123, 255, 0.9);
+}
+
+.info-content {
+  margin-bottom: 8px;
+}
+
+.info-tag {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.house-3d {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  min-height: 400px;
+}
+
+.house-model {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.component-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.label-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #007bff;
+}
+
+.solar-label {
+  top: 80px;
+  right: 40px;
+}
+
+.battery-label {
+  bottom: 120px;
+  left: 40px;
+}
+
+.vpp-label {
+  bottom: 80px;
+  right: 60px;
+}
+
+/* Right Side - Configuration Panel */
+.configuration-panel {
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 30px 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.system-info {
+  margin-bottom: 40px;
+}
+
+.address-info,
+.estimate-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.address-icon,
+.estimate-icon {
+  font-size: 1.2rem;
+}
+
+.address-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+}
+
+.estimate-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  flex: 1;
+}
+
+.estimate-value {
+  color: #007bff;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.customization-section {
+  flex: 1;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 25px 0;
+}
+
+.info-icon {
+  font-size: 1rem;
+  opacity: 0.6;
+}
+
+.configuration-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.config-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.config-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.option-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option-content {
+  flex: 1;
+}
+
+.option-label {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.option-value {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+}
+
+.option-arrow {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.config-plus {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.next-btn {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.next-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .optimization-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .house-visualization {
+    order: 2;
+  }
+  
+  .configuration-panel {
+    order: 1;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .optimization-layout {
+    gap: 30px;
+  }
+  
+  .house-container {
+    padding: 25px;
+    min-height: 350px;
+  }
+  
+  .house-model {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .configuration-panel {
+    padding: 25px;
+  }
+  
+  .panel-title {
+    font-size: 1.8rem;
+  }
+  
+  .info-tooltip {
+    max-width: 200px;
+    font-size: 0.8rem;
+    padding: 10px 14px;
+  }
+  
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .back-btn,
+  .next-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .house-container {
+    padding: 20px;
+    min-height: 300px;
+  }
+  
+  .house-model {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .configuration-panel {
+    padding: 20px;
+  }
+  
+  .panel-title {
+    font-size: 1.6rem;
+  }
+  
+  .config-option {
+    padding: 15px 16px;
+  }
+  
+  .option-icon {
+    font-size: 1.3rem;
+    width: 35px;
+  }
+  
+  .component-label {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+  
+  .solar-label {
+    top: 60px;
+    right: 20px;
+  }
+  
+  .battery-label {
+    bottom: 100px;
+    left: 20px;
+  }
+  
+  .vpp-label {
+    bottom: 60px;
+    right: 40px;
+  }
+}

@@ -1,0 +1,50 @@
+.consultation-flow {
+  min-height: 100vh;
+  background-color: #060605;
+  background-image: url('../../assets/images/Background-1Component4.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  padding: 120px 20px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flow-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flow-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 50px 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .consultation-flow {
+    padding: 100px 15px 40px;
+  }
+  
+  .flow-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .consultation-flow {
+    padding: 90px 15px 30px;
+  }
+  
+  .flow-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+}

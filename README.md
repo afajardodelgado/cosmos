@@ -1,6 +1,6 @@
 # Cosmos by Qcells - Partner Landing Platform
 
-A comprehensive React-based landing platform for Cosmos by Qcells partner portal, featuring energy solutions management, SREC tracking, and partner onboarding workflows.
+A comprehensive React-based landing platform for Cosmos by Qcells, featuring partner portal management, homeowner onboarding flows, energy solutions management, SREC tracking, VPP management, customer support, and complete partner workflows.
 
 ## 🚀 Quick Start
 
@@ -459,6 +459,39 @@ Our design system is built around **accessibility**, **consistency**, and **mode
 
 ---
 
+## 🏠 Homeowners Onboarding Flow
+
+### Overview
+The homeowners onboarding flow provides a comprehensive step-by-step consultation process for potential solar customers. Built with glassmorphism design and consistent Background-1Component4.png imagery throughout.
+
+### Flow Structure
+1. **Landing Page** (`/homeowners`) - Products vs Energy Services selection
+2. **Product Selection** - Solar system status (existing vs new installation)
+3. **Product Cards** - Solar Panels & Battery selection with video placeholders
+4. **Energy Optimization** - Configuration with 3D house visualization and modals
+5. **Quote Form** - Final consultation form with user information capture
+
+### Key Features
+- **Multi-step flow** with state management preserving user selections
+- **Modal interactions** for Energy Offset (85%, 100%, 115%) and Backup Power (0-24 hrs)
+- **Form validation** with real-time error handling and phone formatting
+- **Responsive design** following 4-tier breakpoint system
+- **VPP logo placeholders** used throughout for consistent branding
+- **Glassmorphism styling** with dark theme and glass-effect cards
+
+### Technical Implementation
+- **FlowState interface** manages user selections across all steps
+- **TypeScript interfaces** ensure type safety throughout the flow
+- **Component-scoped CSS** with consistent naming conventions
+- **Accessibility features** with proper ARIA attributes and keyboard navigation
+- **Background consistency** using Background-1Component4.png across all flow steps
+
+### Routes
+- `/homeowners` - Main homeowners landing and flow entry point
+- All flow steps are handled within the single route using state management
+
+---
+
 ## 🧩 Component Architecture
 
 ### Page Components
@@ -505,14 +538,29 @@ src/
 │   ├── Header.tsx/css   # Site navigation
 │   ├── Hero.tsx/css     # Landing hero sections
 │   ├── Partners.tsx/css # Partner portal hub
+│   ├── Homeowners.tsx   # Homeowners onboarding entry point
 │   ├── ESPartnerPortal.tsx/css  # ES portal navigation
-│   ├── SRECHome.tsx/css         # SREC management
-│   ├── Fulfillment.tsx/css      # Installation tracking
+│   ├── homeowners/      # Homeowners onboarding flow
+│   │   ├── HomeownersLanding.tsx/css    # Landing page with product selection
+│   │   ├── ConsultationFlow.tsx/css     # Main flow wrapper with state management
+│   │   ├── ProductSelection.tsx/css     # Solar system status selection
+│   │   ├── ProductCards.tsx/css         # Solar Panels & Battery selection
+│   │   ├── EnergyOptimization.tsx/css   # Configuration with 3D house visualization
+│   │   ├── EnergyOffsetModal.tsx/css    # Energy offset percentage modal
+│   │   ├── BackupPowerModal.tsx/css     # Backup power hours modal
+│   │   └── QuoteForm.tsx/css            # Final consultation form
+│   ├── srec/            # SREC management components
+│   ├── vpp/             # Virtual Power Plant components
+│   ├── sales/           # Sales management components
+│   ├── installation/    # Installation tracking components
+│   ├── support/         # Customer support components
+│   ├── energy-services/ # Energy services dashboard
 │   └── [Component].tsx/css      # Component + styles
 ├── assets/              # Static assets
 │   ├── images/         # Background images, graphics
 │   ├── icons/          # Component icons
 │   └── logos/          # Brand assets
+├── types/              # TypeScript type definitions
 └── App.tsx             # Main routing and layout
 ```
 
@@ -520,6 +568,41 @@ src/
 - **Local State**: `useState` for component-specific data
 - **Form State**: Controlled components with validation
 - **Navigation State**: React Router for page routing
+- **Flow State**: Multi-step form state management in homeowners onboarding
+
+---
+
+## 🌟 Platform Features & Modules
+
+### **Homeowners Portal** (`/homeowners`)
+- **Onboarding Flow**: Multi-step consultation process for solar customers
+- **Product Selection**: Solar panels and battery configuration
+- **Energy Optimization**: Interactive 3D house visualization with configuration modals
+- **Quote Generation**: Lead capture with form validation and phone formatting
+
+### **Partner Portal** (`/partners`)
+- **Sales Management**: Business summaries, leads, opportunities, and sites tracking
+- **Installation Management**: Active projects, scheduling, and completion tracking
+- **SREC Management**: Solar Renewable Energy Certificate tracking and invoicing
+- **VPP Management**: Virtual Power Plant device monitoring and grid events
+- **Customer Support**: Ticket management system with platform selection
+
+### **Energy Services Dashboard** (`/partners/es-portal/energy-services`)
+- **SREC Program**: Certificate management, market tracking, invoicing
+- **VPP Program**: Device management, monitoring, earnings tracking
+- **Unified Interface**: Consistent glassmorphism design across both programs
+
+### **Support System** (`/support` & `/partners/es-portal/support`)
+- **Ticket Submission**: Platform-specific issue reporting with icons
+- **Ticket Management**: Status tracking and resolution workflows
+- **Multi-platform Support**: Sales, Installation, SREC, VPP platform selection
+
+### **Design System Features**
+- **Glassmorphism Theme**: Consistent dark theme with glass-effect cards
+- **Background Imagery**: Background-1Component4.png used across homeowners flow
+- **Responsive Design**: 4-tier breakpoint system (Desktop, Tablet, Mobile Large, Mobile Small)
+- **Accessibility**: WCAG compliant with proper ARIA attributes
+- **Typography**: 8-tier scale with consistent font weights and sizes
 
 ---
 
@@ -659,6 +742,16 @@ The application is configured for Railway deployment with:
 - Node.js 16+ recommended
 - All ESLint errors must be resolved (CI treats warnings as errors)
 - TypeScript compilation must pass without errors
+
+### Recent Updates (2024)
+- **✅ Homeowners Onboarding Flow**: Complete multi-step consultation process with state management
+- **✅ Background Consistency**: Background-1Component4.png applied across homeowners flow
+- **✅ Text Contrast Improvements**: Enhanced readability in ProductSelection component
+- **✅ Emoji-free Interface**: Clean, professional appearance without emoji icons
+- **✅ Glassmorphism Enhancements**: Improved glass effects and backdrop blur
+- **✅ TypeScript Coverage**: Full type safety across all homeowners components
+- **✅ Customer Support Module**: Platform-specific ticket management system
+- **✅ Energy Services Integration**: VPP and SREC unified dashboard experience
 
 ---
 
