@@ -42,7 +42,7 @@
 }
 
 .es-portal-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.56rem;
   color: #cccccc;
   margin: 0;
   line-height: 1.6;
@@ -50,11 +50,27 @@
 
 .es-portal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 340px);
   gap: 30px;
+  justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--grid-content-margin);
+}
+
+/* Responsive: 2 columns on medium screens */
+@media (max-width: 1140px) {
+  .es-portal-grid {
+    grid-template-columns: repeat(2, 340px);
+  }
+}
+
+/* Responsive: 1 column on small screens */
+@media (max-width: 740px) {
+  .es-portal-grid {
+    grid-template-columns: minmax(280px, 1fr);
+    padding: 0 20px;
+  }
 }
 
 .es-portal-card {
@@ -109,7 +125,7 @@
 }
 
 .card-description {
-  font-size: 0.95rem;
+  font-size: 1.235rem;
   color: #cccccc;
   line-height: 1.5;
   margin-bottom: 20px;
@@ -143,7 +159,7 @@
   }
   
   .es-portal-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.43rem;
   }
   
   .es-portal-grid {
@@ -235,7 +251,7 @@
   border: none;
   padding: 12px 24px 12px 0;
   margin-right: 40px;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
@@ -630,11 +646,11 @@
 }
 
 .widget-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   border-radius: 16px;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -642,9 +658,9 @@
 
 .widget-card:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
 }
 
 .widget-card.alert {
@@ -659,16 +675,16 @@
 }
 
 .widget-title {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: #cccccc;
+  color: #e6e6e6;
   margin: 0;
 }
 
 .module-indicator {
   padding: 2px 8px;
   border-radius: 10px;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -693,7 +709,7 @@
 }
 
 .main-value {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: var(--color-brand-green);
   display: block;
@@ -703,8 +719,8 @@
 .trend {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 0.85rem;
+  gap: 6px;
+  font-size: 1rem;
 }
 
 .trend.up {
@@ -731,7 +747,7 @@
   color: var(--color-brand-green);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1rem;
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -769,11 +785,11 @@
 }
 
 .activity-feed {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   border-radius: 16px;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .activity-item {
@@ -781,7 +797,7 @@
   align-items: flex-start;
   gap: 15px;
   padding: 12px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .activity-item:last-child {
@@ -831,24 +847,24 @@
 }
 
 .activity-title {
-  font-weight: 600;
+  font-weight: 700;
   color: white;
-  margin-bottom: 4px;
-  font-size: 0.95rem;
+  margin-bottom: 6px;
+  font-size: 1.15rem;
 }
 
 .activity-description {
-  color: #999;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  margin-bottom: 6px;
+  color: #bfbfbf;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
 }
 
 .activity-meta {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
 }
 
 .activity-user {
@@ -927,7 +943,7 @@
   .portal-tab {
     flex: 1;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1.17rem;
     padding: 10px 16px;
   }
   
@@ -982,7 +998,7 @@
   }
   
   .portal-tab {
-    font-size: 0.85rem;
+    font-size: 1.105rem;
     padding: 8px 16px 8px 0;
     margin-right: 20px;
   }

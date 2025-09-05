@@ -81,22 +81,22 @@
 
 .support-nav-tabs {
   display: flex;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
-  padding: 8px;
-  gap: 4px;
+  padding: 10px;
+  gap: 6px;
   overflow-x: auto;
 }
 
 .support-nav-tab {
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.9);
   padding: 12px 20px;
   border-radius: 8px;
-  font-size: 0.95rem;
+  font-size: 1.235rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -106,8 +106,8 @@
 }
 
 .support-nav-tab:hover {
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .support-nav-tab.active {
@@ -147,7 +147,7 @@
   }
   
   .support-nav-tab {
-    font-size: 0.9rem;
+    font-size: 1.17rem;
     padding: 10px 16px;
   }
 }
@@ -188,7 +188,7 @@
   }
   
   .support-nav-tab {
-    font-size: 0.85rem;
+    font-size: 1.105rem;
     padding: 8px 12px;
   }
   

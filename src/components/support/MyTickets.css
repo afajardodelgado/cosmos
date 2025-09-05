@@ -23,24 +23,24 @@
 }
 
 .tickets-summary {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
 }
 
 .filter-controls {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .filter-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
-  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 12px 20px;
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -48,7 +48,8 @@
 }
 
 .filter-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
   border-color: rgba(255, 255, 255, 0.2);
   color: white;
 }
@@ -90,11 +91,11 @@
 }
 
 .ticket-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
-  padding: 20px;
+  padding: 22px;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -121,7 +122,7 @@
 }
 
 .ticket-number {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--color-brand-cyan);
   font-family: monospace;
@@ -131,7 +132,7 @@
 .priority-badge {
   padding: 3px 8px;
   border-radius: 12px;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -165,7 +166,7 @@
 .status-badge {
   padding: 6px 12px;
   border-radius: 12px;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -202,7 +203,7 @@
 }
 
 .ticket-subject {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: white;
   margin: 0 0 15px 0;
@@ -223,7 +224,7 @@
 }
 
 .detail-label {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
   font-weight: 500;
   text-transform: uppercase;
@@ -231,7 +232,7 @@
 }
 
 .detail-value {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: white;
   font-weight: 500;
 }
@@ -241,12 +242,13 @@
 }
 
 .ticket-description p {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.88);
   line-height: 1.5;
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
