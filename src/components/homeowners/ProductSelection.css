@@ -3,6 +3,8 @@
   justify-content: center;
   align-items: center;
   min-height: 400px;
+  position: relative;
+  z-index: 10;
 }
 
 .selection-content {
@@ -18,8 +20,7 @@
 }
 
 .selection-option {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  background: #0A0A0A;
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 25px;
@@ -29,6 +30,7 @@
   align-items: center;
   gap: 20px;
   position: relative;
+  z-index: 11;
 }
 
 .selection-option:hover {
@@ -39,7 +41,7 @@
 
 .selection-option.selected {
   border-color: #007bff;
-  background: rgba(0, 123, 255, 0.1);
+  background: #0A0A0A;
 }
 
 .selection-option.selected::before {
@@ -52,6 +54,7 @@
   background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 86, 179, 0.1));
   border-radius: 14px;
   pointer-events: none;
+  z-index: -1;
 }
 
 .option-icon {
@@ -105,10 +108,6 @@
   font-weight: 600;
   color: white;
   margin: 0;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.5);
-  background: rgba(0, 0, 0, 0.2);
-  padding: 2px 8px;
-  border-radius: 4px;
 }
 
 .next-section {

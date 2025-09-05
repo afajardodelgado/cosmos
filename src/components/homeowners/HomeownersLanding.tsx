@@ -1,6 +1,7 @@
 import React from 'react';
 import './HomeownersLanding.css';
 import vppLogo from '../../assets/icons/vpp-logo.jpeg';
+import esPartnerPortalIcon from '../../assets/icons/ES-Partner-Portal.png';
 
 interface HomeownersLandingProps {
   onProductsClick: () => void;
@@ -33,7 +34,7 @@ const HomeownersLanding: React.FC<HomeownersLandingProps> = ({
         
         <div className="product-card" onClick={onEnergyServicesClick}>
           <div className="product-icon">
-            <img src={vppLogo} alt="Energy Services" />
+            <img src={esPartnerPortalIcon} alt="Energy Services" />
           </div>
           <h2 className="product-title">Energy Services</h2>
           <button className="get-started-btn">Get Started</button>

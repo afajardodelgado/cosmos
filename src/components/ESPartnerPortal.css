@@ -1,13 +1,26 @@
 .es-partner-portal-page {
   min-height: 100vh;
   background-color: #060605;
-  background-size: contain;
+  background-image: url('../assets/images/Background-1Component4.png');
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
   padding-top: 120px;
   padding-bottom: 60px;
+  position: relative;
+}
+
+.es-partner-portal-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(6, 6, 5, 0.3);
+  pointer-events: none;
 }
 
 .es-portal-hero {
@@ -17,6 +30,8 @@
   margin-left: auto;
   margin-right: auto;
   padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .es-portal-badge {
@@ -56,6 +71,8 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--grid-content-margin);
+  position: relative;
+  z-index: 2;
 }
 
 /* Responsive: 2 columns on medium screens */
