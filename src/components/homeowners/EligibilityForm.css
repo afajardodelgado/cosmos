@@ -1,0 +1,22 @@
+/* Eligibility Form Styles */
+.eligibility-form { max-width: 800px; margin: 0 auto; }
+
+.eligibility-grid { display: flex; flex-direction: column; gap: 20px; }
+
+.form-field { display: flex; flex-direction: column; gap: 8px; }
+.field-label { color: white; font-weight: 700; font-size: 1rem; }
+.field-input { padding: 14px 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: white; font-size: 1rem; }
+.field-input::placeholder { color: rgba(255,255,255,0.6); }
+.field-input.error { border-color: #ff4444; background: rgba(255,68,68,0.08); }
+.field-error { color: #ff6666; font-size: 0.85rem; }
+.field-hint { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
+
+.actions { display: flex; justify-content: space-between; gap: 16px; margin-top: 10px; max-width: 420px; }
+.back-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: white; font-size: 1rem; font-weight: 600; padding: 12px 24px; cursor: pointer; min-width: 100px; }
+.back-btn:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); }
+.next-btn { background: linear-gradient(135deg, #007bff, #0056b3); border: none; border-radius: 8px; color: white; font-size: 1rem; font-weight: 700; padding: 12px 24px; cursor: pointer; min-width: 100px; }
+
+@media (max-width: 520px) {
+  .actions { flex-direction: column; max-width: none; }
+  .back-btn, .next-btn { width: 100%; }
+}

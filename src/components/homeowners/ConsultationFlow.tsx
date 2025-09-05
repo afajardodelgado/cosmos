@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './ConsultationFlow.css';
 import ProductSelection from './ProductSelection';
+import ProgramSelection from './ProgramSelection';
+import ProgramDetails from './ProgramDetails';
+import EligibilityForm from './EligibilityForm';
 import ProductCards from './ProductCards';
 import EnergyOptimization from './EnergyOptimization';
 import QuoteForm from './QuoteForm';
@@ -8,6 +11,9 @@ import QuoteForm from './QuoteForm';
 export interface FlowState {
   hasExistingSolar: boolean | null;
   selectedProducts: string[];
+  selectedPrograms: string[]; // e.g., ['srec', 'vpp']
+  address: string;
+  utility: string;
   energyOffset: number;
   backupHours: number;
   userInfo: {
@@ -27,6 +33,9 @@ const ConsultationFlow: React.FC<ConsultationFlowProps> = ({ onBack }) => {
   const [flowState, setFlowState] = useState<FlowState>({
     hasExistingSolar: null,
     selectedProducts: [],
+    selectedPrograms: [],
+    address: '',
+    utility: '',
     energyOffset: 85,
     backupHours: 0,
     userInfo: {
@@ -45,6 +54,18 @@ const ConsultationFlow: React.FC<ConsultationFlowProps> = ({ onBack }) => {
     {
       component: ProductCards,
       title: 'Choose Your Products'
+    },
+    {
+      component: ProgramSelection,
+      title: 'Select Programs to Join'
+    },
+    {
+      component: ProgramDetails,
+      title: 'Learn About Programs'
+    },
+    {
+      component: EligibilityForm,
+      title: 'Help us find the perfect programs for you'
     },
     {
       component: EnergyOptimization,

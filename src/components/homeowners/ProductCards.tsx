@@ -30,7 +30,13 @@ const ProductCards: React.FC<ProductCardsProps> = ({
   return (
     <div className="product-cards">
       <div className="products-grid">
-        <div className={`product-card ${isSelected('solar') ? 'selected' : ''}`}>
+        <div
+          className={`product-card ${isSelected('solar') ? 'selected' : ''}`}
+          onClick={() => toggleProduct('solar')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleProduct('solar'); } }}
+        >
           <div className="product-video-placeholder">
             <div className="play-button">▶</div>
             <img src={vppLogo} alt="Solar Panels" className="product-placeholder" />
@@ -47,14 +53,20 @@ const ProductCards: React.FC<ProductCardsProps> = ({
           <div className="product-actions">
             <button 
               className={`select-btn ${isSelected('solar') ? 'selected' : ''}`}
-              onClick={() => toggleProduct('solar')}
+              onClick={(e) => { e.stopPropagation(); toggleProduct('solar'); }}
             >
               {isSelected('solar') ? 'Selected' : 'Select'}
             </button>
           </div>
         </div>
         
-        <div className={`product-card ${isSelected('battery') ? 'selected' : ''}`}>
+        <div
+          className={`product-card ${isSelected('battery') ? 'selected' : ''}`}
+          onClick={() => toggleProduct('battery')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleProduct('battery'); } }}
+        >
           <div className="product-video-placeholder">
             <div className="play-button">▶</div>
             <img src={vppLogo} alt="Battery" className="product-placeholder" />
@@ -71,7 +83,7 @@ const ProductCards: React.FC<ProductCardsProps> = ({
           <div className="product-actions">
             <button 
               className={`select-btn ${isSelected('battery') ? 'selected' : ''}`}
-              onClick={() => toggleProduct('battery')}
+              onClick={(e) => { e.stopPropagation(); toggleProduct('battery'); }}
             >
               {isSelected('battery') ? 'Selected' : 'Select'}
             </button>
