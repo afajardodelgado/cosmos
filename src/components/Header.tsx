@@ -17,7 +17,7 @@ const Header: React.FC = () => {
       </div>
       
       <nav className="top-links">
-        <span className="disabled-link" title="Coming Soon">Homeowners</span>
+        <a href="https://energyservstg.wpenginepowered.com/#close" className="nav-link" target="_blank" rel="noopener noreferrer">Homeowners</a>
         <NavLink to="/partners">Partners</NavLink>
       </nav>
 
