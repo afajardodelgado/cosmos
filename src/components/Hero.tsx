@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
           for Residential Energy
         </h1>
         <div className="hero-buttons">
-          <button className="hero-button disabled" disabled title="Coming Soon">Homeowners</button>
+          <a href="https://energyservstg.wpenginepowered.com/#close" className="hero-button" target="_blank" rel="noopener noreferrer">Homeowners</a>
           <button className="hero-button" onClick={() => navigate('/partners')}>Partners</button>
         </div>
       </div>
