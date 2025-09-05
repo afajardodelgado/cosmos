@@ -17,7 +17,7 @@ const Header: React.FC = () => {
       </div>
       
       <nav className="top-links">
-        <NavLink to="/homeowners">Homeowners</NavLink>
+        <span className="disabled-link" title="Coming Soon">Homeowners</span>
         <NavLink to="/partners">Partners</NavLink>
       </nav>
 

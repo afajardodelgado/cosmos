@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
           for Residential Energy
         </h1>
         <div className="hero-buttons">
-          <button className="hero-button" onClick={() => navigate('/homeowners')}>Homeowners</button>
+          <button className="hero-button disabled" disabled title="Coming Soon">Homeowners</button>
           <button className="hero-button" onClick={() => navigate('/partners')}>Partners</button>
         </div>
       </div>
