@@ -1,0 +1,410 @@
+/* Export Modal Styles */
+
+.export-modal {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(30, 30, 30, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.export-section {
+  margin-bottom: 28px;
+}
+
+.export-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Document Selection */
+.document-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.document-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.document-option:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.document-option.selected {
+  background: rgba(76, 175, 80, 0.1);
+  border-color: var(--color-brand-green);
+}
+
+.document-option-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.document-option-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.document-option-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 4px;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.document-option-description {
+  font-size: 0.85rem;
+  color: #cccccc;
+  line-height: 1.4;
+  margin-bottom: 4px;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.document-formats {
+  font-size: 0.75rem;
+  color: #999;
+  font-weight: 500;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.document-option-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-green);
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.document-option.selected .document-option-checkbox {
+  border-color: var(--color-brand-green);
+  background: var(--color-brand-green);
+  color: white;
+}
+
+/* Format Selection */
+.format-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.format-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.format-option:hover:not(.disabled) {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.format-option.selected {
+  background: rgba(76, 175, 80, 0.1);
+  border-color: var(--color-brand-green);
+}
+
+.format-option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.format-option-icon {
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.format-option-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.format-option-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 4px;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.format-option-description {
+  font-size: 0.8rem;
+  color: #cccccc;
+  line-height: 1.3;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.format-option-selected {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: var(--color-brand-green);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* Export Preview */
+.export-preview {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.preview-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.preview-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.preview-label {
+  font-size: 0.9rem;
+  color: #cccccc;
+  font-weight: 500;
+  flex-shrink: 0;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.preview-value {
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 600;
+  text-align: right;
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* Loading States */
+.modal-primary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.modal-primary-btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.modal-secondary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Animations */
+.export-modal {
+  animation: slideInUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.document-option,
+.format-option {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.document-option:nth-child(1) { animation-delay: 0.1s; }
+.document-option:nth-child(2) { animation-delay: 0.15s; }
+.document-option:nth-child(3) { animation-delay: 0.2s; }
+.document-option:nth-child(4) { animation-delay: 0.25s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .export-modal {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+  
+  .format-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .document-option,
+  .format-option {
+    padding: 12px;
+  }
+  
+  .document-option-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
+  }
+  
+  .format-option-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 1.1rem;
+  }
+  
+  .preview-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .preview-value {
+    text-align: left;
+  }
+  
+  .modal-footer {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+  
+  .modal-secondary-btn,
+  .modal-primary-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-backdrop {
+    padding: 10px;
+  }
+  
+  .export-modal {
+    border-radius: 12px;
+  }
+  
+  .modal-header {
+    padding: 16px;
+  }
+  
+  .modal-title {
+    font-size: 1.2rem;
+  }
+  
+  .modal-content {
+    padding: 16px;
+  }
+  
+  .export-section {
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    font-size: 1rem;
+  }
+  
+  .document-option,
+  .format-option {
+    padding: 10px;
+  }
+  
+  .document-option-name,
+  .format-option-name {
+    font-size: 0.9rem;
+  }
+  
+  .document-option-description,
+  .format-option-description {
+    font-size: 0.8rem;
+  }
+  
+  .export-preview {
+    padding: 16px;
+  }
+  
+  .modal-footer {
+    padding: 12px 16px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .document-option,
+  .format-option {
+    border-width: 2px;
+  }
+  
+  .document-option.selected,
+  .format-option.selected {
+    border-width: 3px;
+  }
+}
+
+/* Focus management for accessibility */
+.document-option:focus,
+.format-option:focus {
+  outline: 2px solid var(--color-brand-green);
+  outline-offset: 2px;
+}
+
+.document-option:focus:not(:focus-visible),
+.format-option:focus:not(:focus-visible) {
+  outline: none;
+}

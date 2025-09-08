@@ -669,6 +669,19 @@ class SRECDataService {
     }
   }
 
+  async updateSRECRecord(srecId: string, updatedRecord: Partial<SRECRecord>): Promise<void> {
+    const records = this.getAllSRECRecords();
+    const recordIndex = records.findIndex(r => r.id === srecId);
+    if (recordIndex !== -1) {
+      records[recordIndex] = {
+        ...records[recordIndex],
+        ...updatedRecord,
+        updatedDate: new Date().toISOString()
+      };
+      localStorage.setItem(this.storageKey, JSON.stringify(records));
+    }
+  }
+
   async updateTaskStatus(taskId: string, status: TaskStatus): Promise<void> {
     const tasks = this.getAllTasks();
     const taskIndex = tasks.findIndex(t => t.id === taskId);

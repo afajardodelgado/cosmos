@@ -1,0 +1,328 @@
+/* Edit Record Modal Styles */
+
+.edit-record-modal {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(30, 30, 30, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.error-banner {
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.form-section {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.form-section.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 6px;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'Pretendard', sans-serif;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-brand-green);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+.form-select option {
+  background: #1a1a1a;
+  color: white;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
+}
+
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+  border-color: #ff6b6b;
+  background: rgba(244, 67, 54, 0.05);
+}
+
+.error-message {
+  display: block;
+  font-size: 0.8rem;
+  color: #ff6b6b;
+  margin-top: 4px;
+  font-weight: 500;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.readonly-info {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.readonly-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.readonly-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.readonly-label {
+  font-size: 0.85rem;
+  color: #cccccc;
+  font-weight: 500;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.readonly-value {
+  font-size: 0.85rem;
+  color: white;
+  font-weight: 600;
+  text-align: right;
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* Form Validation States */
+.form-input:invalid {
+  border-color: rgba(244, 67, 54, 0.5);
+}
+
+.form-input:valid {
+  border-color: rgba(76, 175, 80, 0.3);
+}
+
+/* Required field indicator */
+.form-label::after {
+  content: '';
+}
+
+.form-label:has(+ .form-input[required])::after,
+.form-label:has(+ .form-select[required])::after {
+  content: ' *';
+  color: #ff6b6b;
+}
+
+/* Loading state for submit button */
+.modal-primary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.modal-primary-btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.modal-secondary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Form animations */
+.form-input,
+.form-select,
+.form-textarea {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .edit-record-modal {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .form-section {
+    padding: 16px;
+  }
+  
+  .readonly-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .readonly-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .readonly-value {
+    text-align: left;
+  }
+  
+  .modal-footer {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+  
+  .modal-secondary-btn,
+  .modal-primary-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-backdrop {
+    padding: 5px;
+  }
+  
+  .edit-record-modal {
+    border-radius: 12px;
+  }
+  
+  .modal-header {
+    padding: 16px;
+  }
+  
+  .modal-title {
+    font-size: 1.2rem;
+  }
+  
+  .modal-content {
+    padding: 16px;
+  }
+  
+  .form-section {
+    padding: 12px;
+  }
+  
+  .section-title {
+    font-size: 1rem;
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .modal-footer {
+    padding: 12px 16px;
+  }
+}
+
+/* Focus management for accessibility */
+.edit-record-modal {
+  isolation: isolate;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  z-index: 1;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .form-input,
+  .form-select,
+  .form-textarea {
+    border-width: 2px;
+  }
+  
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-width: 3px;
+  }
+}

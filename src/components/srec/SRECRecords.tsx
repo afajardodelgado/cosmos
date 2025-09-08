@@ -7,6 +7,9 @@ import {
   PaginationInfo,
   SRECStatus 
 } from '../../types/srecTypes';
+import ViewDetailsModal from './ViewDetailsModal';
+import EditRecordModal from './EditRecordModal';
+import ExportModal from './ExportModal';
 
 const SRECRecords: React.FC = () => {
   const [records, setRecords] = useState<SRECRecord[]>([]);
@@ -23,6 +26,10 @@ const SRECRecords: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedRecords, setSelectedRecords] = useState<string[]>([]);
+  const [viewModalOpen, setViewModalOpen] = useState(false);
+  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [exportModalOpen, setExportModalOpen] = useState(false);
+  const [selectedRecord, setSelectedRecord] = useState<SRECRecord | null>(null);
 
   const loadRecords = useCallback(async () => {
     try {
@@ -84,6 +91,41 @@ const SRECRecords: React.FC = () => {
     } else {
       setSelectedRecords(records.map(r => r.id));
     }
+  };
+
+  const handleViewDetails = (recordId: string) => {
+    const record = records.find(r => r.id === recordId);
+    if (record) {
+      setSelectedRecord(record);
+      setViewModalOpen(true);
+    }
+  };
+
+  const handleEditRecord = (recordId: string) => {
+    const record = records.find(r => r.id === recordId);
+    if (record) {
+      setSelectedRecord(record);
+      setEditModalOpen(true);
+    }
+  };
+
+  const handleExportRecord = (recordId: string) => {
+    const record = records.find(r => r.id === recordId);
+    if (record) {
+      setSelectedRecord(record);
+      setExportModalOpen(true);
+    }
+  };
+
+  const handleCloseModals = () => {
+    setViewModalOpen(false);
+    setEditModalOpen(false);
+    setExportModalOpen(false);
+    setSelectedRecord(null);
+  };
+
+  const handleSaveRecord = async () => {
+    await loadRecords();
   };
 
   const formatCurrency = (amount: number): string => {
@@ -372,14 +414,26 @@ const SRECRecords: React.FC = () => {
                 </td>
                 <td className="actions-column">
                   <div className="action-buttons">
-                    <button className="action-btn view-btn" title="View Details">
-                      
+                    <button 
+                      className="action-btn view-btn" 
+                      title="View Details"
+                      onClick={() => handleViewDetails(record.id)}
+                    >
+                      View
                     </button>
-                    <button className="action-btn edit-btn" title="Edit Record">
-                      
+                    <button 
+                      className="action-btn edit-btn" 
+                      title="Edit Record"
+                      onClick={() => handleEditRecord(record.id)}
+                    >
+                      Edit
                     </button>
-                    <button className="action-btn download-btn" title="Download Certificate">
-                      
+                    <button 
+                      className="action-btn download-btn" 
+                      title="Export Certificate"
+                      onClick={() => handleExportRecord(record.id)}
+                    >
+                      Export
                     </button>
                   </div>
                 </td>
@@ -405,6 +459,24 @@ const SRECRecords: React.FC = () => {
           {renderPagination()}
         </div>
       </div>
+
+      {/* Modals */}
+      <ViewDetailsModal
+        isOpen={viewModalOpen}
+        record={selectedRecord}
+        onClose={handleCloseModals}
+      />
+      <EditRecordModal
+        isOpen={editModalOpen}
+        record={selectedRecord}
+        onClose={handleCloseModals}
+        onSave={handleSaveRecord}
+      />
+      <ExportModal
+        isOpen={exportModalOpen}
+        record={selectedRecord}
+        onClose={handleCloseModals}
+      />
     </div>
   );
 };

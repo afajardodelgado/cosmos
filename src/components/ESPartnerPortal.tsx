@@ -184,16 +184,6 @@ const ESPartnerPortal: React.FC = () => {
               <div className="card-link">Access Energy Services →</div>
             </Link>
 
-            <Link to="/partners/es-portal/support" className="es-portal-card">
-              <div className="card-icon">
-                <img src={customerSupportIcon} alt="Customer Support" className="icon-image" />
-              </div>
-              <h3 className="card-title">Customer Support</h3>
-              <p className="card-description">
-                Get help and support for ES Partner Portal services
-              </p>
-              <div className="card-link">Get Support →</div>
-            </Link>
           </div>
         </div>
         
