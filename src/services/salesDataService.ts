@@ -175,8 +175,8 @@ class SalesDataService {
       NV: ['NV Energy', 'Valley Electric Association', 'Sierra Pacific Power', 'Mt. Wheeler Power']
     };
 
-    const stages: LeadStage[] = ['New Lead', 'Qualified', 'Converted to Opportunity', 'Contract Sent', 'Closed Won'];
-    const stageDistribution = [0.6, 0.15, 0.15, 0.05, 0.05];
+    const stages: LeadStage[] = ['NEW LEAD', 'ENGAGED', 'LEAD LOST', 'CONVERTED'];
+    const stageDistribution = [0.5, 0.3, 0.15, 0.05];
 
     const records: SalesRecord[] = [];
     const states = ['CA', 'FL', 'TX', 'AZ', 'NV'] as const;
@@ -188,7 +188,7 @@ class SalesDataService {
       const lastName = allLastNames[Math.floor(Math.random() * allLastNames.length)];
       
       // Determine stage based on distribution
-      let stage: LeadStage = 'New Lead';
+      let stage: LeadStage = 'NEW LEAD';
       const rand = Math.random();
       let cumulative = 0;
       for (let j = 0; j < stageDistribution.length; j++) {
@@ -199,7 +199,7 @@ class SalesDataService {
         }
       }
 
-      const isOpportunity = ['Converted to Opportunity', 'Contract Sent', 'Closed Won'].includes(stage);
+      const isOpportunity = stage === 'CONVERTED';
       
       // Generate random dates within the last 6 months
       const randomDate = new Date();
@@ -293,7 +293,7 @@ class SalesDataService {
       stateProvince: leadData.stateProvince || '',
       postalCode: leadData.postalCode || '',
       country: leadData.country || 'United States',
-      stage: 'New Lead',
+      stage: 'NEW LEAD',
       monthlyElectricBill: leadData.monthlyElectricBill,
       kwhRate: leadData.kwhRate,
       leadType: leadData.leadType,
@@ -371,7 +371,7 @@ class SalesDataService {
 
     records[recordIndex] = {
       ...records[recordIndex],
-      stage: 'Converted to Opportunity',
+      stage: 'CONVERTED',
       isOpportunity: true,
       updatedDate: new Date().toISOString()
     };
@@ -414,8 +414,8 @@ class SalesDataService {
 
     const totalLeads = filteredRecords.filter(record => !record.isOpportunity).length;
     const totalOpportunities = filteredRecords.filter(record => record.isOpportunity).length;
-    const convertedOpportunities = filteredRecords.filter(record => record.stage === 'Converted to Opportunity').length;
-    const closedWon = filteredRecords.filter(record => record.stage === 'Closed Won').length;
+    const convertedOpportunities = filteredRecords.filter(record => record.stage === 'CONVERTED').length;
+    const closedWon = filteredRecords.filter(record => record.stage === 'CONVERTED').length;
     const allLeads = filteredRecords.length;
 
     const leadConversionRate = allLeads > 0 ? (convertedOpportunities / allLeads) * 100 : 0;
@@ -428,7 +428,7 @@ class SalesDataService {
     } else {
       const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
       mtdSales = records.filter(record => 
-        record.stage === 'Closed Won' && new Date(record.updatedDate) >= startOfMonth
+        record.stage === 'CONVERTED' && new Date(record.updatedDate) >= startOfMonth
       ).length;
     }
 

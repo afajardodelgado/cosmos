@@ -198,11 +198,13 @@ const LeadsManagement: React.FC = () => {
 
   const getStageClass = (stage: string): string => {
     switch (stage) {
-      case 'New Lead':
+      case 'NEW LEAD':
         return 'stage-new';
-      case 'Qualified':
-        return 'stage-qualified';
-      case 'Converted to Opportunity':
+      case 'ENGAGED':
+        return 'stage-engaged';
+      case 'LEAD LOST':
+        return 'stage-lost';
+      case 'CONVERTED':
         return 'stage-converted';
       default:
         return 'stage-default';
@@ -399,7 +401,7 @@ const LeadsManagement: React.FC = () => {
                         >
                           View Details
                         </button>
-                        {lead.stage !== 'Converted to Opportunity' && (
+                        {lead.stage !== 'CONVERTED' && lead.stage !== 'LEAD LOST' && (
                           <button
                             className="dropdown-item convert-item"
                             onClick={(e) => handleDropdownAction('convert', lead.id, e)}
@@ -733,7 +735,7 @@ const LeadsManagement: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    {selectedLead.stage !== 'Converted to Opportunity' && (
+                    {selectedLead.stage !== 'CONVERTED' && selectedLead.stage !== 'LEAD LOST' && (
                       <button 
                         className="action-btn convert-btn-modal"
                         onClick={() => {

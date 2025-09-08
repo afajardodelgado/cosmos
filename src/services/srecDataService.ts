@@ -682,6 +682,76 @@ class SRECDataService {
     }
   }
 
+  // Create a new SREC record
+  async createSRECRecord(input: {
+    facilityId: string;
+    generationDate: string; // ISO or yyyy-mm-dd
+    mwhGenerated: number;
+    marketPrice: number;
+    notes?: string;
+  }): Promise<SRECRecord> {
+    await this.initialize();
+
+    const facilities = await this.getFacilities();
+    const facility = facilities.find(f => f.id === input.facilityId);
+    if (!facility) {
+      throw new Error('Invalid facility');
+    }
+
+    const genDate = new Date(input.generationDate);
+    const vintage = `${genDate.getFullYear()}-Q${Math.ceil((genDate.getMonth() + 1) / 3)}`;
+
+    const periodStart = new Date(genDate);
+    periodStart.setDate(1);
+    const periodEnd = new Date(periodStart);
+    periodEnd.setMonth(periodEnd.getMonth() + 1);
+    periodEnd.setDate(0);
+
+    const expirationDate = new Date(genDate.getFullYear() + 3, 11, 31);
+
+    const records = this.getAllSRECRecords();
+    let maxIdNum = 0;
+    for (const r of records) {
+      const m = r.id.match(/srec-(\d+)/);
+      if (m) maxIdNum = Math.max(maxIdNum, parseInt(m[1], 10));
+    }
+    const newId = `srec-${String(maxIdNum + 1).padStart(3, '0')}`;
+
+    const certificateSeq = Math.floor(Math.random() * 1_000_000).toString().padStart(6, '0');
+    const certificateId = `SREC-${facility.state}-${vintage}-${certificateSeq}`;
+    const registryId = `REG-${facility.state}-${Math.floor(Math.random() * 1_000_000).toString().padStart(6, '0')}`;
+
+    const nowIso = new Date().toISOString();
+    const newRecord: SRECRecord = {
+      id: newId,
+      certificateId,
+      vintage,
+      generationDate: genDate.toISOString(),
+      generationPeriodStart: periodStart.toISOString(),
+      generationPeriodEnd: periodEnd.toISOString(),
+      mwhGenerated: input.mwhGenerated,
+      facilityName: facility.name,
+      facilityId: facility.id,
+      facilityLocation: facility.location,
+      state: facility.state,
+      srecType: 'Solar',
+      status: 'Generated',
+      marketPrice: input.marketPrice,
+      expirationDate: expirationDate.toISOString(),
+      registryId,
+      createdDate: nowIso,
+      updatedDate: nowIso,
+      notes: input.notes,
+    };
+
+    const updated = [newRecord, ...records].sort((a, b) =>
+      new Date(b.generationDate).getTime() - new Date(a.generationDate).getTime()
+    );
+    localStorage.setItem(this.storageKey, JSON.stringify(updated));
+
+    return newRecord;
+  }
+
   async updateTaskStatus(taskId: string, status: TaskStatus): Promise<void> {
     const tasks = this.getAllTasks();
     const taskIndex = tasks.findIndex(t => t.id === taskId);

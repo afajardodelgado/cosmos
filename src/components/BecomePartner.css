@@ -137,6 +137,113 @@
   background: linear-gradient(135deg, #00acc1, #00838f);
 }
 
+/* Partner Form */
+.partner-form-card {
+  margin-top: 30px;
+  background: #0A0A0A;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.form-title {
+  color: white;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin: 0 0 8px 0;
+}
+
+.form-description {
+  color: #cccccc;
+  margin: 0 0 20px 0;
+  line-height: 1.6;
+}
+
+.success-banner {
+  background: rgba(76, 175, 80, 0.12);
+  border: 1px solid rgba(76, 175, 80, 0.35);
+  color: #a5d6a7;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.partner-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: #121212;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #8e8e8e;
+}
+
+.form-group select option {
+  background: #121212;
+  color: white;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, var(--color-brand-cyan), var(--color-brand-cyan-dark));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .become-partner-page {
@@ -171,6 +278,10 @@
   
   .partner-info-card {
     padding: 25px 20px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
   }
   
   .contact-button {

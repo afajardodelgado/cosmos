@@ -10,6 +10,7 @@ import {
 import ViewDetailsModal from './ViewDetailsModal';
 import EditRecordModal from './EditRecordModal';
 import ExportModal from './ExportModal';
+import CreateSRECModal from './CreateSRECModal';
 
 const SRECRecords: React.FC = () => {
   const [records, setRecords] = useState<SRECRecord[]>([]);
@@ -30,6 +31,7 @@ const SRECRecords: React.FC = () => {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [exportModalOpen, setExportModalOpen] = useState(false);
   const [selectedRecord, setSelectedRecord] = useState<SRECRecord | null>(null);
+  const [createModalOpen, setCreateModalOpen] = useState(false);
 
   const loadRecords = useCallback(async () => {
     try {
@@ -125,6 +127,14 @@ const SRECRecords: React.FC = () => {
   };
 
   const handleSaveRecord = async () => {
+    await loadRecords();
+  };
+
+  const handleOpenCreate = () => setCreateModalOpen(true);
+  const handleCloseCreate = () => setCreateModalOpen(false);
+  const handleCreated = async () => {
+    // After creating, go to first page to see the newest record
+    setPagination(prev => ({ ...prev, currentPage: 1 }));
     await loadRecords();
   };
 
@@ -239,7 +249,7 @@ const SRECRecords: React.FC = () => {
       <div className="records-header">
         <h2 className="records-title">SREC Records Management</h2>
         <div className="records-actions">
-          <button className="create-record-btn">
+          <button className="create-record-btn" onClick={handleOpenCreate}>
             Create New SREC +
           </button>
           {selectedRecords.length > 0 && (
@@ -447,7 +457,7 @@ const SRECRecords: React.FC = () => {
         <div className="empty-state">
           <div className="empty-icon"></div>
           <p>No SREC records found matching your filters.</p>
-          <button className="create-record-btn">Create Your First SREC</button>
+          <button className="create-record-btn" onClick={handleOpenCreate}>Create Your First SREC</button>
         </div>
       )}
 
@@ -476,6 +486,13 @@ const SRECRecords: React.FC = () => {
         isOpen={exportModalOpen}
         record={selectedRecord}
         onClose={handleCloseModals}
+      />
+
+      {/* Create Modal */}
+      <CreateSRECModal
+        isOpen={createModalOpen}
+        onClose={handleCloseCreate}
+        onCreated={handleCreated}
       />
     </div>
   );

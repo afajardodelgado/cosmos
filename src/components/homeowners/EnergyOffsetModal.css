@@ -14,9 +14,9 @@
 }
 
 .modal-content {
-  background: rgba(255, 255, 255, 0.95);
+  background: #0f0f0f;
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 20px;
   max-width: 500px;
   width: 100%;
@@ -33,7 +33,7 @@
 .modal-header h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #333;
+  color: white;
   margin: 0;
 }
 
@@ -53,27 +53,27 @@
   gap: 15px;
   padding: 20px;
   border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #121212;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .offset-option:hover {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(0, 123, 255, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(0, 188, 212, 0.35);
 }
 
 .offset-option.selected {
-  background: rgba(0, 123, 255, 0.1);
-  border-color: #007bff;
+  background: rgba(0, 188, 212, 0.12);
+  border-color: var(--color-brand-cyan);
 }
 
 .option-radio {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 2px solid rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,7 +90,7 @@
 }
 
 .radio-dot.selected {
-  background: #007bff;
+  background: var(--color-brand-cyan);
 }
 
 .offset-option.selected .option-radio {
@@ -104,13 +104,13 @@
 .option-percentage {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #333;
+  color: white;
   margin-bottom: 5px;
 }
 
 .option-title {
   font-size: 0.9rem;
-  color: #666;
+  color: #cccccc;
   line-height: 1.4;
 }
 

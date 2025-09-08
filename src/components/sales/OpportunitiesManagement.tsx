@@ -92,30 +92,21 @@ const OpportunitiesManagement: React.FC = () => {
 
   const getStageClass = (stage: string): string => {
     switch (stage) {
-      case 'Converted to Opportunity':
+      case 'CONVERTED':
         return 'stage-converted';
-      case 'Contract Sent':
-        return 'stage-contract';
-      case 'Closed Won':
-        return 'stage-closed';
       default:
         return 'stage-default';
     }
   };
 
   const getNextStage = (currentStage: LeadStage): LeadStage | null => {
-    switch (currentStage) {
-      case 'Converted to Opportunity':
-        return 'Contract Sent';
-      case 'Contract Sent':
-        return 'Closed Won';
-      default:
-        return null;
-    }
+    // In the new 4-stage system, opportunities are already at final stage
+    return null;
   };
 
   const canAdvanceStage = (stage: LeadStage): boolean => {
-    return stage === 'Converted to Opportunity' || stage === 'Contract Sent';
+    // In the new system, CONVERTED is the final stage, no advancement needed
+    return false;
   };
 
   const renderPagination = () => {
@@ -277,10 +268,10 @@ const OpportunitiesManagement: React.FC = () => {
                         }}
                         title={`Advance to ${getNextStage(opportunity.stage) || 'Next Stage'}`}
                       >
-                        {opportunity.stage === 'Converted to Opportunity' ? 'Send Contract' : 'Close Won'}
+                        Advance
                       </button>
                     )}
-                    {opportunity.stage === 'Closed Won' && (
+                    {opportunity.stage === 'CONVERTED' && (
                       <button 
                         className="action-btn create-site-btn"
                         onClick={() => handleCreateSite(opportunity.id)}
@@ -302,7 +293,7 @@ const OpportunitiesManagement: React.FC = () => {
 
         {opportunities.length === 0 && (
           <div className="no-opportunities">
-            <p>No opportunities found. {searchTerm ? 'Try adjusting your search.' : 'Convert some leads to opportunities!'}</p>
+            <p>No opportunities found. {searchTerm ? 'Try adjusting your search.' : 'Convert some leads to create opportunities!'}</p>
           </div>
         )}
       </div>

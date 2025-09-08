@@ -1,6 +1,6 @@
 // Sales Management System Types
 
-export type LeadStage = 'New Lead' | 'Qualified' | 'Converted to Opportunity' | 'Contract Sent' | 'Closed Won';
+export type LeadStage = 'NEW LEAD' | 'ENGAGED' | 'LEAD LOST' | 'CONVERTED';
 
 export interface SalesRecord {
   id: string;

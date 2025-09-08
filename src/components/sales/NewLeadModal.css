@@ -5,8 +5,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,9 +16,9 @@
 }
 
 .new-lead-modal {
-  background: rgba(255, 255, 255, 0.05);
+  background: #0f0f0f;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
   width: 100%;
@@ -44,8 +44,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 25px 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: #121212;
   border-radius: 12px 12px 0 0;
 }
 
@@ -129,7 +129,7 @@
   font-size: 0.95rem;
   font-family: inherit;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.05);
+  background: #121212;
   color: white;
 }
 
@@ -152,6 +152,8 @@
 
 .form-group select option {
   padding: 8px;
+  background: #121212;
+  color: white;
 }
 
 .form-group textarea {

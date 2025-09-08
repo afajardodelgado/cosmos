@@ -196,9 +196,14 @@
   color: #1976d2;
 }
 
-.stage-qualified {
+.stage-engaged {
   background: #fff3e0;
   color: #f57c00;
+}
+
+.stage-lost {
+  background: #ffebee;
+  color: #c62828;
 }
 
 .stage-converted {
@@ -534,9 +539,9 @@
 }
 
 .lead-details-modal {
-  background: #1a1a1a;
+  background: #0f0f0f;
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   padding: 0;
   max-width: 800px;
@@ -629,7 +634,7 @@
 }
 
 .edit-input, .edit-select {
-  background: rgba(255, 255, 255, 0.05);
+  background: #121212;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   color: white;
@@ -652,7 +657,7 @@
 }
 
 .edit-select option {
-  background: #1a1a1a;
+  background: #121212;
   color: white;
 }
 
@@ -664,7 +669,7 @@
 }
 
 .info-section {
-  background: rgba(255, 255, 255, 0.03);
+  background: #121212;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 20px;

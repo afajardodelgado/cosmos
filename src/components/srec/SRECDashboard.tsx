@@ -306,20 +306,12 @@ const SRECDashboard: React.FC = () => {
           <div className="card-content">
             <div className="quick-actions-grid">
               <Link to="/partners/es-portal/srec/records" className="quick-action-btn primary">
-                <span className="action-icon"></span>
+                <span className="action-icon" aria-hidden="true">▦</span>
                 <span className="action-label">Manage SRECs</span>
               </Link>
               <Link to="/partners/es-portal/srec/invoicing" className="quick-action-btn success">
-                <span className="action-icon"></span>
+                <span className="action-icon" aria-hidden="true">＋</span>
                 <span className="action-label">Create Invoice</span>
-              </Link>
-              <Link to="/partners/es-portal/srec/trading" className="quick-action-btn info">
-                <span className="action-icon"></span>
-                <span className="action-label">View Market</span>
-              </Link>
-              <Link to="/partners/es-portal/srec/reports" className="quick-action-btn warning">
-                <span className="action-icon"></span>
-                <span className="action-label">Generate Report</span>
               </Link>
             </div>
           </div>
