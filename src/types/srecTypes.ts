@@ -6,6 +6,14 @@ export type SRECType = 'Solar';
 
 export type InvoiceStatus = 'Draft' | 'Sent' | 'Paid' | 'Overdue' | 'Cancelled';
 
+// Residential installation workflow
+export type ResidentialJobStatus =
+  | 'Before Installation'
+  | 'Installation in Progress'
+  | 'Installation Completed'
+  | 'PTO Completed'
+  | 'Cancelled';
+
 export type TaskStatus = 'Open' | 'In Progress' | 'Completed' | 'Cancelled' | 'On Hold';
 
 export type TaskPriority = 'Low' | 'Medium' | 'High' | 'Critical';
@@ -35,6 +43,14 @@ export interface SRECRecord {
   createdDate: string;
   updatedDate: string;
   notes?: string;
+  // Optional residential fields
+  customerFirstName?: string;
+  customerLastName?: string;
+  customerEmail?: string;
+  installationAddress?: string;
+  jobStatus?: ResidentialJobStatus;
+  ptoDate?: string; // ISO date
+  systemSizeKw?: number;
 }
 
 export interface MarketData {

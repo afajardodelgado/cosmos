@@ -752,6 +752,69 @@ class SRECDataService {
     return newRecord;
   }
 
+  // Create a new SREC record for residential sites (no facility selection)
+  async createResidentialSRECRecord(input: {
+    customerFirstName: string;
+    customerLastName: string;
+    customerEmail: string;
+    installationAddress: string;
+    jobStatus: import('../types/srecTypes').ResidentialJobStatus;
+    ptoDate?: string; // ISO
+    systemSizeKw: number;
+  }): Promise<SRECRecord> {
+    await this.initialize();
+
+    const records = this.getAllSRECRecords();
+    let maxIdNum = 0;
+    for (const r of records) {
+      const m = r.id.match(/srec-(\d+)/);
+      if (m) maxIdNum = Math.max(maxIdNum, parseInt(m[1], 10));
+    }
+    const newId = `srec-${String(maxIdNum + 1).padStart(3, '0')}`;
+
+    const now = new Date();
+    const vintage = `${now.getFullYear()}-Q${Math.ceil((now.getMonth() + 1) / 3)}`;
+    const expirationDate = new Date(now.getFullYear() + 3, 11, 31);
+
+    const certificateSeq = Math.floor(Math.random() * 1_000_000).toString().padStart(6, '0');
+    const certificateId = `SREC-RES-${vintage}-${certificateSeq}`;
+    const registryId = `REG-RES-${Math.floor(Math.random() * 1_000_000).toString().padStart(6, '0')}`;
+
+    const nowIso = now.toISOString();
+    const newRecord: SRECRecord = {
+      id: newId,
+      certificateId,
+      vintage,
+      generationDate: nowIso,
+      generationPeriodStart: new Date(now.getFullYear(), now.getMonth(), 1).toISOString(),
+      generationPeriodEnd: new Date(now.getFullYear(), now.getMonth() + 1, 0).toISOString(),
+      mwhGenerated: 0, // will be updated later
+      facilityName: 'Residential Site',
+      facilityId: `res-${newId}`,
+      facilityLocation: input.installationAddress,
+      state: 'NA',
+      srecType: 'Solar',
+      status: 'Generated',
+      marketPrice: 0,
+      expirationDate: expirationDate.toISOString(),
+      registryId,
+      createdDate: nowIso,
+      updatedDate: nowIso,
+      // residential fields
+      customerFirstName: input.customerFirstName,
+      customerLastName: input.customerLastName,
+      customerEmail: input.customerEmail,
+      installationAddress: input.installationAddress,
+      jobStatus: input.jobStatus,
+      ptoDate: input.ptoDate,
+      systemSizeKw: input.systemSizeKw,
+    };
+
+    const updated = [newRecord, ...records];
+    localStorage.setItem(this.storageKey, JSON.stringify(updated));
+    return newRecord;
+  }
+
   async updateTaskStatus(taskId: string, status: TaskStatus): Promise<void> {
     const tasks = this.getAllTasks();
     const taskIndex = tasks.findIndex(t => t.id === taskId);

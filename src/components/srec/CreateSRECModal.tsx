@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { srecDataService } from '../../services/srecDataService';
-import { SRECFacility } from '../../types/srecTypes';
+import { ResidentialJobStatus } from '../../types/srecTypes';
 import './CreateSRECModal.css';
 
 interface CreateSRECModalProps {
@@ -10,43 +10,41 @@ interface CreateSRECModalProps {
 }
 
 const CreateSRECModal: React.FC<CreateSRECModalProps> = ({ isOpen, onClose, onCreated }) => {
-  const [facilities, setFacilities] = useState<SRECFacility[]>([]);
-  const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const [facilityId, setFacilityId] = useState('');
-  const [generationDate, setGenerationDate] = useState<string>('');
-  const [mwhGenerated, setMwhGenerated] = useState<string>('');
-  const [marketPrice, setMarketPrice] = useState<string>('');
+  const [customerFirstName, setCustomerFirstName] = useState('');
+  const [customerLastName, setCustomerLastName] = useState('');
+  const [customerEmail, setCustomerEmail] = useState('');
+  const [installationAddress, setInstallationAddress] = useState('');
+  const [jobStatus, setJobStatus] = useState<ResidentialJobStatus>('Before Installation');
+  const [ptoDate, setPtoDate] = useState<string>('');
+  const [systemSizeKw, setSystemSizeKw] = useState<string>('');
   const [notes, setNotes] = useState('');
 
   useEffect(() => {
     if (!isOpen) return;
-    let mounted = true;
-    (async () => {
-      try {
-        setLoading(true);
-        const result = await srecDataService.getFacilities();
-        if (mounted) setFacilities(result);
-      } catch (e) {
-        console.error(e);
-        if (mounted) setError('Failed to load facilities');
-      } finally {
-        if (mounted) setLoading(false);
-      }
-    })();
-    return () => { mounted = false; };
+    // reset form when opening
+    setCustomerFirstName('');
+    setCustomerLastName('');
+    setCustomerEmail('');
+    setInstallationAddress('');
+    setJobStatus('Before Installation');
+    setPtoDate('');
+    setSystemSizeKw('');
+    setNotes('');
+    setError(null);
   }, [isOpen]);
 
   const canSubmit = useMemo(() => {
     return (
-      !!facilityId &&
-      !!generationDate &&
-      Number(mwhGenerated) > 0 &&
-      Number(marketPrice) >= 0
+      customerFirstName.trim() !== '' &&
+      customerLastName.trim() !== '' &&
+      customerEmail.trim() !== '' &&
+      installationAddress.trim() !== '' &&
+      Number(systemSizeKw) > 0
     );
-  }, [facilityId, generationDate, mwhGenerated, marketPrice]);
+  }, [customerFirstName, customerLastName, customerEmail, installationAddress, systemSizeKw]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,24 +52,20 @@ const CreateSRECModal: React.FC<CreateSRECModalProps> = ({ isOpen, onClose, onCr
     setSubmitting(true);
     setError(null);
     try {
-      await srecDataService.createSRECRecord({
-        facilityId,
-        generationDate,
-        mwhGenerated: Number(mwhGenerated),
-        marketPrice: Number(marketPrice),
-        notes: notes.trim() ? notes : undefined,
+      await srecDataService.createResidentialSRECRecord({
+        customerFirstName,
+        customerLastName,
+        customerEmail,
+        installationAddress,
+        jobStatus,
+        ptoDate: ptoDate || undefined,
+        systemSizeKw: Number(systemSizeKw),
       });
       onCreated();
       onClose();
-      // reset simple fields
-      setFacilityId('');
-      setGenerationDate('');
-      setMwhGenerated('');
-      setMarketPrice('');
-      setNotes('');
     } catch (err) {
       console.error(err);
-      setError('Failed to create SREC. Please try again.');
+      setError('Failed to create residential SREC. Please try again.');
     } finally {
       setSubmitting(false);
     }
@@ -103,69 +97,44 @@ const CreateSRECModal: React.FC<CreateSRECModalProps> = ({ isOpen, onClose, onCr
 
             <div className="form-grid">
               <div className="form-section">
-                <h3 className="section-title">Facility & Generation</h3>
-
-                <div className="form-group">
-                  <label className="form-label" htmlFor="facility">Facility *</label>
-                  <select
-                    id="facility"
-                    className="form-select"
-                    value={facilityId}
-                    onChange={(e) => setFacilityId(e.target.value)}
-                    required
-                    disabled={loading}
-                  >
-                    <option value="">Select a facility</option>
-                    {facilities.map((f) => (
-                      <option key={f.id} value={f.id}>
-                        {f.name} • {f.location}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label" htmlFor="genDate">Generation Date *</label>
-                  <input
-                    id="genDate"
-                    type="date"
-                    className="form-input"
-                    value={generationDate}
-                    onChange={(e) => setGenerationDate(e.target.value)}
-                    required
-                  />
-                </div>
-
+                <h3 className="section-title">Customer & Site</h3>
                 <div className="two-col">
                   <div className="form-group">
-                    <label className="form-label" htmlFor="mwh">MWh Generated *</label>
-                    <input
-                      id="mwh"
-                      type="number"
-                      min="0"
-                      step="0.01"
-                      className="form-input"
-                      value={mwhGenerated}
-                      onChange={(e) => setMwhGenerated(e.target.value)}
-                      placeholder="0.00"
-                      required
-                    />
+                    <label className="form-label" htmlFor="firstName">Customer First Name *</label>
+                    <input id="firstName" className="form-input" value={customerFirstName} onChange={(e) => setCustomerFirstName(e.target.value)} required />
                   </div>
-
                   <div className="form-group">
-                    <label className="form-label" htmlFor="price">Market Price ($) *</label>
-                    <input
-                      id="price"
-                      type="number"
-                      min="0"
-                      step="0.01"
-                      className="form-input"
-                      value={marketPrice}
-                      onChange={(e) => setMarketPrice(e.target.value)}
-                      placeholder="0.00"
-                      required
-                    />
+                    <label className="form-label" htmlFor="lastName">Customer Last Name *</label>
+                    <input id="lastName" className="form-input" value={customerLastName} onChange={(e) => setCustomerLastName(e.target.value)} required />
                   </div>
+                </div>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="email">Customer Email Address *</label>
+                  <input id="email" type="email" className="form-input" value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} required />
+                </div>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="address">Installation Address *</label>
+                  <textarea id="address" className="form-textarea" value={installationAddress} onChange={(e) => setInstallationAddress(e.target.value)} required />
+                </div>
+                <div className="two-col">
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="jobStatus">Job Status *</label>
+                    <select id="jobStatus" className="form-select" value={jobStatus} onChange={(e) => setJobStatus(e.target.value as ResidentialJobStatus)}>
+                      <option>Before Installation</option>
+                      <option>Installation in Progress</option>
+                      <option>Installation Completed</option>
+                      <option>PTO Completed</option>
+                      <option>Cancelled</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="ptoDate">PTO Date</label>
+                    <input id="ptoDate" type="date" className="form-input" value={ptoDate} onChange={(e) => setPtoDate(e.target.value)} />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="size">System Size (kW) *</label>
+                  <input id="size" type="number" min="0" step="0.01" className="form-input" value={systemSizeKw} onChange={(e) => setSystemSizeKw(e.target.value)} required />
                 </div>
               </div>
 

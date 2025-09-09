@@ -7,6 +7,10 @@ import {
   PaginationInfo,
   InvoiceStatus 
 } from '../../types/srecTypes';
+import InvoiceViewModal from './InvoiceViewModal';
+import InvoiceEditModal from './InvoiceEditModal';
+import InvoiceSendModal from './InvoiceSendModal';
+import InvoiceExportModal from './InvoiceExportModal';
 
 const SRECInvoicing: React.FC = () => {
   const [invoices, setInvoices] = useState<SRECInvoice[]>([]);
@@ -22,6 +26,11 @@ const SRECInvoicing: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedInvoices, setSelectedInvoices] = useState<string[]>([]);
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [selectedInvoice, setSelectedInvoice] = useState<SRECInvoice | null>(null);
+  const [showView, setShowView] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
+  const [showSend, setShowSend] = useState(false);
+  const [showExport, setShowExport] = useState(false);
 
   const loadInvoicesCallback = useCallback(async () => {
     try {
@@ -353,17 +362,33 @@ const SRECInvoicing: React.FC = () => {
                 </td>
                 <td className="actions-column">
                   <div className="action-buttons">
-                    <button className="action-btn view-btn" title="View Invoice">
-                      
+                    <button
+                      className="action-btn view-btn"
+                      title="View Invoice"
+                      onClick={() => { setSelectedInvoice(invoice); setShowView(true); }}
+                    >
+                      View
                     </button>
-                    <button className="action-btn edit-btn" title="Edit Invoice">
-                      
+                    <button
+                      className="action-btn edit-btn"
+                      title="Edit Invoice"
+                      onClick={() => { setSelectedInvoice(invoice); setShowEdit(true); }}
+                    >
+                      Edit
                     </button>
-                    <button className="action-btn send-btn" title="Send Invoice">
-                      
+                    <button
+                      className="action-btn send-btn"
+                      title="Send Invoice"
+                      onClick={() => { setSelectedInvoice(invoice); setShowSend(true); }}
+                    >
+                      Send
                     </button>
-                    <button className="action-btn download-btn" title="Download PDF">
-                      
+                    <button
+                      className="action-btn download-btn"
+                      title="Download / Export"
+                      onClick={() => { setSelectedInvoice(invoice); setShowExport(true); }}
+                    >
+                      Export
                     </button>
                   </div>
                 </td>
@@ -467,6 +492,39 @@ const SRECInvoicing: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Action Modals */}
+      <InvoiceViewModal
+        isOpen={showView}
+        invoice={selectedInvoice}
+        onClose={() => setShowView(false)}
+      />
+      <InvoiceEditModal
+        isOpen={showEdit}
+        invoice={selectedInvoice}
+        onClose={() => setShowEdit(false)}
+        onSave={(updates) => {
+          if (!selectedInvoice) return;
+          // Optimistic update in UI only for now
+          setInvoices(prev => prev.map(inv => inv.id === selectedInvoice.id ? { ...inv, ...updates } as SRECInvoice : inv));
+        }}
+      />
+      <InvoiceSendModal
+        isOpen={showSend}
+        invoice={selectedInvoice}
+        onClose={() => setShowSend(false)}
+        onSend={() => {
+          // Optionally set status to Sent
+          if (selectedInvoice) {
+            setInvoices(prev => prev.map(inv => inv.id === selectedInvoice.id ? { ...inv, status: 'Sent' } : inv));
+          }
+        }}
+      />
+      <InvoiceExportModal
+        isOpen={showExport}
+        invoice={selectedInvoice}
+        onClose={() => setShowExport(false)}
+      />
     </div>
   );
 };
