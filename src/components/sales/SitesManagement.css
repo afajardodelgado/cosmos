@@ -339,6 +339,10 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   min-width: 100px;
+  /* Ensure button text fits within its bounds */
+  white-space: normal;      /* allow wrapping */
+  word-break: break-word;   /* break long words if needed */
+  overflow-wrap: anywhere;  /* avoid overflow */
 }
 
 .view-btn {

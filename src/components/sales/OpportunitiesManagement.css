@@ -224,6 +224,10 @@
   transition: all 0.3s ease;
   font-family: inherit;
   min-width: 120px;
+  /* Ensure labels like 'Schedule Inspection' stay inside button */
+  white-space: normal;      /* allow wrapping */
+  word-break: break-word;   /* break long words if needed */
+  overflow-wrap: anywhere;  /* avoid overflow */
 }
 
 .view-btn {

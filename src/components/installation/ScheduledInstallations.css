@@ -226,6 +226,10 @@
   transition: all 0.3s ease;
   font-family: inherit;
   min-width: 100px;
+  /* Ensure text stays inside the button */
+  white-space: normal;      /* allow wrapping */
+  word-break: break-word;   /* break long words if needed */
+  overflow-wrap: anywhere;  /* avoid overflow */
 }
 
 .view-btn { background: #e3f2fd; color: #1976d2; }

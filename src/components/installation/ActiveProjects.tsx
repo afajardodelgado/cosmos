@@ -465,10 +465,10 @@ const ActiveProjects: React.FC = () => {
                         }}
                         title={`Advance to ${getNextStage(project.stage) || 'Next Stage'}`}
                       >
-                        {project.stage === 'Scheduled' ? 'Start Survey' : 
+                        {project.stage === 'Scheduled' ? 'Start Survey' :
                          project.stage === 'Site Survey' ? 'Submit Permits' :
                          project.stage === 'Permits Pending' ? 'Begin Install' :
-                         project.stage === 'Installation In Progress' ? 'Schedule Inspection' :
+                         project.stage === 'Installation In Progress' ? 'Schedule Insp.' :
                          'Complete'}
                       </button>
                     )}
