@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './OpportunitiesManagement.css';
+import './LeadsManagement.css';
 import { salesDataService } from '../../services/salesDataService';
 import { sitesDataService } from '../../services/sitesDataService';
 import { SalesRecord, SearchFilters, PaginationInfo, LeadStage } from '../../types/salesTypes';
@@ -15,6 +16,8 @@ const OpportunitiesManagement: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedOpp, setSelectedOpp] = useState<SalesRecord | null>(null);
+  const [showOppDetails, setShowOppDetails] = useState(false);
 
   useEffect(() => {
     initializeAndLoadOpportunities();
@@ -36,6 +39,16 @@ const OpportunitiesManagement: React.FC = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleRowClick = (record: SalesRecord) => {
+    setSelectedOpp(record);
+    setShowOppDetails(true);
+  };
+
+  const handleCloseOppDetails = () => {
+    setSelectedOpp(null);
+    setShowOppDetails(false);
   };
 
   const loadOpportunities = async () => {
@@ -228,19 +241,24 @@ const OpportunitiesManagement: React.FC = () => {
           </thead>
           <tbody>
             {opportunities.map((opportunity) => (
-              <tr key={opportunity.id} className="opportunities-table-row">
+              <tr 
+                key={opportunity.id} 
+                className="opportunities-table-row clickable-row"
+                onClick={() => handleRowClick(opportunity)}
+                style={{ cursor: 'pointer' }}
+              >
                 <td className="name-cell">
                   <span className="full-name">{`${opportunity.firstName} ${opportunity.lastName}`}</span>
                 </td>
                 <td className="hes-id-cell">{opportunity.hesId}</td>
                 <td className="address-cell">{formatAddress(opportunity)}</td>
                 <td className="email-cell">
-                  <a href={`mailto:${opportunity.email}`} className="email-link">
+                  <a href={`mailto:${opportunity.email}`} className="email-link" onClick={(e) => e.stopPropagation()}>
                     {opportunity.email}
                   </a>
                 </td>
                 <td className="phone-cell">
-                  <a href={`tel:${opportunity.phone}`} className="phone-link">
+                  <a href={`tel:${opportunity.phone}`} className="phone-link" onClick={(e) => e.stopPropagation()}>
                     {opportunity.phone}
                   </a>
                 </td>
@@ -254,6 +272,7 @@ const OpportunitiesManagement: React.FC = () => {
                     <button 
                       className="action-btn view-btn"
                       title="View Opportunity Details"
+                      onClick={(e) => { e.stopPropagation(); handleRowClick(opportunity); }}
                     >
                       View
                     </button>
@@ -297,6 +316,63 @@ const OpportunitiesManagement: React.FC = () => {
           </div>
         )}
       </div>
+
+      {showOppDetails && selectedOpp && (
+        <div className="lead-details-overlay" onClick={handleCloseOppDetails}>
+          <div className="lead-details-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn-absolute" onClick={handleCloseOppDetails}>×</button>
+            <div className="modal-content">
+              <div className="lead-info-grid">
+                <div className="info-section">
+                  <h3>Personal Information</h3>
+                  <div className="info-item"><label>First Name:</label><span>{selectedOpp.firstName}</span></div>
+                  <div className="info-item"><label>Last Name:</label><span>{selectedOpp.lastName}</span></div>
+                  <div className="info-item"><label>Email:</label><span><a href={`mailto:${selectedOpp.email}`}>{selectedOpp.email}</a></span></div>
+                  <div className="info-item"><label>Phone:</label><span><a href={`tel:${selectedOpp.phone}`}>{selectedOpp.phone}</a></span></div>
+                  <div className="info-item"><label>Communication Preference:</label><span>{selectedOpp.communicationPreference || 'Not specified'}</span></div>
+                </div>
+
+                <div className="info-section">
+                  <h3>Opportunity Information</h3>
+                  <div className="info-item"><label>HES ID:</label><span className="hes-id">{selectedOpp.hesId}</span></div>
+                  <div className="info-item"><label>Stage:</label><span className={`stage-badge ${getStageClass(selectedOpp.stage)}`}>{selectedOpp.stage}</span></div>
+                  <div className="info-item"><label>Created Date:</label><span>{new Date(selectedOpp.createdDate).toLocaleDateString()}</span></div>
+                  <div className="info-item"><label>Last Updated:</label><span>{new Date(selectedOpp.updatedDate).toLocaleDateString()}</span></div>
+                </div>
+
+                <div className="info-section">
+                  <h3>Address</h3>
+                  <div className="info-item"><label>Street Address:</label><span>{selectedOpp.address}</span></div>
+                  <div className="info-item"><label>City:</label><span>{selectedOpp.city}</span></div>
+                  <div className="info-item"><label>State/Province:</label><span>{selectedOpp.stateProvince}</span></div>
+                  <div className="info-item"><label>Postal Code:</label><span>{selectedOpp.postalCode}</span></div>
+                  <div className="info-item"><label>Country:</label><span>{selectedOpp.country}</span></div>
+                </div>
+
+                <div className="info-section">
+                  <h3>Energy Information</h3>
+                  <div className="info-item"><label>Monthly Electric Bill:</label><span>{selectedOpp.monthlyElectricBill ? `$${selectedOpp.monthlyElectricBill}` : 'Not specified'}</span></div>
+                  <div className="info-item"><label>kWh Rate:</label><span>{selectedOpp.kwhRate ? `$${selectedOpp.kwhRate}/kWh` : 'Not specified'}</span></div>
+                  <div className="info-item"><label>Utility Company:</label><span>{selectedOpp.utilityCompany || 'Not specified'}</span></div>
+                  <div className="info-item"><label>GCID:</label><span>{selectedOpp.gcid || 'Not specified'}</span></div>
+                </div>
+              </div>
+
+              <div className="modal-actions">
+                {selectedOpp.stage === 'CONVERTED' && (
+                  <button 
+                    className="action-btn convert-btn-modal"
+                    onClick={() => { handleCreateSite(selectedOpp.id); }}
+                  >
+                    Create Site
+                  </button>
+                )}
+                <button className="action-btn close-btn-modal" onClick={handleCloseOppDetails}>Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="pagination-container">
         <div className="pagination-info">
