@@ -162,7 +162,7 @@ const ESPartnerPortal: React.FC = () => {
               <div className="card-link">Access Installation →</div>
             </Link>
 
-            <Link to="/partners/es-portal/monitoring" className="es-portal-card">
+            <a href="https://www.portal-q-cells.us/#/login" className="es-portal-card" target="_blank" rel="noopener noreferrer">
               <div className="card-icon">
                 <img src={partnerPortalIcon} alt="Monitoring" className="icon-image" />
               </div>
@@ -170,8 +170,8 @@ const ESPartnerPortal: React.FC = () => {
               <p className="card-description">
                 Monitor system performance and track energy production data
               </p>
-              <div className="card-link">Access Monitoring →</div>
-            </Link>
+              <div className="card-link">Open Monitoring Portal →</div>
+            </a>
 
             <Link to="/partners/es-portal/energy-services" className="es-portal-card">
               <div className="card-icon">
