@@ -61,29 +61,31 @@ const SRECInvoicing: React.FC = () => {
     loadInvoicesCallback();
   }, [loadInvoicesCallback]);
 
-  // Ensure the create modal opens with content at the very top and focus on first field
+  // Ensure the create modal opens with content at the top and focus first field.
+  // Do NOT force the page to the top nor lock background scroll; allow dual scrolling.
   useEffect(() => {
-    // When opening: lock background scroll and jump to top
-    if (showCreateModal) {
-      const prevBodyOverflow = document.body.style.overflow;
-      const prevHtmlOverflow = (document.documentElement as HTMLElement).style.overflow;
-      document.body.style.overflow = 'hidden';
-      (document.documentElement as HTMLElement).style.overflow = 'hidden';
-      try { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); } catch {}
+    if (!showCreateModal) return;
+    const t = setTimeout(() => {
+      const content = document.querySelector<HTMLDivElement>('.create-invoice-modal .modal-content');
+      if (content) content.scrollTop = 0;
+      const firstInput = document.querySelector<HTMLInputElement>('.create-invoice-modal .invoice-form input, .create-invoice-modal .invoice-form textarea, .create-invoice-modal .invoice-form select');
+      if (firstInput) firstInput.focus();
+    }, 0);
 
-      const t = setTimeout(() => {
-        const content = document.querySelector<HTMLDivElement>('.create-invoice-modal .modal-content');
-        if (content) content.scrollTop = 0;
-        const firstInput = document.querySelector<HTMLInputElement>('.create-invoice-modal .invoice-form input, .create-invoice-modal .invoice-form textarea, .create-invoice-modal .invoice-form select');
-        if (firstInput) firstInput.focus();
-      }, 0);
+    // Wheel-forwarding on overlay to let page scroll when cursor is outside the modal
+    const overlay = document.querySelector('.invoicing-modal-overlay');
+    const onWheel = (e: any) => {
+      const withinModal = (e.target as HTMLElement)?.closest('.create-invoice-modal');
+      if (withinModal) return; // let modal body handle its own scroll
+      e.preventDefault();
+      window.scrollBy({ top: e.deltaY, behavior: 'auto' });
+    };
+    if (overlay) overlay.addEventListener('wheel', onWheel as EventListener, { passive: false });
 
-      return () => {
-        clearTimeout(t);
-        document.body.style.overflow = prevBodyOverflow;
-        (document.documentElement as HTMLElement).style.overflow = prevHtmlOverflow;
-      };
-    }
+    return () => {
+      clearTimeout(t);
+      if (overlay) overlay.removeEventListener('wheel', onWheel as EventListener);
+    };
   }, [showCreateModal]);
 
 
@@ -235,7 +237,7 @@ const SRECInvoicing: React.FC = () => {
         <div className="invoicing-actions">
           <button 
             className="create-invoice-btn"
-            onClick={() => { setShowCreateModal(true); try { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); } catch {} }}
+            onClick={() => { setShowCreateModal(true); }}
           >
             Create Invoice +
           </button>
@@ -447,7 +449,7 @@ const SRECInvoicing: React.FC = () => {
 
       {/* Create Invoice Modal */}
       {showCreateModal && (
-        <div className="modal-overlay" onClick={() => setShowCreateModal(false)}>
+        <div className="modal-overlay invoicing-modal-overlay" onClick={() => setShowCreateModal(false)}>
           <div className="create-invoice-modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Create New SREC Invoice</h3>

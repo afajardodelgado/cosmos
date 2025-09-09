@@ -36,15 +36,10 @@ const CreateSRECModal: React.FC<CreateSRECModalProps> = ({ isOpen, onClose, onCr
     setError(null);
   }, [isOpen]);
 
-  // On open: lock background scroll, scroll to top, ensure modal content starts at top, and focus first field
+  // On open: ensure modal content starts at top and focus first field.
+  // Do NOT scroll the page to the top nor lock background scrolling.
   useEffect(() => {
     if (!isOpen) return;
-    const prevBodyOverflow = document.body.style.overflow;
-    const prevHtmlOverflow = (document.documentElement as HTMLElement).style.overflow;
-    document.body.style.overflow = 'hidden';
-    (document.documentElement as HTMLElement).style.overflow = 'hidden';
-    try { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); } catch {}
-
     const t = setTimeout(() => {
       const content = document.querySelector<HTMLDivElement>('.create-record-modal .modal-content');
       if (content) content.scrollTop = 0;
@@ -52,10 +47,24 @@ const CreateSRECModal: React.FC<CreateSRECModalProps> = ({ isOpen, onClose, onCr
       if (first) first.focus();
     }, 0);
 
+    // Allow scrolling the underlying page when hovering the dim backdrop
+    // by translating wheel events into window scroll.
+    const backdrop = document.querySelector('.srec-modal-backdrop');
+    const onWheel = (e: any) => {
+      // If the event target is inside the modal content, let it handle its own scroll
+      const withinModal = (e.target as HTMLElement)?.closest('.create-record-modal');
+      if (withinModal) return;
+      e.preventDefault();
+      window.scrollBy({ top: e.deltaY, behavior: 'auto' });
+    };
+    if (backdrop) {
+      backdrop.addEventListener('wheel', onWheel as EventListener, { passive: false });
+      // Note: implementing full touch drag forwarding would require tracking positions; skip for now to avoid complexity.
+    }
+
     return () => {
       clearTimeout(t);
-      document.body.style.overflow = prevBodyOverflow;
-      (document.documentElement as HTMLElement).style.overflow = prevHtmlOverflow;
+      if (backdrop) backdrop.removeEventListener('wheel', onWheel as EventListener);
     };
   }, [isOpen]);
 
@@ -103,7 +112,7 @@ const CreateSRECModal: React.FC<CreateSRECModalProps> = ({ isOpen, onClose, onCr
   if (!isOpen) return null;
 
   return (
-    <div className="modal-backdrop" onClick={handleBackdropClick}>
+    <div className="modal-backdrop srec-modal-backdrop" onClick={handleBackdropClick}>
       <div className="create-record-modal">
         <div className="modal-header">
           <div className="modal-header-content">
