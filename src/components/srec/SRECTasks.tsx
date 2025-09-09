@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import './SRECTasks.css';
+import './InvoiceModals.css';
 import { srecDataService } from '../../services/srecDataService';
 import { 
   SRECTask, 
@@ -24,6 +26,8 @@ const SRECTasks: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedTasks, setSelectedTasks] = useState<string[]>([]);
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [showRecordsModal, setShowRecordsModal] = useState(false);
+  const [showInvoicingModal, setShowInvoicingModal] = useState(false);
 
   const loadTasks = useCallback(async () => {
     try {
@@ -377,14 +381,19 @@ const SRECTasks: React.FC = () => {
                 </td>
                 <td className="actions-column">
                   <div className="action-buttons">
-                    <button className="action-btn view-btn" title="View Task">
-                      
+                    <button
+                      className="action-btn view-btn"
+                      title="Open Records"
+                      onClick={() => setShowRecordsModal(true)}
+                    >
+                      Records
                     </button>
-                    <button className="action-btn edit-btn" title="Edit Task">
-                      ✏️
-                    </button>
-                    <button className="action-btn comment-btn" title="Add Comment">
-                      
+                    <button
+                      className="action-btn edit-btn"
+                      title="Open Invoicing"
+                      onClick={() => setShowInvoicingModal(true)}
+                    >
+                      Invoicing
                     </button>
                   </div>
                 </td>
@@ -418,11 +427,11 @@ const SRECTasks: React.FC = () => {
 
       {/* Create Task Modal */}
       {showCreateModal && (
-        <div className="modal-overlay" onClick={() => setShowCreateModal(false)}>
-          <div className="create-task-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-backdrop" onClick={() => setShowCreateModal(false)}>
+          <div className="invoice-modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Create New SREC Task</h3>
-              <button className="modal-close" onClick={() => setShowCreateModal(false)}>×</button>
+              <button className="modal-close-btn" onClick={() => setShowCreateModal(false)}>×</button>
             </div>
             <div className="modal-content">
               <div className="task-form">
@@ -493,6 +502,75 @@ const SRECTasks: React.FC = () => {
                   Create Task
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Top-anchored action modals */}
+      {showRecordsModal && (
+        <div className="modal-backdrop" onClick={() => setShowRecordsModal(false)}>
+          <div className="invoice-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3 className="modal-title">SREC Records</h3>
+              <button className="modal-close-btn" onClick={() => setShowRecordsModal(false)}>×</button>
+            </div>
+            <div className="modal-content">
+              <p style={{ color: '#ddd', marginTop: 0 }}>
+                Review, filter, and manage individual SREC certificates. You can view details,
+                edit attributes, update status, and export certificates from the records page.
+              </p>
+              <div className="view-sections">
+                <div className="view-card">
+                  <h4>Quick Actions</h4>
+                  <div className="view-row"><span className="view-label">Create</span><span className="view-value">New SREC</span></div>
+                  <div className="view-row"><span className="view-label">Export</span><span className="view-value">Selected Certificates</span></div>
+                  <div className="view-row"><span className="view-label">Filter</span><span className="view-value">State, Vintage, Status</span></div>
+                </div>
+                <div className="view-card">
+                  <h4>What to expect</h4>
+                  <div className="view-row"><span className="view-label">Table</span><span className="view-value">Paginated records with actions</span></div>
+                  <div className="view-row"><span className="view-label">Modals</span><span className="view-value">Top-aligned details, edit, export</span></div>
+                </div>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="modal-secondary-btn" onClick={() => setShowRecordsModal(false)}>Close</button>
+              <Link className="modal-primary-btn" to="/partners/es-portal/energy-services/srec/records">Go to Records →</Link>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showInvoicingModal && (
+        <div className="modal-backdrop" onClick={() => setShowInvoicingModal(false)}>
+          <div className="invoice-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3 className="modal-title">SREC Invoicing</h3>
+              <button className="modal-close-btn" onClick={() => setShowInvoicingModal(false)}>×</button>
+            </div>
+            <div className="modal-content">
+              <p style={{ color: '#ddd', marginTop: 0 }}>
+                Create and manage invoices, send to customers, and export billing data.
+                Track paid, sent, and overdue invoices with built-in filters and actions.
+              </p>
+              <div className="view-sections">
+                <div className="view-card">
+                  <h4>Quick Actions</h4>
+                  <div className="view-row"><span className="view-label">Create</span><span className="view-value">New Invoice</span></div>
+                  <div className="view-row"><span className="view-label">Send</span><span className="view-value">Email invoice to customer</span></div>
+                  <div className="view-row"><span className="view-label">Export</span><span className="view-value">CSV or PDF</span></div>
+                </div>
+                <div className="view-card">
+                  <h4>What to expect</h4>
+                  <div className="view-row"><span className="view-label">Table</span><span className="view-value">Invoices with status</span></div>
+                  <div className="view-row"><span className="view-label">Modals</span><span className="view-value">Top-aligned view, edit, send, export</span></div>
+                </div>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="modal-secondary-btn" onClick={() => setShowInvoicingModal(false)}>Close</button>
+              <Link className="modal-primary-btn" to="/partners/es-portal/energy-services/srec/invoicing">Go to Invoicing →</Link>
             </div>
           </div>
         </div>

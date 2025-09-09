@@ -459,7 +459,7 @@
 
 /* Action Buttons */
 .actions-column {
-  width: 100px;
+  width: 180px;
 }
 
 .action-buttons {
@@ -471,8 +471,9 @@
 .action-btn {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.8);
-  width: 32px;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 6px 10px;
+  min-width: 78px;
   height: 32px;
   border-radius: 6px;
   cursor: pointer;
@@ -481,6 +482,7 @@
   align-items: center;
   justify-content: center;
   font-size: 0.85rem;
+  white-space: nowrap;
 }
 
 .action-btn:hover {
