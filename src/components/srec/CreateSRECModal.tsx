@@ -36,6 +36,29 @@ const CreateSRECModal: React.FC<CreateSRECModalProps> = ({ isOpen, onClose, onCr
     setError(null);
   }, [isOpen]);
 
+  // On open: lock background scroll, scroll to top, ensure modal content starts at top, and focus first field
+  useEffect(() => {
+    if (!isOpen) return;
+    const prevBodyOverflow = document.body.style.overflow;
+    const prevHtmlOverflow = (document.documentElement as HTMLElement).style.overflow;
+    document.body.style.overflow = 'hidden';
+    (document.documentElement as HTMLElement).style.overflow = 'hidden';
+    try { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); } catch {}
+
+    const t = setTimeout(() => {
+      const content = document.querySelector<HTMLDivElement>('.create-record-modal .modal-content');
+      if (content) content.scrollTop = 0;
+      const first = document.getElementById('firstName') as HTMLInputElement | null;
+      if (first) first.focus();
+    }, 0);
+
+    return () => {
+      clearTimeout(t);
+      document.body.style.overflow = prevBodyOverflow;
+      (document.documentElement as HTMLElement).style.overflow = prevHtmlOverflow;
+    };
+  }, [isOpen]);
+
   const canSubmit = useMemo(() => {
     return (
       customerFirstName.trim() !== '' &&
@@ -95,7 +118,7 @@ const CreateSRECModal: React.FC<CreateSRECModalProps> = ({ isOpen, onClose, onCr
           <div className="modal-content">
             {error && <div className="error-banner">{error}</div>}
 
-            <div className="form-grid">
+            <div className="create-form-grid">
               <div className="form-section">
                 <h3 className="section-title">Customer & Site</h3>
                 <div className="two-col">

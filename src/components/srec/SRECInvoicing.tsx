@@ -61,6 +61,31 @@ const SRECInvoicing: React.FC = () => {
     loadInvoicesCallback();
   }, [loadInvoicesCallback]);
 
+  // Ensure the create modal opens with content at the very top and focus on first field
+  useEffect(() => {
+    // When opening: lock background scroll and jump to top
+    if (showCreateModal) {
+      const prevBodyOverflow = document.body.style.overflow;
+      const prevHtmlOverflow = (document.documentElement as HTMLElement).style.overflow;
+      document.body.style.overflow = 'hidden';
+      (document.documentElement as HTMLElement).style.overflow = 'hidden';
+      try { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); } catch {}
+
+      const t = setTimeout(() => {
+        const content = document.querySelector<HTMLDivElement>('.create-invoice-modal .modal-content');
+        if (content) content.scrollTop = 0;
+        const firstInput = document.querySelector<HTMLInputElement>('.create-invoice-modal .invoice-form input, .create-invoice-modal .invoice-form textarea, .create-invoice-modal .invoice-form select');
+        if (firstInput) firstInput.focus();
+      }, 0);
+
+      return () => {
+        clearTimeout(t);
+        document.body.style.overflow = prevBodyOverflow;
+        (document.documentElement as HTMLElement).style.overflow = prevHtmlOverflow;
+      };
+    }
+  }, [showCreateModal]);
+
 
   const handlePageChange = (newPage: number) => {
     setPagination(prev => ({ ...prev, currentPage: newPage }));
@@ -210,7 +235,7 @@ const SRECInvoicing: React.FC = () => {
         <div className="invoicing-actions">
           <button 
             className="create-invoice-btn"
-            onClick={() => setShowCreateModal(true)}
+            onClick={() => { setShowCreateModal(true); try { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); } catch {} }}
           >
             Create Invoice +
           </button>
