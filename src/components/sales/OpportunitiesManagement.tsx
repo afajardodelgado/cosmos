@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './OpportunitiesManagement.css';
 import './LeadsManagement.css';
 import { salesDataService } from '../../services/salesDataService';
@@ -6,6 +7,7 @@ import { sitesDataService } from '../../services/sitesDataService';
 import { SalesRecord, SearchFilters, PaginationInfo, LeadStage } from '../../types/salesTypes';
 
 const OpportunitiesManagement: React.FC = () => {
+  const navigate = useNavigate();
   const [opportunities, setOpportunities] = useState<SalesRecord[]>([]);
   const [pagination, setPagination] = useState<PaginationInfo>({
     currentPage: 1,
@@ -92,6 +94,8 @@ const OpportunitiesManagement: React.FC = () => {
       await sitesDataService.initialize();
       const site = await sitesDataService.createSiteFromOpportunity(opportunityId);
       alert(`Site ${site.siteId} created successfully! The project is now in ${site.stage} stage.`);
+      // Navigate to Sites tab to show the newly created site
+      navigate('/partners/es-portal/sales/sites');
     } catch (err) {
       console.error('Failed to create site:', err);
       alert('Failed to create site. Please try again.');
