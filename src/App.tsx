@@ -237,17 +237,7 @@ function App() {
               </InstallationLayout>
             </>
           } />
-          <Route path="/partners/es-portal/installation/crew" element={
-            <>
-              <Header />
-              <InstallationLayout>
-                <div style={{ padding: '50px', textAlign: 'center', color: '#666' }}>
-                  <h2>Crew Management</h2>
-                  <p>Crew management functionality coming soon...</p>
-                </div>
-              </InstallationLayout>
-            </>
-          } />
+          {/* Installation crew route removed */}
           
           {/* Legacy Installation Route for backward compatibility */}
           <Route path="/partners/es-portal/fulfillment" element={
@@ -290,17 +280,7 @@ function App() {
               </SalesLayout>
             </>
           } />
-          <Route path="/partners/es-portal/sales/contacts" element={
-            <>
-              <Header />
-              <SalesLayout>
-                <div style={{ padding: '50px', textAlign: 'center', color: '#666' }}>
-                  <h2>Contacts Management</h2>
-                  <p>Contacts management functionality coming soon...</p>
-                </div>
-              </SalesLayout>
-            </>
-          } />
+          {/* Contacts route removed */}
           
           <Route path="/support" element={
             <>

@@ -237,7 +237,6 @@ const ESPartnerPortal: React.FC = () => {
           <div className="activity-section">
             <div className="activity-header">
               <h2 className="section-title">Recent Activity</h2>
-              <Link to="/partners/es-portal/activity" className="view-all-link">View All Activity</Link>
             </div>
             
             <div className="activity-feed">

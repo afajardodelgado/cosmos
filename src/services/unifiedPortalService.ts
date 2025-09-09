@@ -75,8 +75,8 @@ class UnifiedPortalService {
         timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString(),
         isRead: false,
         priority: 'urgent',
-        actionUrl: '/partners/es-portal/installation/tasks',
-        actionLabel: 'Review Tasks',
+        actionUrl: '/partners/es-portal/installation/active',
+        actionLabel: 'View Active Projects',
         moduleType: 'installation',
         relatedId: 'tasks-overdue'
       },
@@ -194,7 +194,7 @@ class UnifiedPortalService {
         subtitle: 'Pre-installation Task',
         description: 'Complete electrical panel assessment for Johnson project',
         moduleType: 'installation',
-        url: '/partners/es-portal/installation/tasks',
+        url: '/partners/es-portal/installation/active',
         lastUpdated: '30 minutes ago',
         status: 'In Progress',
         priority: 'medium'
@@ -255,8 +255,8 @@ class UnifiedPortalService {
           direction: 'down',
           label: 'resolved today'
         },
-        actionUrl: '/partners/es-portal/installation/tasks',
-        actionLabel: 'Review Tasks',
+        actionUrl: '/partners/es-portal/installation/active',
+        actionLabel: 'View Active Projects',
         type: 'alert',
         moduleType: 'installation',
         priority: 3

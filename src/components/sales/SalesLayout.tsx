@@ -39,8 +39,7 @@ const SalesLayout: React.FC<SalesLayoutProps> = ({ children }) => {
     { id: 'home', label: 'Business Summary', to: '/partners/es-portal/sales' },
     { id: 'leads', label: 'My Leads', to: '/partners/es-portal/sales/leads' },
     { id: 'opportunities', label: 'My Opportunities', to: '/partners/es-portal/sales/opportunities' },
-    { id: 'sites', label: 'My Sites', to: '/partners/es-portal/sales/sites' },
-    { id: 'contacts', label: 'My Contacts', to: '/partners/es-portal/sales/contacts' }
+    { id: 'sites', label: 'My Sites', to: '/partners/es-portal/sales/sites' }
   ];
 
   const getActiveTab = (): string => {
@@ -48,7 +47,6 @@ const SalesLayout: React.FC<SalesLayoutProps> = ({ children }) => {
     if (path.endsWith('/leads')) return 'leads';
     if (path.endsWith('/opportunities')) return 'opportunities';
     if (path.endsWith('/sites')) return 'sites';
-    if (path.endsWith('/contacts')) return 'contacts';
     return 'home';
   };
 

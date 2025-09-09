@@ -39,9 +39,7 @@ const InstallationLayout: React.FC<InstallationLayoutProps> = ({ children }) => 
     { id: 'home', label: 'Installation Dashboard', to: '/partners/es-portal/installation' },
     { id: 'active', label: 'Active Projects', to: '/partners/es-portal/installation/active' },
     { id: 'scheduled', label: 'Scheduled Installations', to: '/partners/es-portal/installation/scheduled' },
-    { id: 'completed', label: 'Completed Projects', to: '/partners/es-portal/installation/completed' },
-    { id: 'tasks', label: 'Tasks & Actions', to: '/partners/es-portal/installation/tasks' },
-    { id: 'crew', label: 'Crew Management', to: '/partners/es-portal/installation/crew' }
+    { id: 'completed', label: 'Completed Projects', to: '/partners/es-portal/installation/completed' }
   ];
 
   const getActiveTab = (): string => {
@@ -49,8 +47,6 @@ const InstallationLayout: React.FC<InstallationLayoutProps> = ({ children }) => 
     if (path.endsWith('/active')) return 'active';
     if (path.endsWith('/scheduled')) return 'scheduled';
     if (path.endsWith('/completed')) return 'completed';
-    if (path.endsWith('/tasks')) return 'tasks';
-    if (path.endsWith('/crew')) return 'crew';
     return 'home';
   };
 
